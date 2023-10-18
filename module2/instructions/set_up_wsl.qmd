@@ -1,6 +1,8 @@
 ---
 title: "Install WSL2"
-format: html
+format: 
+  html:
+    page-layout: article
 ---
 
 During this course we will learn to use the linux command line and programs to analyze data. Many of the programs we will use do not work on Windows, but must run on a linux based system. For those of you on a Mac or a linux, you already have a linux based system built in, with a command prompt you can use. For Windows users, we will install Windows subsystems for linux (WSL2). So if you are on Windows, follow the below instructions.
