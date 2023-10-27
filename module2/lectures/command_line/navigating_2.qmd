@@ -1,0 +1,17 @@
+---
+title: "Navigating the command line"
+author: "Nina Norgren"
+format: 
+    revealjs:
+        theme: [serif, ../../../custom.scss]
+---
+
+# Commands to cover
+
+- absolute/relative paths
+
+---
+
+## absolute
+
+

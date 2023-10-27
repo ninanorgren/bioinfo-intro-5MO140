@@ -1,0 +1,36 @@
+/*-- scss:defaults --*/
+
+// fonts
+$font-family-sans-serif: "Palatino Linotype", "Book Antiqua", Palatino,
+  FreeSerif, serif !default;
+
+// colors
+$body-bg: #f0f1eb !default;
+$body-color: #000 !default;
+$link-color: #51483d !default;
+$selection-bg: #26351c !default;
+
+// headings
+$presentation-heading-font: "Palatino Linotype", "Book Antiqua", Palatino,
+  FreeSerif, serif !default;
+$presentation-heading-color: #383d3d !default;
+
+/*-- scss:rules --*/
+
+.reveal a {
+  line-height: 1.3em;
+}
+
+.footer {
+  border-top: 2px solid $presentation-heading-color;  /* Line at the top of the header */
+  color: $presentation-heading-color;
+  padding: 20px;
+}
+
+.logo {
+  background-image: url('img/umu-logo-left-EN.png');
+  width: 100px;
+  height: auto;
+  background-size: contain;  /* Adjust the size as needed */
+  background-repeat: no-repeat;
+}

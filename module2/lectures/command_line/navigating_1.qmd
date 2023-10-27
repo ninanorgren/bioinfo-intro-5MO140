@@ -1,0 +1,20 @@
+---
+title: "Navigating the command line"
+author: "Nina Norgren"
+format: 
+    revealjs:
+        theme: [serif, ../../../custom.scss]
+---
+
+# Commands to cover
+
+- ls
+- cd
+- pwd
+
+---
+
+## ls
+
+ls
+
