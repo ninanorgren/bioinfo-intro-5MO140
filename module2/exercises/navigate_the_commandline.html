@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Install WSL2</title>
+<title>Navigate the command line</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,16 +23,16 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="set_up_wsl_files/libs/clipboard/clipboard.min.js"></script>
-<script src="set_up_wsl_files/libs/quarto-html/quarto.js"></script>
-<script src="set_up_wsl_files/libs/quarto-html/popper.min.js"></script>
-<script src="set_up_wsl_files/libs/quarto-html/tippy.umd.min.js"></script>
-<script src="set_up_wsl_files/libs/quarto-html/anchor.min.js"></script>
-<link href="set_up_wsl_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="set_up_wsl_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="set_up_wsl_files/libs/bootstrap/bootstrap.min.js"></script>
-<link href="set_up_wsl_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="set_up_wsl_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="navigate_the_commandline_files/libs/clipboard/clipboard.min.js"></script>
+<script src="navigate_the_commandline_files/libs/quarto-html/quarto.js"></script>
+<script src="navigate_the_commandline_files/libs/quarto-html/popper.min.js"></script>
+<script src="navigate_the_commandline_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="navigate_the_commandline_files/libs/quarto-html/anchor.min.js"></script>
+<link href="navigate_the_commandline_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="navigate_the_commandline_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="navigate_the_commandline_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="navigate_the_commandline_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="navigate_the_commandline_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 
 
 <link rel="stylesheet" href="../../custom.scss">
@@ -47,7 +47,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Install WSL2</h1>
+<h1 class="title">Navigate the command line</h1>
 </div>
 
 
@@ -62,62 +62,7 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>During this course we will learn to use the linux command line and programs to analyze data. Many of the programs we will use do not work on Windows, but must run on a linux based system. For those of you on a Mac or a linux, you already have a linux based system built in, with a command prompt you can use. For Windows users, we will install Windows subsystems for linux (WSL2). So if you are on Windows, follow the below instructions.</p>
-<section id="instructions-for-setting-up-wsl2-on-windows" class="level1">
-<h1>Instructions for setting up WSL2 on Windows</h1>
-<section id="prerequisites" class="level2">
-<h2 class="anchored" data-anchor-id="prerequisites">Prerequisites</h2>
-<p>You must be running Windows 10 version 2004 and higher (Build 19041 and higher) or Windows 11.</p>
-</section>
-<section id="step-1-open-powershell-in-admin-mode" class="level2">
-<h2 class="anchored" data-anchor-id="step-1-open-powershell-in-admin-mode">Step 1: Open PowerShell in Admin Mode</h2>
-<ul>
-<li>Search for PowerShell in the start menu.</li>
-<li>Right-click on it and select “Run as administrator”.</li>
-</ul>
-</section>
-<section id="step-2-install-wsl2-using-powershell" class="level2">
-<h2 class="anchored" data-anchor-id="step-2-install-wsl2-using-powershell">Step 2: Install WSL2 using PowerShell</h2>
-<ul>
-<li>In the PowerShell window, enter the following command: <code>wsl --install</code>.</li>
-<li>This command will enable the features necessary to run WSL and install the Ubuntu distribution of Linux.</li>
-<li>After running the command, restart your machine.</li>
-</ul>
-</section>
-<section id="step-3-initial-ubuntu-setup" class="level2">
-<h2 class="anchored" data-anchor-id="step-3-initial-ubuntu-setup">Step 3: Initial Ubuntu Setup</h2>
-<ul>
-<li>The first time you launch a newly installed Linux distribution, a console window will open and you’ll be asked to wait for files to de-compress and be stored on your machine.</li>
-<li>All future launches should take less than a second.</li>
-</ul>
-</section>
-<section id="step-4-change-the-default-linux-distribution-installed" class="level2">
-<h2 class="anchored" data-anchor-id="step-4-change-the-default-linux-distribution-installed">Step 4: Change the default Linux distribution installed</h2>
-<ul>
-<li>By default, the installed Linux distribution will be Ubuntu.</li>
-<li>This can be changed using the <code>-d</code> flag.</li>
-<li>To change the distribution installed, enter: <code>wsl --install -d &lt;Distribution Name&gt;</code>.</li>
-<li>Replace <code>&lt;Distribution Name&gt;</code> with the name of the distribution you would like to install.</li>
-<li>To see a list of available Linux distributions available for download through the online store, enter: <code>wsl --list --online</code> or <code>wsl -l -o</code>.</li>
-</ul>
-</section>
-<section id="step-5-install-additional-linux-distributions" class="level2">
-<h2 class="anchored" data-anchor-id="step-5-install-additional-linux-distributions">Step 5: Install additional Linux distributions</h2>
-<ul>
-<li>To install additional Linux distributions after the initial install, you may also use the command: <code>wsl --install -d &lt;Distribution Name&gt;</code>.</li>
-</ul>
-</section>
-<section id="step-6-if-you-run-into-an-issue-during-the-install-process" class="level2">
-<h2 class="anchored" data-anchor-id="step-6-if-you-run-into-an-issue-during-the-install-process">Step 6: If you run into an issue during the install process</h2>
-<ul>
-<li>Check the installation section of the troubleshooting guide.</li>
-</ul>
-</section>
-<section id="images" class="level2">
-<h2 class="anchored" data-anchor-id="images">Images</h2>
-<p>For the images to include in the tutorial, you can refer to the images from the following sources: - [WSL2: The Complete Guide for Windows 10 &amp; 11 — SitePoint] - [Install WSL | Microsoft Learn] - [Install WSL2 on Windows – The Easiest Way | Ceos3c]</p>
-</section>
-</section>
+
 
 </main>
 <!-- /main column -->

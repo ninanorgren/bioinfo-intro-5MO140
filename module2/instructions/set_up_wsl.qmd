@@ -9,4 +9,37 @@ During this course we will learn to use the linux command line and programs to a
 
 # Instructions for setting up WSL2 on Windows
 
-Do stuff
+## Prerequisites
+You must be running Windows 10 version 2004 and higher (Build 19041 and higher) or Windows 11.
+
+## Step 1: Open PowerShell in Admin Mode
+- Search for PowerShell in the start menu.
+- Right-click on it and select "Run as administrator".
+
+## Step 2: Install WSL2 using PowerShell
+- In the PowerShell window, enter the following command: `wsl --install`.
+- This command will enable the features necessary to run WSL and install the Ubuntu distribution of Linux.
+- After running the command, restart your machine.
+
+## Step 3: Initial Ubuntu Setup
+- The first time you launch a newly installed Linux distribution, a console window will open and you'll be asked to wait for files to de-compress and be stored on your machine.
+- All future launches should take less than a second.
+
+## Step 4: Change the default Linux distribution installed
+- By default, the installed Linux distribution will be Ubuntu.
+- This can be changed using the `-d` flag.
+- To change the distribution installed, enter: `wsl --install -d <Distribution Name>`.
+- Replace `<Distribution Name>` with the name of the distribution you would like to install.
+- To see a list of available Linux distributions available for download through the online store, enter: `wsl --list --online` or `wsl -l -o`.
+
+## Step 5: Install additional Linux distributions
+- To install additional Linux distributions after the initial install, you may also use the command: `wsl --install -d <Distribution Name>`.
+
+## Step 6: If you run into an issue during the install process
+- Check the installation section of the troubleshooting guide.
+
+## Images
+For the images to include in the tutorial, you can refer to the images from the following sources:
+- [WSL2: The Complete Guide for Windows 10 & 11 — SitePoint]
+- [Install WSL | Microsoft Learn]
+- [Install WSL2 on Windows – The Easiest Way | Ceos3c]

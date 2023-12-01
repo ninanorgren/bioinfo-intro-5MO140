@@ -4,17 +4,95 @@ author: "Nina Norgren"
 format: 
     revealjs:
         theme: [serif, ../../../custom.scss]
+        css: ../../module2.css
 ---
 
-# Commands to cover
+## Commands to cover
 
 - ls
 - cd
 - pwd
 
+Directory tree
+(for all below, compare visually to windows folder system)
+Ls
+Pwd
+absolute/relative paths
+
+
 ---
 
-## ls
+## Why Linux?
 
-ls
+- It has a powerful command-line interface
+- Built for multi-user systems
+- A large amount of freely available software
 
+---
+
+- Most bioinformatics analysis software does not work on Windows!
+- Most of them run on the command line
+- Most compute systems used are running linux
+
+---
+
+## Different operating systems
+![Windows](img/windows_logo.png){width=400}
+![Mac](img/mac_logo.png){width=300}
+![Linux](img/linux_logo.png){width=300}
+
+---
+
+## What is the command line?
+
+- An interface allowing you to interact with the system using text commands
+- Often referred to as:
+  - terminal
+  - shell
+  - console
+
+---
+
+## GUIs vs Command line
+
+![GUI](img/GUI.png){width=400}
+&nbsp;
+![Command line](img/command_line.png){width=550}
+
+---
+
+## Navigating the directory tree
+
+- Start folder
+<br>
+![Start prompt](img/start_prompt.PNG){width=600}
+<br><br>
+![Start prompt](img/start_prompt_w.PNG){width=600}
+
+---
+
+## Navigating the directory tree
+
+- <b>ls</b>  - list the content of a directory:
+<br>
+![ls](img/ls.PNG){width=900}
+<br><br>
+![ls](img/ls_w.PNG){width=300}
+
+---
+## Navigating the directory tree
+
+- <b>ls</b>  - list the content of a directory:
+<br>
+![ls-l](img/ls-l.PNG){width=600}
+![ls-l](img/ls_w.PNG){width=300}
+
+
+## Navigating the directory tree
+
+- <b>cd</b>  - change working directory:
+  - cd \<directory name\> = down
+  - cd .. = up one level
+<br>
+![cd](img/cd.PNG){width=900}
+![cd](img/cd_w.PNG){width=500}

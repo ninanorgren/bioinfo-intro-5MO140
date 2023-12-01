@@ -1,0 +1,7 @@
+project:
+  title: "bioinfo-intro"
+
+
+format:
+  html:
+    css: custom.scss
