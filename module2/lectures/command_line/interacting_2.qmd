@@ -154,7 +154,7 @@ rm ../original_file
 rm <name of the file>
 ```
 <br>
-**There is NO trash bin in CLI! Gone is gone!**
+[**There is NO trash bin in CLI! Gone is gone!**]{.center .largest}
 
 ## Interaction commands
 
