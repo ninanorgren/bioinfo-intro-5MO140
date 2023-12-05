@@ -7,21 +7,6 @@ format:
         css: ../../module2.css
 ---
 
-## Commands to cover
-
-- ls
-- cd
-- pwd
-
-Directory tree
-(for all below, compare visually to windows folder system)
-Ls
-Pwd
-absolute/relative paths
-
-
----
-
 ## Why Linux?
 
 - It has a powerful command-line interface
@@ -96,3 +81,54 @@ absolute/relative paths
 <br>
 ![cd](img/cd.PNG){width=900}
 ![cd](img/cd_w.PNG){width=500}
+
+## Navigating the directory tree
+
+- <b>pwd</b>  - print working directory:
+<br>
+![cd](img/pwd1.PNG){width=900}
+
+## Navigating the directory tree
+
+- <b>pwd</b>  - print working directory:
+<br>
+![cd](img/pwd1.PNG){width=900}
+![cd](img/pwd.PNG){width=900}
+
+## Absolute/Relative paths
+
+- Absolute paths
+  - Starts with a /
+  - Defined from the root of the file system
+
+```{}
+/home/nina/Documents/my_file.txt
+/mnt/c/Users/Nina/Downloads/my_downloaded_file.txt
+```
+- Like an address:
+```
+Storgatan 47
+90334 Umeå
+Sweden
+```
+
+## Absolute/Relative paths
+
+- Relative paths
+  - Does **not** start with a /
+  - Relative to where you are when you are using it
+
+```
+.../Documents/my_downloaded_file.txt
+```
+- Like a direction
+```
+4 blocks to the right, 2nd house
+```
+
+## Summary
+
+- **ls** - list content of a directory
+- **cd** - change working directory
+- **pwd** - print working directory
+- Use them to explore absolute/relative paths

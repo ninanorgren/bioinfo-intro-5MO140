@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<script src="navigating_2_files/libs/clipboard/clipboard.min.js"></script>
-<script src="navigating_2_files/libs/quarto-html/tabby.min.js"></script>
-<script src="navigating_2_files/libs/quarto-html/popper.min.js"></script>
-<script src="navigating_2_files/libs/quarto-html/tippy.umd.min.js"></script>
-<link href="navigating_2_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="navigating_2_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="navigating_2_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
-<link href="navigating_2_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<script src="interacting_2_files/libs/clipboard/clipboard.min.js"></script>
+<script src="interacting_2_files/libs/quarto-html/tabby.min.js"></script>
+<script src="interacting_2_files/libs/quarto-html/popper.min.js"></script>
+<script src="interacting_2_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="interacting_2_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="interacting_2_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="interacting_2_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="interacting_2_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.3.450">
 
   <meta name="author" content="Nina Norgren">
-  <title>Navigating the command line</title>
+  <title>Interacting using the command line</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="navigating_2_files/libs/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="navigating_2_files/libs/revealjs/dist/reveal.css">
+  <link rel="stylesheet" href="interacting_2_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="interacting_2_files/libs/revealjs/dist/reveal.css">
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -30,11 +30,12 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="navigating_2_files/libs/revealjs/dist/theme/quarto.css">
-  <link href="navigating_2_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-  <link href="navigating_2_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-  <link href="navigating_2_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="navigating_2_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <link rel="stylesheet" href="interacting_2_files/libs/revealjs/dist/theme/quarto.css">
+  <link rel="stylesheet" href="../../module2.css">
+  <link href="interacting_2_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="interacting_2_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="interacting_2_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="interacting_2_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
 
   .callout {
@@ -325,7 +326,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Navigating the command line</h1>
+  <h1 class="title">Interacting using the command line</h1>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -339,12 +340,135 @@ Nina Norgren
 <section>
 <section id="commands-to-cover" class="title-slide slide level1 center">
 <h1>Commands to cover</h1>
-<ul>
-<li>absolute/relative paths</li>
-</ul>
+<p>Mkdir (no blanks) Cp Mv Less Head/tail Nano? Rm rmdir * grep Touch?</p>
 </section>
-<section id="absolute" class="slide level2">
-<h2>absolute</h2>
+<section id="interaction-commands" class="slide level2">
+<h2>Interaction commands</h2>
+<ul>
+<li><strong>mkdir</strong> - make directory
+<ul>
+<li>Create new folder from current position</li>
+</ul></li>
+</ul>
+
+<img data-src="img/mkdir.PNG" width="900" class="r-stretch"></section>
+<section id="interaction-commands-1" class="slide level2">
+<h2>Interaction commands</h2>
+<ul>
+<li><strong>rmdir</strong> - remove empty directory
+<ul>
+<li>Remove empty folder</li>
+</ul></li>
+</ul>
+
+<img data-src="img/rmdir.PNG" width="900" class="r-stretch"></section>
+<section id="interaction-commands-2" class="slide level2">
+<h2>Interaction commands</h2>
+<ul>
+<li><strong>cp</strong> - copy a file</li>
+</ul>
+<pre><code>cp &lt;name of original&gt; &lt;name of copy&gt;</code></pre>
+
+<img data-src="img/cp.PNG" width="200" class="r-stretch"></section>
+<section id="interaction-commands-3" class="slide level2">
+<h2>Interaction commands</h2>
+<ul>
+<li><strong>cp</strong> - copy a file</li>
+</ul>
+<pre><code>cp &lt;name of original&gt; &lt;name of copy&gt;</code></pre>
+<p><img data-src="img/cp.PNG" width="900"> <br> <strong>Never use blanks in your folder/file names!</strong></p>
+</section>
+<section id="interaction-commands-4" class="slide level2">
+<h2>Interaction commands</h2>
+<ul>
+<li><strong>cp</strong> - copy a file</li>
+</ul>
+<pre><code>cp &lt;name of original&gt; &lt;name of copy&gt;</code></pre>
+<pre><code>cp copied_file analysis/</code></pre>
+<p><img data-src="img/dir_struct_before.PNG" width="500"> <img data-src="img/dir_struct_after.PNG" width="500"></p>
+</section>
+<section id="interaction-commands-5" class="slide level2">
+<h2>Interaction commands</h2>
+<ul>
+<li><strong>cp</strong> - copy a file</li>
+</ul>
+<pre><code>cp &lt;name of original&gt; &lt;name of copy&gt;</code></pre>
+<pre><code>cd analysis/
+cp copied_file ../data/raw_data</code></pre>
+<p><img data-src="img/dir_struct_after.PNG" width="500"> <img data-src="img/dir_struct_after2.PNG" width="500"></p>
+</section>
+<section id="interaction-commands-6" class="slide level2">
+<h2>Interaction commands</h2>
+<ul>
+<li><strong>cp</strong> - copy a file</li>
+</ul>
+<p><strong>Linux never asks before overwriting existing files!</strong></p>
+</section>
+<section id="interaction-commands-7" class="slide level2">
+<h2>Interaction commands</h2>
+<ul>
+<li><strong>mv</strong> - move a file</li>
+</ul>
+<pre><code>mv &lt;name of the file&gt; &lt;name of the “copy”&gt;</code></pre>
+<pre><code>mv ../copied_file .</code></pre>
+<p><img data-src="img/dir_struct_after.PNG" width="400"> <img data-src="img/mv.PNG" width="400"> <br> Notice! the . denotes the current location</p>
+</section>
+<section id="interaction-commands-8" class="slide level2">
+<h2>Interaction commands</h2>
+<ul>
+<li><strong>mv</strong> - rename a file</li>
+</ul>
+<pre><code>mv &lt;name of the file&gt; &lt;name of the “copy”&gt;</code></pre>
+<pre><code>mv copied_file my_renamed_file</code></pre>
+
+<img data-src="img/mv2.PNG" width="400" class="r-stretch"></section>
+<section id="interaction-commands-9" class="slide level2">
+<h2>Interaction commands</h2>
+<ul>
+<li><strong>rm</strong> - remove a file</li>
+</ul>
+<pre><code>rm &lt;name of the file&gt;</code></pre>
+<pre><code>rm copied_file</code></pre>
+
+<img data-src="img/rm.PNG" width="400" class="r-stretch"></section>
+<section id="interaction-commands-10" class="slide level2">
+<h2>Interaction commands</h2>
+<ul>
+<li><strong>rm</strong> - remove a file</li>
+</ul>
+<pre><code>rm &lt;name of the file&gt;</code></pre>
+<pre><code>rm ../original_file</code></pre>
+
+<img data-src="img/rm2.PNG" width="400" class="r-stretch"></section>
+<section id="interaction-commands-11" class="slide level2">
+<h2>Interaction commands</h2>
+<ul>
+<li><strong>rm</strong> - remove a file</li>
+</ul>
+<pre><code>rm &lt;name of the file&gt;</code></pre>
+<p><br> <strong>There is NO trash bin in CLI! Gone is gone!</strong></p>
+</section>
+<section id="interaction-commands-12" class="slide level2">
+<h2>Interaction commands</h2>
+<ul>
+<li>* - wildcards
+<ul>
+<li>Works on most linux commands</li>
+</ul></li>
+</ul>
+<pre><code>ls -l *.txt</code></pre>
+
+<img data-src="img/wildcard.PNG" width="400" class="r-stretch"></section>
+<section id="interaction-commands-13" class="slide level2">
+<h2>Interaction commands</h2>
+<ul>
+<li>* - wildcards
+<ul>
+<li>Works on most linux commands</li>
+</ul></li>
+</ul>
+<pre><code>cp *.txt myfolder/
+rm *.txt</code></pre>
 <div class="footer footer-default">
 
 </div>
@@ -353,19 +477,19 @@ Nina Norgren
   </div>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script>
-  <script src="navigating_2_files/libs/revealjs/dist/reveal.js"></script>
+  <script src="interacting_2_files/libs/revealjs/dist/reveal.js"></script>
   <!-- reveal.js plugins -->
-  <script src="navigating_2_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="navigating_2_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="navigating_2_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="navigating_2_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="navigating_2_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  <script src="interacting_2_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="interacting_2_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="interacting_2_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="interacting_2_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="interacting_2_files/libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
-  <script src="navigating_2_files/libs/revealjs/plugin/notes/notes.js"></script>
-  <script src="navigating_2_files/libs/revealjs/plugin/search/search.js"></script>
-  <script src="navigating_2_files/libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="navigating_2_files/libs/revealjs/plugin/math/math.js"></script>
+  <script src="interacting_2_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="interacting_2_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="interacting_2_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="interacting_2_files/libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>
