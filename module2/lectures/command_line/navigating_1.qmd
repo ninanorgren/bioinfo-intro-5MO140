@@ -5,6 +5,7 @@ format:
     revealjs:
         theme: [serif, ../../../custom.scss]
         css: ../../module2.css
+inherit: ../../../quarto.yaml
 ---
 
 ## Why Linux?
