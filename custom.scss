@@ -21,16 +21,11 @@ $presentation-heading-color: #383d3d !default;
   line-height: 1.3em;
 }
 
-.footer {
-  border-top: 2px solid $presentation-heading-color;  /* Line at the top of the header */
-  color: $presentation-heading-color;
-  padding: 20px;
+
+code {
+  font-size: 1.6em;
 }
 
-.logo {
-  background-image: url('img/umu-logo-left-EN.png');
-  width: 100px;
-  height: auto;
-  background-size: contain;  /* Adjust the size as needed */
-  background-repeat: no-repeat;
+.reveal pre {
+  line-height: 2.2em;
 }

@@ -1,0 +1,178 @@
+---
+title: "Interacting using the command line"
+author: "Nina Norgren"
+format: 
+    revealjs:
+        theme: [serif, ../../../custom.scss]
+        css: ../../module2.css
+embed-resources: true
+---
+
+# Commands to cover
+
+Mkdir (no blanks)
+Cp
+Mv
+Less
+Head/tail
+Nano?
+Rm
+rmdir
+*
+grep
+Touch? 
+
+
+## Interaction commands
+
+- **mkdir** - make directory
+  - Create new folder from current position
+
+![](img/mkdir.PNG){width=900}
+
+## Interaction commands
+
+- **rmdir** - remove empty directory
+  - Remove empty folder
+
+![](img/rmdir.PNG){width=900}
+
+
+## Interaction commands
+
+- **cp** - copy a file
+
+```
+cp <name of original> <name of copy>
+```
+
+![](img/cp.PNG){width=200}
+
+
+## Interaction commands
+
+- **cp** - copy a file
+
+```
+cp <name of original> <name of copy>
+```
+
+![](img/cp.PNG){width=900}
+<br>
+**Never use blanks in your folder/file names!**
+
+## Interaction commands
+
+- **cp** - copy a file
+
+```
+cp <name of original> <name of copy>
+```
+```
+cp copied_file analysis/
+```
+![](img/dir_struct_before.PNG){width=500}
+![](img/dir_struct_after.PNG){width=500}
+
+## Interaction commands
+
+- **cp** - copy a file
+
+```
+cp <name of original> <name of copy>
+```
+```
+cd analysis/
+cp copied_file ../data/raw_data
+```
+![](img/dir_struct_after.PNG){width=500}
+![](img/dir_struct_after2.PNG){width=500}
+
+## Interaction commands
+
+- **cp** - copy a file
+
+**Linux never asks before overwriting existing files!**
+
+
+## Interaction commands
+
+- **mv** - move a file
+
+```
+mv <name of the file> <name of the “copy”>
+```
+```
+mv ../copied_file .
+```
+![](img/dir_struct_after.PNG){width=400}
+![](img/mv.PNG){width=400}
+<br>
+Notice! the . denotes the current location
+
+
+## Interaction commands
+
+- **mv** - rename a file
+
+```
+mv <name of the file> <name of the “copy”>
+```
+```
+mv copied_file my_renamed_file
+```
+![](img/mv2.PNG){width=400}
+
+## Interaction commands
+
+- **rm** - remove a file
+
+```
+rm <name of the file>
+```
+```
+rm copied_file
+```
+![](img/rm.PNG){width=400}
+
+## Interaction commands
+
+- **rm** - remove a file
+
+```
+rm <name of the file>
+```
+```
+rm ../original_file
+```
+![](img/rm2.PNG){width=400}
+
+## Interaction commands
+
+- **rm** - remove a file
+
+```
+rm <name of the file>
+```
+<br>
+[**There is NO trash bin in CLI! Gone is gone!**]{.center .largest}
+
+## Interaction commands
+
+- \* - wildcards
+  - Works on most linux commands
+
+```
+ls -l *.txt
+```
+![](img/wildcard.PNG){width=400}
+
+## Interaction commands
+
+- \* - wildcards
+  - Works on most linux commands
+
+```
+cp *.txt myfolder/
+rm *.txt
+```

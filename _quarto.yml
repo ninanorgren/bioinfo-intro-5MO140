@@ -5,3 +5,9 @@ project:
 format:
   html:
     css: custom.scss
+    embed-resources: true
+
+output:
+  revealjs:
+    theme: "serif"
+    transition: "fade"
