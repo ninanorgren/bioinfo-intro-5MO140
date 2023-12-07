@@ -1,9 +1,27 @@
 ---
 title: "Introduction"
-format: html
+format:
+  html:
+    toc: true
+    theme: yeti
+    css: ../module2.css
 ---
 
-## Introduction to the course
+This module is designed to provide practical insights into two fundamental tools crucial for bioinformatics research.
 
-Welcome to this course!
+## Command Line Efficiency
+The command line is a versatile interface for managing and analyzing large datasets. In this module, you'll learn essential commands that enhance your ability to efficiently navigate, organize, and process biological data.
+
+## Statistical Analysis with R
+R, a statistical programming language, is widely adopted in bioinformatics for its analytical capabilities. This module introduces you to the basics of R, enabling you to perform statistical analyses and visualize complex biological datasets.
+
+## A powerful toolbox
+By combining command line skills with R proficiency, you'll gain practical advantages, including:
+
+- Improved operational efficiency in handling substantial datasets.
+- Establishment of reproducible workflows for rigorous research practices.
+- Enhanced analytical capabilities through statistical methods and visualizations.
+
+
+Prepare to acquire practical skills that are foundational for bioinformatics research. This module aims to equip you with tools essential for navigating and analyzing the rich landscape of biological data.
 
