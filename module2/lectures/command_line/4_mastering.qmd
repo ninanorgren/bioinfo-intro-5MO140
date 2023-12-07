@@ -1,0 +1,95 @@
+---
+title: "Mastering the command line"
+author: "Nina Norgren"
+format: 
+    revealjs:
+        theme: [serif, ../../../custom.scss]
+        css: ../../module2.css
+embed-resources: true
+---
+
+## grep
+
+- **grep** - finds text patterns in files
+
+```
+grep <pattern> <file name>
+```
+
+![](img/my_data.PNG){width=400}
+
+![](img/grep.PNG){width=600}
+
+## grep
+
+- **grep** - finds text patterns in files
+
+```
+grep <pattern> <file name>
+```
+
+![](img/my_data.PNG){width=400}
+
+![](img/grep4.PNG){width=600}
+
+
+## pipes
+
+- **|** - channels the output of one command as input to another
+
+```
+<command one> | <command two>
+```
+
+![](img/grep4.PNG){width=600}
+
+![](img/pipe.PNG){width=800}
+
+
+## redirects
+
+- **>** - directs the output of a command to a file, overwrites
+- **>>** - directs the output of a command to a file, appending
+
+```
+<command> > <output file>
+```
+
+![](img/grep.PNG){width=600}
+
+![](img/redirect.PNG){width=800}
+![](img/my_data_right.PNG){width=350}
+
+## redirects
+
+- **>** - directs the output of a command to a file, overwrites
+- **>>** - directs the output of a command to a file, appending
+
+```
+<command> >> <output file>
+```
+
+![](img/grep_left.PNG){width=600}
+
+![](img/redirect2.PNG){width=800}
+![](img/my_data_right2.PNG){width=350}
+
+
+## Several commands using pipes
+
+```
+<command1> | <command2> | <command3> > <output file>
+```
+
+![](img/my_new_data.PNG){width=450}
+
+![](img/multi_command.PNG){width=1000}
+![](img/my_results.PNG){width=350}
+
+
+## Summary
+
+- **grep** - finds text patterns in files
+- **|** - channels the output of one command as input to another
+- **>** - directs the output of a command to a file, overwrites
+- **>>** - directs the output of a command to a file, appending

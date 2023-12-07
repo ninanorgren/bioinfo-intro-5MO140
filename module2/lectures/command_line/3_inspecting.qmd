@@ -1,5 +1,5 @@
 ---
-title: "Inspecting/manipulating files using the command line"
+title: "Inspect/manipulate files using the command line"
 author: "Nina Norgren"
 format: 
     revealjs:
@@ -7,15 +7,6 @@ format:
         css: ../../module2.css
 embed-resources: true
 ---
-
-# Commands to cover
-
-Less
-Head/tail
-Nano?
-grep
-Touch? 
-pipe?
 
 
 ## Inspecting (less)
@@ -31,6 +22,19 @@ less <file name>
 ![](img/less_output.PNG){width=500}
 
 Press **Q** to exit
+
+
+## Inspecting (cat)
+
+- **cat** - concatenates and displays the content of a file
+
+```
+cat <file name>
+```
+
+![](img/cat.PNG){width=700}
+
+Be aware of using **cat** on large files
 
 
 ## Inspecting (head)
@@ -113,3 +117,12 @@ nano <file name>
 
 To save: **Ctrl + O**, press **Enter** <br>
 To exit: **Ctrl + X**, press **Enter**
+
+
+## Summary
+
+- **less** - view content of a file
+- **head** - view the first rows of a file
+- **tail** - view the last rows of a file
+- **touch** - create empty file or update time stamp
+- **nano** - edit content of a file

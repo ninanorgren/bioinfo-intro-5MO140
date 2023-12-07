@@ -1,0 +1,45 @@
+---
+title: "Good working practices"
+author: "Nina Norgren"
+format: 
+    revealjs:
+        theme: [serif, ../../../custom.scss]
+        css: ../../module2.css
+embed-resources: true
+---
+
+# Tab completion
+<br>
+**(Try to) never** type a path or filename without it! 
+
+## Tab completion
+
+**(Try to) never** type a path or filename without it!
+
+![](img/tab1.PNG){width=400}
+
+Press the **tab** key
+
+
+## Tab completion
+
+**(Try to) never** type a path or filename without it!
+
+![](img/tab2.PNG){width=400}
+
+
+## Up/down arrows
+
+- Navigate the command history
+- &#8593; older commands
+- &#8595; newer commands
+
+No need to re-write older commands!
+
+## Search
+
+- **Ctrl + R** - reverse search for previous commands
+
+![](img/search.PNG){width=400}
+
+Use Ctrl + R again to get to the next search result
