@@ -1,10 +1,11 @@
 ---
-title: "Inspecting files using the command line"
+title: "Inspecting/manipulating files using the command line"
 author: "Nina Norgren"
 format: 
     revealjs:
         theme: [serif, ../../../custom.scss]
         css: ../../module2.css
+embed-resources: true
 ---
 
 # Commands to cover
@@ -17,9 +18,98 @@ Touch?
 pipe?
 
 
-## Interaction commands
+## Inspecting (less)
 
-- **mkdir** - make directory
-  - Create new folder from current position
+- **less** - view content of a file
 
-![](img/mkdir.PNG){width=900}
+```
+less <file name>
+```
+
+![](img/less.PNG){width=700}
+
+![](img/less_output.PNG){width=500}
+
+Press **Q** to exit
+
+
+## Inspecting (head)
+
+- **head** - view the first rows of a file
+
+```
+head <file name>
+```
+
+![](img/head.PNG){width=300}
+
+
+## Inspecting (head)
+
+- **head** - view the first rows of a file
+
+```
+head -n <nr of lines> <file name>
+```
+
+![](img/head4.PNG){width=300}
+
+Default of n is 10
+
+## Inspecting (tail)
+
+- **tail** - view the last rows of a file
+
+```
+tail <file name>
+```
+
+![](img/tail.PNG){width=300}
+
+## Inspection (tail)
+
+- **tail** - view the last rows of a file
+
+```
+tail -n <nr of lines> <file name>
+```
+
+![](img/tail4.PNG){width=300}
+
+Default of n is 10
+
+
+## Manipulating (touch)
+
+- **touch** - create empty file or update time stamp
+
+```
+touch <name of new file>
+```
+
+![](img/touch.PNG){width=300}
+
+## Manipulating (nano)
+
+- **nano** - edit content of a file
+
+```
+nano <file name>
+```
+
+![](img/nano.PNG){width=600}
+
+![](img/nano_editor.PNG){width=700}
+
+## Manipulating (nano)
+
+- **nano** - edit content of a file
+
+```
+nano <file name>
+```
+
+![](img/nano_filled.PNG){width=700}
+
+To save: **Ctrl + O**, press **Enter** <br>
+To exit: **Ctrl + X**, press **Enter**

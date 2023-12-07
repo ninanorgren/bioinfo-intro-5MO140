@@ -5,6 +5,7 @@ format:
     revealjs:
         theme: [serif, ../../../custom.scss]
         css: ../../module2.css
+embed-resources: true
 ---
 
 ## Why Linux?
@@ -46,7 +47,7 @@ format:
 
 ---
 
-## Navigating the directory tree
+## Navigating
 
 - Start folder
 <br>
@@ -56,7 +57,7 @@ format:
 
 ---
 
-## Navigating the directory tree
+## Navigating (ls)
 
 - <b>ls</b>  - list the content of a directory:
 <br>
@@ -65,7 +66,7 @@ format:
 ![ls](img/ls_w.PNG){width=300}
 
 ---
-## Navigating the directory tree
+## Navigating (ls)
 
 - <b>ls</b>  - list the content of a directory:
 <br>
@@ -73,7 +74,7 @@ format:
 ![ls-l](img/ls_w.PNG){width=300}
 
 
-## Navigating the directory tree
+## Navigating (cd)
 
 - <b>cd</b>  - change working directory:
   - cd \<directory name\> = down
@@ -82,13 +83,13 @@ format:
 ![cd](img/cd.PNG){width=900}
 ![cd](img/cd_w.PNG){width=500}
 
-## Navigating the directory tree
+## Navigating (pwd)
 
 - <b>pwd</b>  - print working directory:
 <br>
 ![cd](img/pwd1.PNG){width=900}
 
-## Navigating the directory tree
+## Navigating (pwd)
 
 - <b>pwd</b>  - print working directory:
 <br>

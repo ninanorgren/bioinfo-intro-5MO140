@@ -8,29 +8,17 @@ format:
 embed-resources: true
 ---
 
-# Commands to cover
 
-Mkdir (no blanks)
-Cp
-Mv
-Less
-Head/tail
-Nano?
-Rm
-rmdir
-*
-grep
-Touch? 
-
-
-## Interaction commands
+## Interacting (mkdir)
 
 - **mkdir** - make directory
   - Create new folder from current position
 
 ![](img/mkdir.PNG){width=900}
 
-## Interaction commands
+No blanks in folder names!
+
+## Interacting (rmdir)
 
 - **rmdir** - remove empty directory
   - Remove empty folder
@@ -38,7 +26,7 @@ Touch?
 ![](img/rmdir.PNG){width=900}
 
 
-## Interaction commands
+## Interacting (cp)
 
 - **cp** - copy a file
 
@@ -49,7 +37,7 @@ cp <name of original> <name of copy>
 ![](img/cp.PNG){width=200}
 
 
-## Interaction commands
+## Interacting (cp)
 
 - **cp** - copy a file
 
@@ -61,7 +49,7 @@ cp <name of original> <name of copy>
 <br>
 **Never use blanks in your folder/file names!**
 
-## Interaction commands
+## Interacting (cp)
 
 - **cp** - copy a file
 
@@ -74,7 +62,7 @@ cp copied_file analysis/
 ![](img/dir_struct_before.PNG){width=500}
 ![](img/dir_struct_after.PNG){width=500}
 
-## Interaction commands
+## Interacting (cp)
 
 - **cp** - copy a file
 
@@ -88,14 +76,14 @@ cp copied_file ../data/raw_data
 ![](img/dir_struct_after.PNG){width=500}
 ![](img/dir_struct_after2.PNG){width=500}
 
-## Interaction commands
+## Interacting (cp)
 
 - **cp** - copy a file
 
 **Linux never asks before overwriting existing files!**
 
 
-## Interaction commands
+## Interacting (mv)
 
 - **mv** - move a file
 
@@ -111,7 +99,7 @@ mv ../copied_file .
 Notice! the . denotes the current location
 
 
-## Interaction commands
+## Interacting (mv)
 
 - **mv** - rename a file
 
@@ -123,7 +111,7 @@ mv copied_file my_renamed_file
 ```
 ![](img/mv2.PNG){width=400}
 
-## Interaction commands
+## Interacting (rm)
 
 - **rm** - remove a file
 
@@ -135,7 +123,7 @@ rm copied_file
 ```
 ![](img/rm.PNG){width=400}
 
-## Interaction commands
+## Interacting (rm)
 
 - **rm** - remove a file
 
@@ -147,7 +135,7 @@ rm ../original_file
 ```
 ![](img/rm2.PNG){width=400}
 
-## Interaction commands
+## Interacting (rm)
 
 - **rm** - remove a file
 
@@ -157,7 +145,7 @@ rm <name of the file>
 <br>
 [**There is NO trash bin in CLI! Gone is gone!**]{.center .largest}
 
-## Interaction commands
+## Interacting (\*)
 
 - \* - wildcards
   - Works on most linux commands
@@ -167,7 +155,7 @@ ls -l *.txt
 ```
 ![](img/wildcard.PNG){width=400}
 
-## Interaction commands
+## Interacting (\*)
 
 - \* - wildcards
   - Works on most linux commands
@@ -176,3 +164,12 @@ ls -l *.txt
 cp *.txt myfolder/
 rm *.txt
 ```
+
+## Summary
+
+- **mkdir** - make a new directory
+- **rmdir** - remove empty directory
+- **cp** - copy file from one location to another
+- **mv** - move/rename file
+- **rm** - remove file
+- **\*** - wildcard to match several files
