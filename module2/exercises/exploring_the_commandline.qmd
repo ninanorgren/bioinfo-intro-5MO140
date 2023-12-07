@@ -1,0 +1,103 @@
+---
+title: "Exploring the command line"
+format:
+  html:
+    toc: true
+    theme: yeti
+    css: ../module2.css
+---
+
+##  🎯 Objective
+
+Practice fundamental command-line skills by navigating through directories, creating new folders, and manipulating files.
+
+## 📝 Instructions
+
+##### 1. Open your terminal   
+Depending on the operating system you are using you will find the terminal in different locations.  
+
+<span class="info-box win">
+    **Windows**  
+    1. First, follow the installation instructions for WSL2  
+    2. You can directly start Ubuntu by searching for "Ubuntu" in the Start menu and select the installed Ubuntu distribution
+</span>
+
+<span class="info-box mac">
+    **Windows**  
+    1. First, follow the installation instructions for WSL2  
+    2. You can directly start Ubuntu by searching for "Ubuntu" in the Start menu and select the installed Ubuntu distribution
+</span>
+
+
+##### 2. Navigate to the Home Directory:  
+- Use the `cd` command to navigate to your home directory.
+
+```bash
+cd ~
+```
+
+
+Create a New Folder:
+
+Create a new folder named "bioinformatics_exercise."
+bash
+Copy code
+mkdir bioinformatics_exercise
+Navigate to the New Folder:
+
+Move into the newly created folder.
+bash
+Copy code
+cd bioinformatics_exercise
+Create Files:
+
+Create two empty text files named "file1.txt" and "file2.txt."
+bash
+Copy code
+touch file1.txt file2.txt
+Display File Contents:
+
+Use the cat command to display the contents of "file1.txt."
+bash
+Copy code
+cat file1.txt
+Copy Files:
+
+Create a backup folder and copy both files into it.
+bash
+Copy code
+mkdir backup
+cp file1.txt file2.txt backup/
+Move Files:
+
+Move "file1.txt" to the backup folder.
+bash
+Copy code
+mv file1.txt backup/
+View Folder Structure:
+
+Use the tree command to visualize the folder structure.
+bash
+Copy code
+tree
+Clean Up:
+
+Remove the original "file1.txt" from the current folder.
+bash
+Copy code
+rm file1.txt
+Final Check:
+
+Confirm that the "file1.txt" is now only in the backup folder.
+bash
+Copy code
+ls backup/
+Conclusion
+Congratulations! You've successfully navigated through directories, created folders, manipulated files, and used basic commands in the command line.
+
+Feel free to explore more commands and experiment with different scenarios to enhance your command-line skills.
+
+arduino
+Copy code
+
+You can copy and paste this entire text into a markdown file for your exercise.
