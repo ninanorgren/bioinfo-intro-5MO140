@@ -13,7 +13,7 @@ During this course we will learn to use the linux command line and programs to a
 You must be running Windows 10 version 2004 and higher (Build 19041 and higher) or Windows 11.
 
 ## Installation
-Follow the steps outlined in the official documentation [here](https://learn.microsoft.com/en-us/windows/wsl/install).
+Follow the steps outlined in the official documentation <a href="https://learn.microsoft.com/en-us/windows/wsl/install" target="_blank">here</a>.
 
 ## Verify version
 Verify that you have the correct version installed by typing this command in Windows Command Prompt or PowerShell:
