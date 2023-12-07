@@ -3,22 +3,22 @@
     text-align: center;
   }
   
-  .info-box {
-    display: inline-block;
-    padding: 10px;
-    margin: 10px;
-    width: 70%;
-    border-radius: 10px; /* Rounded corners */
-    color: white; /* Text color */
-    word-wrap: break-word;
-  }
+.info-box {
+  display: inline-block;
+  padding: 10px;
+  margin: 10px;
+  width: 70%;
+  border-radius: 10px; /* Rounded corners */
+  color: white; /* Text color */
+  word-wrap: break-word;
+}
 
-  .win {
-    background-color: #4C979F; /* Background color */
-    border: 3px solid darkslategrey; /* Border color */
-  }
+.win {
+  background-color: #4C979F; /* Background color */
+  border: 3px solid darkslategrey; /* Border color */
+}
 
-  .mac {
-    background-color: #934c9f; /* Background color */
-    border: 3px solid rgb(79, 47, 64); /* Border color */
-  }
+.mac {
+  background-color: #934c9f; /* Background color */
+  border: 3px solid rgb(79, 47, 64); /* Border color */
+}
