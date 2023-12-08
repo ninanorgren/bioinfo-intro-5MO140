@@ -1,0 +1,95 @@
+---
+title: "Data retrieval techniques"
+author: "Nina Norgren"
+format: 
+    revealjs:
+        theme: [serif, ../../../custom.scss]
+        css: ../../module2.css
+embed-resources: true
+---
+
+## Retrieve from remote server
+
+- **scp (Secure Copy)** - Safely transfer files between local and remote systems, ensuring data integrity and confidentiality.  
+
+- **ssh (Secure Shell)** - Gain secure remote access to servers, facilitating command-line operations and file transfers.
+
+
+## Retrieve from remote server
+
+- **scp (Secure Copy)** - Safely transfer files between local and remote systems, ensuring data integrity and confidentiality.  
+
+- <span style="color: lightgrey;">**ssh (Secure Shell)** - Gain secure remote access to servers, facilitating command-line operations and file transfers.</span>
+
+
+## Retrieve from remote server
+
+- **scp (Secure Copy)** - Safely transfer files between local and remote systems, ensuring data integrity and confidentiality.  
+
+**Local**: your own computer  
+**Remote**: a remote system, often a server located elsewhere
+
+<br>
+
+```
+scp <file to copy> <copy location>
+```
+
+## Retrieve from remote server
+
+- **scp (Secure Copy)** - Safely transfer files between local and remote systems, ensuring data integrity and confidentiality.  
+
+**Local**: your own computer  
+**Remote**: a remote system, often a server located elsewhere
+
+<br>
+
+From local to remote:
+```
+scp my_file.txt remoteuser@remotehost:/remote/directory
+```
+
+**remoteuser**: The username of the remote host  
+**remotehost**: The IP address or hostname of the remote host  
+**/remote/directory**: The directory on the remote machine  
+
+## Retrieve from remote server
+
+- **scp (Secure Copy)** - Safely transfer files between local and remote systems, ensuring data integrity and confidentiality.  
+
+**Local**: your own computer  
+**Remote**: a remote system, often a server located elsewhere
+
+<br>
+
+From remote to local:
+```
+scp remoteuser@remotehost:/remote/directory .
+```
+( the **.** means the current directory)
+
+
+## Retrieve from remote server
+
+- **scp (Secure Copy)** - Safely transfer files between local and remote systems, ensuring data integrity and confidentiality.  
+
+![](img/scp.PNG){width=900}
+
+## Retrieve from the web
+
+- **wget** - A command that retrieves files from the web
+
+```
+wget <source file>
+```
+
+
+## Retrieve from the web
+
+- **wget** - A command that retrieves files from the web
+
+```
+wget <source file>
+```
+
+![](img/wget.PNG){width=900}
