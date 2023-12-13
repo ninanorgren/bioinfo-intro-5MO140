@@ -93,3 +93,9 @@ wget <source file>
 ```
 
 ![](img/wget.PNG){width=900}
+
+
+## Summary
+
+- **scp (Secure Copy)** - Transfer files between local and remote systems
+- **wget** - A command that retrieves files from the web

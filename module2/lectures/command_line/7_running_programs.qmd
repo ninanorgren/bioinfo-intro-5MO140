@@ -1,0 +1,85 @@
+---
+title: "Running programs from the command line"
+author: "Nina Norgren"
+format: 
+    revealjs:
+        theme: [serif, ../../../custom.scss]
+        css: ../../module2.css
+embed-resources: true
+---
+
+## Programs
+
+- All commands so far are technically programs on their own.
+  - `ls`, `cat`, `head`, `etc`
+
+- Other programs can also be installed and run from the command line
+  - `notepad`
+  - requires a graphical interface (not in WSL2, but works in CMD)
+
+
+## Package Management in Linux
+
+- Package management tools simplify software installation and maintenance  
+
+- APT (Advanced Package Tool) is a package management system used in Debian-based distributions
+
+## Package Management in Linux
+
+- **sudo apt-get install <package_name>** - Install a specific package
+
+```
+sudo apt install firefox
+```
+
+**sudo**: grants permission to make changes on your computer. Ensures necessary authority to modify system settings and files. Requires your password
+
+
+## Running programs
+
+- What does a certain program do?
+
+- **unzip** - ?
+
+```
+unzip -h
+```
+
+![](img/unzip.PNG){width=900}
+
+
+## Running programs
+
+- What does a certain program do?
+
+- **unzip** - ?
+
+```
+unzip -h
+```
+
+![](img/unzip.PNG){width=900}
+
+Use command line option **-h**
+
+## Running programs
+
+- What does a certain program do?
+
+- **unzip** - unpack compressed archived
+
+```
+unzip -h
+```
+
+![](img/unzip.PNG){width=900}
+
+## Running programs
+
+- Using command line options
+
+![](img/unzip-d.PNG){width=900}
+
+```
+unzip my_compressed_files.zip -d my_files/
+```
