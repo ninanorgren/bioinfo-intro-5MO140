@@ -1,0 +1,25 @@
+---
+title: "Running programs through the command line"
+format:
+  html:
+    toc: true
+    theme: yeti
+    css: ../../module2.css
+---
+
+##  🎯 Objective
+
+Practice retrieving external files and manipulating them using command line programs with options.
+
+## 📝 Instructions
+
+##### 1. Open your terminal   
+
+
+##### 2. Get files 
+
+##### 3. Inspect files
+
+##### 4. Run program on files
+
+##### 5. Do more things

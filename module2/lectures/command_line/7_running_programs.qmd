@@ -11,10 +11,10 @@ embed-resources: true
 ## Programs
 
 - All commands so far are technically programs on their own.
-  - `ls`, `cat`, `head`, `etc`
+- **ls, cat, head, etc**
 
 - Other programs can also be installed and run from the command line
-  - `notepad`
+  - **notepad**
   - requires a graphical interface (not in WSL2, but works in CMD)
 
 
