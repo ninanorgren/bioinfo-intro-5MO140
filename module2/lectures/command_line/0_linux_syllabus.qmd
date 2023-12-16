@@ -21,3 +21,5 @@ In this section, we will explore the command line interface (CLI). The command l
 * Searching within files
 * Creating files
 * Tab completion, command history, and searching
+
+The materials used for these lectures are heavily inspired by the [Introduction to Bioinformatics](https://uppsala.instructure.com/courses/85059) course given by [NBIS](https://nbis.se). Feel free to check it out for even more in-depth details on command line and bash usage!
