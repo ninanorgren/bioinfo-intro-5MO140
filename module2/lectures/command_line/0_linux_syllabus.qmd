@@ -1,0 +1,23 @@
+---
+title: ""
+format:
+  html:
+    theme: yeti
+    css: ../module2.css
+---
+
+In this section, we will explore the command line interface (CLI). The command line provides a text-based way to interact with your computer, allowing for efficient file management and task execution. This introduction will cover the basics of navigation, file manipulation, and common commands.
+
+## Syllabus
+
+* Navigating the Command Line
+* Learn how to move around the file system
+* Exploring directory structures
+* Absolute and relative paths
+* Basic file operations
+* Commands to inspect file content
+* The Nano text editor for creating and editing files
+* Creating and removing directories
+* Searching within files
+* Creating files
+* Tab completion, command history, and searching
