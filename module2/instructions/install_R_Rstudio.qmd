@@ -1,5 +1,5 @@
 ---
-title: "Running programs through the command line"
+title: "Installing R and RStudio for data analysis"
 format:
   html:
     toc: true
@@ -9,4 +9,54 @@ format:
 
 ## Install R
 
+#### Step 1: Download R  
+Visit the [CRAN website](https://cran.r-project.org/) to download R.
+
+![](img/R_install.PNG){width=700}
+
+#### Step 2: Choose Your Operating System  
+Select the appropriate version for your operating system (Windows, macOS, or Linux).
+
+#### Step 3: Install R  
+**Windows:** Choose the option *base* (Downloading R for the first time)
+
+Run the downloaded executable file and follow the installation instructions.
+
+**macOS:** Download the .pkg file from Latest releases most suitable to your Mac version, and follow the installation instructions.
+
+
+
 ## Install RStudio
+
+RStudio provides you with tools like code editor with highlighting, project management, version control, package building, debugger, profiler and more.
+
+
+#### Step 1: Download RStudio
+Visit the [RStudio Download page](https://posit.co/download/rstudio-desktop/) to download RStudio.
+
+#### Step 2: Choose Your Version
+Select the version of RStudio Desktop that is compatible with your operating system.
+
+![](img/RStudio_install.PNG){width=700}
+
+#### Step 3: Install RStudio
+
+**Windows:** Run the downloaded installer and follow the installation instructions.
+
+**macOS:** Drag the RStudio application to your Applications folder.
+
+## Verify your installations
+
+#### Step 1: Open R
+**Windows:** Open R from the Start menu.
+
+**macOS:** Open R from your Applications folder.
+
+#### Step 2: Open RStudio
+
+**Windows and macOS:**
+Open RStudio by clicking on the RStudio icon or running the executable.
+
+
+Congratulations!
+You have successfully installed both R and RStudio. You are now ready to explore the world of statistical computing and data analysis.
