@@ -1,0 +1,56 @@
+---
+title: "Introduction to R"
+author: "Nina Norgren"
+format: 
+    revealjs:
+        theme: [serif, ../../../custom.scss]
+        css: ../../module2.css
+embed-resources: true
+---
+
+## Briefly about R
+### R is ...
+
+* A programming language
+* A programming platform (= environment + interpreter)
+* A software project driven by the core team and the community
+* A very powerful tool for statistical computing
+* A very powerful computational tool in general 
+
+
+## Briefly about R
+### R is not ...
+
+* A tool to replace a statistician
+* The very best programming language
+* The most elegant programming solution
+* The most efficient programming language  
+
+
+## Ideas behind R
+
+* Open-source solution &mdash; fast development
+
+* Based on the **S language**
+
+* Since 1997 developed by the R Development Core Team
+
+* Overviewed by [The R Foundation for Statistical Computing](https://www.r-project.org/foundation/)
+
+
+
+## Packages
+
+* Collection of specialized tools for analysis
+
+* Developed by the community
+
+* Cover several very diverse areas of science/life
+
+* Uniformely structured and documented
+
+* Organised in repositories:
+    + [CRAN](https://cran.r-project.org)
+    + [R-Forge](https://r-forge.r-project.org)
+    + [Bioconductor](http://www.bioconductor.org)
+    + [GitHub](https://github.com)

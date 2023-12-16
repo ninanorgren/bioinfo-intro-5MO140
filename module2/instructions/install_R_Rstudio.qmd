@@ -1,0 +1,12 @@
+---
+title: "Running programs through the command line"
+format:
+  html:
+    toc: true
+    theme: yeti
+    css: ../module2.css
+---
+
+## Install R
+
+## Install RStudio
