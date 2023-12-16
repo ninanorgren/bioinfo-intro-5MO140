@@ -2,7 +2,6 @@
 title: "Install WSL2"
 format:
   html:
-    toc: true
     theme: yeti
     css: ../module2.css
 ---
