@@ -11,3 +11,6 @@ output:
   revealjs:
     theme: "serif"
     transition: "fade"
+
+r:
+  engine: R

@@ -1,0 +1,131 @@
+---
+title: "Variables"
+author: "Nina Norgren"
+format: 
+    revealjs:
+        theme: [serif, ../../../custom.scss]
+        css: ../../module2.css
+embed-resources: true
+---
+
+## R as a calculator
+
+Let's start of easy:
+
+```{r,echo=TRUE,size='Tiny'}
+7 + 9
+```
+
+## R as a calculator
+
+Let's start of easy:
+
+```{r,echo=TRUE,size='Tiny'}
+7 + 9
+```
+**Not very useful so far**
+
+
+## Introducing: Variables
+
+Creating a variable is simply assigning a name to some structure that stores data
+
+```{r,echo=TRUE,size='Tiny'}
+7 + 9
+```
+
+## Introducing: Variables
+
+Creating a variable is simply assigning a name to some structure that stores data
+
+```{r,echo=TRUE,size='Tiny'}
+7 + 9
+```
+```{r,echo=TRUE,size='Tiny'}
+a <- 7
+b <- 9
+a + b
+```
+
+---
+## Variables cont.
+
+We are not constrained to only numbers:
+
+```{r,echo=TRUE}
+text1 <- 'a'
+text2 <- 'qwerty'
+text1  
+text2
+```
+
+## Is `<-` equivalent to `=`?
+
+`val <- 3`, `val = 3` and `3 -> val` are three equivalent ways of assigning in R. 
+
+But, it's best to use only `<-` to avoid possible confusion.
+
+
+## Naming conventions
+
+- How to write variable names?
+- What is legal/valid/good style?
+
+## Naming conventions
+
+- How to write variable names?
+- What is legal/valid/good style?
+
+A valid name consists of:  
+
+- letters
+- numbers
+- dot
+- underline
+- starts with a letter or the dot not followed by a number
+- can not be a reserved keyword
+
+## Examples
+
+#### Allowed
+my_data  
+my.data  
+.mydata  
+
+## Examples
+
+#### Allowed
+my_data  
+my.data  
+.mydata  
+
+<br>
+
+#### Not allowed
+.2data (starts with dot followed by number)  
+2data (starts with a digit)  
+_data (starts with an underscore)  
+my data (has a blank in the middle)  
+function (reserved keyword)  
+
+## Reserved keywords
+
+```
+if, else, repeat, while, function, for, in, next, break, TRUE, FALSE, NULL, Inf, NaN, NA, NA_integer_, NA_real_, NA_complex_, NA_character_
+```
+<br>
+
+- and you also **cannot** use: `c, q, t, C, D, I`
+- and you **should not** use: `T, F`
+
+## Good variable names
+
+- Make them informative, e.g. `genotypes` instead of `fsjht45jkhsdf4`
+- Use the same *naming convention* across your code:
+  - camelNotation
+  - dot.notation
+  - dash_notation
+
+- Do not `give_them_too_long_names`,
+
+- In the dot notation avoid `my.variable.2`, use `my.variable2` instead

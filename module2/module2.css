@@ -22,3 +22,8 @@
   background-color: #934c9f; /* Background color */
   border: 3px solid rgb(79, 47, 64); /* Border color */
 }
+
+code {
+  font-size: 40px;
+  color: #333; /* Set the color to your preference */
+}

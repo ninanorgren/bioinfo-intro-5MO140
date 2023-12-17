@@ -1,0 +1,11 @@
+---
+title: "Types"
+author: "Nina Norgren"
+format: 
+    revealjs:
+        theme: [serif, ../../../custom.scss]
+        css: ../../module2.css
+embed-resources: true
+---
+
+## Types

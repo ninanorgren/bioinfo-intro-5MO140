@@ -1,0 +1,71 @@
+---
+title: "Different ways of using R"
+author: "Nina Norgren"
+format: 
+    revealjs:
+        theme: [serif, ../../../custom.scss]
+        css: ../../module2.css
+embed-resources: true
+---
+
+## Working with R
+
+There are several ways to work with/in R:
+
+- From a command line,
+- In batch mode,
+- From a native GUI,
+- Using external editor, e.g. RStudio.
+
+During this course, we will be focusing on working with [RStudio](https://www.rstudio.com)
+
+
+## Working from command line
+
+1. Open Terminal.
+2. Type `R`.
+3. Type R commands...
+4. Type `q()` to quit R.
+
+- Arrows let you browse throughout the history
+- Use Tab key to autocomplete the command you have just started typing
+
+
+## The batch mode
+
+- Bioinformatics analysis often performed on a cluster
+- Large/Many jobs might require a queue handling system
+- Run R code from a file, using the so-called **batch mode**:
+
+1. Create a file with your code and give it extension **.R**.
+2. In the console (or in the queue script) write:  
+
+`R --vanilla < mycode.R`
+
+## Native GUI
+
+If you prefer a graphical user interface (GUI) for working with R, you can use the native R GUI. Here's how:
+- Use the native R installation:
+
+1. Open R by double-clicking the R icon
+2. A graphical interface will appear, providing a point-and-click environment
+3. You can enter commands in the console, and the GUI will display outputs
+
+## Using RStudio
+
+- Powerful editor for working with R code
+- Consists of four panels:
+  - Console, for running code
+  - Editor, for writing code
+  - Environment/History, for viewing environment variables and history
+  - Files/Plots/Packages, for for example plot outputs
+
+RStudio is the primary way of interacting with R during this course
+
+## Getting help
+
+Problems with installation or specific questions?
+
+- Come see us in the exercise session
+
+[Stackoverflow](http://stackoverflow.com) is also a great resource.
