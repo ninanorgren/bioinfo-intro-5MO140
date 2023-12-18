@@ -11,6 +11,10 @@ format:
 
 Practice fundamental R skills by creating variables of different types, exploring variable types, performing type casting, and other basic operations.
 
+> In all exercises during this course, it is important that you try to figure out what the expected result would be, prior to running the commands. You should then verify that this will indeed be the result by running the command. In case there is a discrepency between your expectations and the actual output make sure you understand why before you move forward. If you cannot figure out how to, or which command to run you can click the key to reveal example code including expected output.
+
+Also note that in many cases there are multiple solutions that solve the problem equally well.
+
 ## 📝 Instructions
 
 #### Set up new project
@@ -22,6 +26,8 @@ Practice fundamental R skills by creating variables of different types, explorin
     - Enter a project name (e.g., "VariableManipulation") and specify the project directory
     - Click "Create Project."
     - Make sure you have the 4 panel view, with the code editor visible
+
+
 
 #### Verify working directory
 
