@@ -1,0 +1,102 @@
+---
+title: "Working with variables"
+format:
+  html:
+    code-fold: true
+    theme: yeti
+    css: ../../module2_exercises.css
+---
+
+##  🎯 Objective
+
+Practice fundamental R skills by creating variables of different types, exploring variable types, performing type casting, and other basic operations.
+
+## 📝 Instructions
+
+#### Set up new project
+1. Open RStudio on your computer
+2. Create a new project:
+    - Click on "File" in the top menu
+    - Select "New Project" and choose "New Directory."
+    - Choose "New Project."
+    - Enter a project name (e.g., "VariableManipulation") and specify the project directory
+    - Click "Create Project."
+    - Make sure you have the 4 panel view, with the code editor visible
+
+#### Verify working directory
+
+In R, `getwd()` stands for "get working directory," and `setwd()` stands for "set working directory." The working directory is the location on your computer where R looks for and saves files by default. When starting a new project, the working directory will be set to that folder by default, but it's still good practice to check the working directory at the beginning of your R script or project.
+
+Make sure your working directory is in the folder you specified for the project:
+
+```{r, eval=FALSE}
+getwd()
+```
+
+Make it a habit to always write your code in the editor panel, and run it by highlighting it and press run. This way all your code will be saved, and an easily be re-run.
+
+#### Working with variables
+
+Assign values to the following variables:
+
+```{r, echo=TRUE}
+age <- 25
+name <- "John"
+is_student <- TRUE
+```
+
+Use the `typeof()` and `class()` functions to find out the types of the variables:
+
+```{r, eval=FALSE}
+typeof(age)
+class(age)
+typeof(name)
+class(name)
+typeof(is_student)
+class(is_student)
+```
+
+**Type Casting**  
+
+Convert the age variable to a character type using the as.character() function.
+
+```{r, eval=TRUE}
+age_as_string <- as.character(age)
+```
+
+**Concatenate character variables**
+
+Sometimes you would want to add together two variables of the type character, concatenating them. For this we can use the `paste()` and `paste0()` function:
+
+Concatenate the `name` and `age_as_string` variables using both paste() and paste0() functions:
+
+```{r, eval=TRUE}
+full_message_paste <- paste("My name is", name, "and I am", age_as_string, "years old.")
+full_message_paste0 <- paste0("My name is", name, "and I am", age_as_string, "years old.")
+```
+
+**Print Formatted Text**
+
+Use the `print()` function to display the `full_message_paste` and `full_message_paste0`.
+
+```{r, eval=TRUE}
+print(full_message_paste)
+print(full_message_paste0)
+```
+
+What seems to be the difference between `paste()` and `paste0()`?
+
+Find out more by reading the documentation for `paste()` and `paste0()`: 
+
+```{r, eval=FALSE}
+?paste()
+```
+
+Try adding a separator as per the documentation, and see what happens.
+
+```{r, eval=FALSE}
+full_message_paste_sep <- paste("My name is", name, "and I am", age_as_string, "years old.", sep = ':')
+print(full_message_paste_sep)
+```
+
+Inspect the Environment panel to see the listing of all the variables you have saved in memory so far. Try removing all environment variables by clicking on the small broom icon and see what happens.
