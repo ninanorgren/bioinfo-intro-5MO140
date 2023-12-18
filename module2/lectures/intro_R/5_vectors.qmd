@@ -1,5 +1,5 @@
 ---
-title: "Different ways of using R"
+title: "Complex data structures: Vectors"
 author: "Nina Norgren"
 format: 
     revealjs:
