@@ -1,5 +1,5 @@
 ---
-title: "Types"
+title: "Types and Classes"
 author: "Nina Norgren"
 format: 
     revealjs:
@@ -8,4 +8,177 @@ format:
 embed-resources: true
 ---
 
-## Types
+## Variables have types
+
+A *numeric* stores numbers of different *types*:
+
+```{r,echo=TRUE}
+x <- 41.99 # assign 41.99 to x
+typeof(x)
+```
+
+## Classes and  types
+
+- `class` what type of object is it for R
+- `typeof()` the basic data category
+
+
+```{r echo=TRUE,eval=TRUE}
+x <- 1
+class(x)
+typeof(x)
+```
+
+## Basic data types in R
+
+| Data Type| Description                       | Example                  |
+|----------|-----------------------------------|--------------------------|
+| `double` | Double-precision number (decimal) | `x <- 5.2`               |
+| `integer`| Integer values                    | `y <- 3L`                |
+| `character`| Text or string values           | `name <- "John"`         |
+| `logical`| Logical (boolean) values          | `is_true <- TRUE`        |
+| `complex`| Complex numbers                   | `z <- 3 + 2i`            |
+| `NULL`   | Represents absence of data        | `missing_data <- NULL`   |
+
+
+## Data classes in R
+
+Some of the common classes in R:
+
+| Class       | Description              | Example           |
+|-------------|--------------------------|-------------------|
+| `numeric`   | Set of all real numbers  | `x <- 5.2`        |
+| `integer`   | Integer values           | `y <- 3L`         |
+| `character` | Text or string values    | `name <- "John"`  |
+| `logical`   | Logical (boolean) values | `is_true <- TRUE` |
+
+## Classes versus types
+
+- Mostly overlapping
+- `numeric` and `double` are the class and type respectively
+
+## Numeric (double)
+
+Class: `numeric`  
+Type: `double`
+
+Examples:  
+```{r, echo=TRUE}
+my_var <- 5.2
+typeof(my_var)
+class(my_var)
+```
+
+## Numeric (double)
+
+Class: `numeric`  
+Type: `double`
+
+Examples:  
+```{r, echo=TRUE}
+s.value <- 3
+typeof(s.value)
+class(s.value)
+```
+
+## Integer
+
+Examples:
+```{r, echo=TRUE}
+my_int <- 4L
+typeof(my_int)
+class(my_int)
+```
+
+## Character
+
+It is easy to work with characters and strings:
+
+```{r, echo=TRUE}
+character <- 'A'
+text <- 'My first sentence in R.'
+```
+<br>
+```{r, echo=TRUE}
+class(character)
+typeof(text) # also of 'character' type
+```
+
+## Logical type
+
+```{r,echo=TRUE}
+a <- 7 > 2
+b <- 2 >= 7
+```
+<br>
+
+Logical operators:  
+
+- **>** greater than
+- **<** smaller than
+- **>=** greater than or equal
+- **<=** smaller than or equal
+- **==** equal to
+
+## Logical type
+
+```{r,echo=TRUE}
+a <- 7 > 2
+b <- 2 >= 7
+```
+<br>
+```{r, echo=TRUE}
+a
+b
+class(a)
+typeof(a)
+```
+
+## Logical type cont.
+R has three logical values: TRUE, FALSE and NA.
+
+```{r, echo=TRUE}
+non <- NA
+class(non)
+typeof(non)
+```
+
+## Type casting
+
+By default, any *numeric* is stored as *double* !
+
+```{r,echo=TRUE}
+y <- 12 # assign an integer value to y
+class(y) # still numeric
+typeof(y) # an integer, but a double!
+```
+
+## Type casting
+
+We can explicitly **cast it** to integer:
+
+```{r,echo=TRUE}
+y <- as.integer(y) # convert it
+typeof(y)
+class(y)
+```
+
+> We need **casting** because sometimes a function requires data of some type!
+
+## Type casting
+
+More examples:
+
+```{r, echo=TRUE}
+as.numeric('4.5678')
+as.double('4.5678')
+as.character(4.5678)
+as.numeric('R course is cool!')
+```
+
+## Summary
+
+- Class: what type of object is it for R
+- Type: the basic data category
+- Some functions require specific types as input
+- Type casting can be used to transform between types
