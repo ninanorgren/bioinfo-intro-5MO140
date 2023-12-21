@@ -2980,7 +2980,45 @@ vertical-align: -.125em;
 
 
 <link href="data:application/octet-stream;base64,LyotLSBzY3NzOmRlZmF1bHRzIC0tKi8KCi8vIGZvbnRzCiRmb250LWZhbWlseS1zYW5zLXNlcmlmOiAiUGFsYXRpbm8gTGlub3R5cGUiLCAiQm9vayBBbnRpcXVhIiwgUGFsYXRpbm8sCiAgRnJlZVNlcmlmLCBzZXJpZiAhZGVmYXVsdDsKCi8vIGNvbG9ycwokYm9keS1iZzogI2YwZjFlYiAhZGVmYXVsdDsKJGJvZHktY29sb3I6ICMwMDAgIWRlZmF1bHQ7CiRsaW5rLWNvbG9yOiAjNTE0ODNkICFkZWZhdWx0Owokc2VsZWN0aW9uLWJnOiAjMjYzNTFjICFkZWZhdWx0OwoKLy8gaGVhZGluZ3MKJHByZXNlbnRhdGlvbi1oZWFkaW5nLWZvbnQ6ICJQYWxhdGlubyBMaW5vdHlwZSIsICJCb29rIEFudGlxdWEiLCBQYWxhdGlubywKICBGcmVlU2VyaWYsIHNlcmlmICFkZWZhdWx0OwokcHJlc2VudGF0aW9uLWhlYWRpbmctY29sb3I6ICMzODNkM2QgIWRlZmF1bHQ7CgovKi0tIHNjc3M6cnVsZXMgLS0qLwoKLnJldmVhbCBhIHsKICBsaW5lLWhlaWdodDogMS4zZW07Cn0KCgpjb2RlIHsKICBmb250LXNpemU6IDEuNmVtOwp9CgoucmV2ZWFsIHByZSB7CiAgbGluZS1oZWlnaHQ6IDIuMmVtOwp9" rel="stylesheet">
-<style type="text/css">.larger-centered {font-size: 24px; text-align: center;}.info-box {display: inline-block;padding: 10px;margin: 10px;width: 70%;border-radius: 10px; color: white; word-wrap: break-word;}.win {background-color: #4C979F; border: 3px solid darkslategrey; }.mac {background-color: #934c9f; border: 3px solid rgb(79, 47, 64); }</style>
+<style type="text/css">code {
+font-size: 20px;
+color: #333; 
+}
+.blockquote {
+background-color:#C0f6ba;
+color: #083803;
+border-left: 1rem solid;
+}
+.info-box {
+display: inline-block;
+padding: 10px;
+margin: 10px;
+width: 70%;
+border-radius: 10px; 
+color: white; 
+word-wrap: break-word;
+}
+.win {
+background-color: #4C979F; 
+border: 3px solid darkslategrey; 
+}
+.mac {
+background-color: #934c9f; 
+border: 3px solid rgb(79, 47, 64); 
+}
+.gray-box {
+background-color: #F4F6F6;
+border-radius: 10px;
+padding:5px;
+}
+strong {
+font-weight: 900 !important;
+}
+details pre {
+background-color: #F4F6F6;
+font-size: 18px;
+border-radius: 10px;
+}</style>
 </head>
 
 <body class="fullcontent">
@@ -3010,22 +3048,93 @@ vertical-align: -.125em;
 <h2 class="anchored" data-anchor-id="objective">🎯 Objective</h2>
 <p>Practice retrieving external files and manipulating them using command line programs with options.</p>
 </section>
+<section id="vcf-file" class="level2">
+<h2 class="anchored" data-anchor-id="vcf-file">📄 VCF file</h2>
+<p>In this exercise we will be looking at genetic variants found in the human genome, and their association to different phenotypes. We will be using the data from <a href="https://www.ncbi.nlm.nih.gov/clinvar/intro/">ClinVar</a>, which has searchable data for most of human variants. As an example, see <a href="https://www.ncbi.nlm.nih.gov/clinvar/variation/7685/?oq=rs4988235&amp;m=NM_002299.2(LCT):c.-13907C%3ET">this entry</a> for the mutation that causes lactase persistence in many in the Northern population, and the associated evidence.</p>
+<p>The file we will be working with is a VCF file (Variant Calling Format), which consists of variants, meta data about the variants, and possible genotypes from individuals. You can read more about the VCF format <a href="https://samtools.github.io/hts-specs/VCFv4.2.pdf">here</a>. The file we will be working with is not from a single individual, but rather all aggregated variants found, and their predicted effect on phenotype.</p>
+</section>
 <section id="instructions" class="level2">
 <h2 class="anchored" data-anchor-id="instructions">📝 Instructions</h2>
-<section id="open-your-terminal" class="level5">
-<h5 class="anchored" data-anchor-id="open-your-terminal">1. Open your terminal</h5>
+<section id="get-the-vcf-file" class="level4">
+<h4 class="anchored" data-anchor-id="get-the-vcf-file"><strong>Get the VCF file</strong></h4>
+<p>Navigate to the <code>rawdata</code> folder created in previous exercise. Use <code>pwd</code> to first figure out what folder you are in, and use relative paths to navigate using <code>cd</code>.</p>
+<p>The file is located on a different server, with the server address XXX. Get the file to the <code>rawdata</code> folder.</p>
+<details>
+<summary>
+See code:
+</summary>
+<pre class="{bash}"><code>scp remoteuser@remotehost:/remote/clinvar_modified.vcf.gz .</code></pre>
+</details>
+<p>Run <code>ls</code> to make sure that the file is there. If you run <code>ls -lh</code> you will also see the size of the files in the folder.</p>
 </section>
-<section id="get-files" class="level5">
-<h5 class="anchored" data-anchor-id="get-files">2. Get files</h5>
-</section>
-<section id="inspect-files" class="level5">
-<h5 class="anchored" data-anchor-id="inspect-files">3. Inspect files</h5>
-</section>
+<section id="inspect-the-file" class="level4">
+<h4 class="anchored" data-anchor-id="inspect-the-file"><strong>Inspect the file</strong></h4>
+<p>This file is packed with gzip, a slightly better compression than normal zip-files. To unpack them you would use <code>gunzip</code> instead of <code>unzip</code>. However, as these files tend to be large, most bioinformatics software can directly handle different zipped files. We can still use a few commands to inspect the file as before, just with a slight modification. Try the following commands and see what happens:</p>
+<pre><code>zless clinvar_modified.vcf.gz
+less -S clinvar_modified.vcf.gz
+zcat clinvar_modified.vcf.gz | head
+zcat clinvar_modified.vcf.gz | tail</code></pre>
+<p>If you use the <code>zless</code> command with the <code>-S</code> tag, you will not line-break the text in the window, making it easier to read. Do not run the <code>zcat</code> command on this file, as it is rather large, but you can use <code>zcat</code> and pipe the results into head, thereby only displaying the first 10 lines.</p>
+<p>As you can see, many of the normal commands have a related command that works on zipped files (cat -&gt; zcat, etc), but not all of them.</p>
+<p>Normally you can check how many lines is in a file using the <code>wc</code> (word count) command. But as the <code>wc</code> command does not work on zipped files, we can first use the <code>zcat</code> command, and then pipe the output to <code>wc</code>:</p>
+<pre><code>zcat clinvar_modified.vcf.gz | wc</code></pre>
+<p>We can also find out how many unique chromosomes are in the file. To do this we will use a combination of <code>zgrep</code>, <code>cut</code> and <code>uniq</code>. We will use zgrep with the -v flag, inversing the command, meaning we will grep everything that is NOT matching. The <code>cut</code> command cuts out a specific column in the data, defined by the -f flag. And lastly, the <code>uniq</code> command removes duplicates, leaving only unique values. We will pipe these commands together using the <code>|</code> symbol:</p>
+<details>
+<summary>
+See code:
+</summary>
+<pre class="{bash}"><code>zgrep -v &#39;#&#39; clinvar_modified.vcf.gz | cut -f1 | uniq</code></pre>
+</details>
 <section id="run-program-on-files" class="level5">
 <h5 class="anchored" data-anchor-id="run-program-on-files">4. Run program on files</h5>
 </section>
 <section id="do-more-things" class="level5">
 <h5 class="anchored" data-anchor-id="do-more-things">5. Do more things</h5>
+<p>copy some text into new file less on File head on File tail on file cat File grep ’ ’ file &gt; new file</p>
+<p>scp File gunzip Filel less -S file</p>
+</section>
+</section>
+</section>
+<section id="inspect-which-chromosomes-file-has" class="level1">
+<h1>inspect which chromosomes file has</h1>
+<p>cat clinvar.vcf | grep -v ‘##’ | cut -f1 | uniq</p>
+</section>
+<section id="install-vcftools" class="level1">
+<h1>install vcftools</h1>
+<p>sudo apt install vcftools</p>
+</section>
+<section id="check-manual" class="level1">
+<h1>check manual</h1>
+<p>man vcftools</p>
+</section>
+<section id="remove-unnecessary-chromosomes" class="level1">
+<h1>remove unnecessary chromosomes</h1>
+<p>vcftools –vcf clinvar.vcf –not-chr MT –not-chr NT_113889.1 –not-chr NT_167222.1 –not-chr NW_003315925.1 –not-chr NW_003315947.1 –not-chr NW_003315950.2 –get-INFO MC –out clinvar_filtered</p>
+</section>
+<section id="run-some-stats" class="level1">
+<h1>run some stats</h1>
+<p>Create a New Folder:</p>
+<p>Create a new folder named “bioinformatics_exercise.” bash Copy code mkdir bioinformatics_exercise Navigate to the New Folder:</p>
+<p>Move into the newly created folder. bash Copy code cd bioinformatics_exercise Create Files:</p>
+<p>Create two empty text files named “file1.txt” and “file2.txt.” bash Copy code touch file1.txt file2.txt Display File Contents:</p>
+<p>Use the cat command to display the contents of “file1.txt.” bash Copy code cat file1.txt Copy Files:</p>
+<p>Create a backup folder and copy both files into it. bash Copy code mkdir backup cp file1.txt file2.txt backup/ Move Files:</p>
+<p>Move “file1.txt” to the backup folder. bash Copy code mv file1.txt backup/ View Folder Structure:</p>
+<p>Use the tree command to visualize the folder structure. bash Copy code tree Clean Up:</p>
+<p>Remove the original “file1.txt” from the current folder. bash Copy code rm file1.txt Final Check:</p>
+<p>Confirm that the “file1.txt” is now only in the backup folder. bash Copy code ls backup/ Conclusion Congratulations! You’ve successfully navigated through directories, created folders, manipulated files, and used basic commands in the command line.</p>
+<p>Feel free to explore more commands and experiment with different scenarios to enhance your command-line skills.</p>
+<p>arduino Copy code</p>
+<p>You can copy and paste this entire text into a markdown file for your exercise.</p>
+<section id="unpack-the-file" class="level4">
+<h4 class="anchored" data-anchor-id="unpack-the-file"><strong>Unpack the file</strong></h4>
+<p>The VCF is gzipped, so first we need to unpack it. In the lectures we talked about <code>unzip</code> for unpacking .zip files. Gzip is just another way of packing data, that is more efficient thatn zip. To unpack a gzipped file we simple use <code>gunzip</code>. So start with unpacking the file into the <code>rawdata</code> folder. This is a quite big file, and might take some time to unpack.</p>
+<details>
+<summary>
+See code:
+</summary>
+<pre class="{bash}"><code>gunzip clinvar_modified.vcf.gz</code></pre>
+</details>
 </section>
 </section>
 

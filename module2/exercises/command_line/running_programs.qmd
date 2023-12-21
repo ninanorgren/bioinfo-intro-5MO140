@@ -3,22 +3,191 @@ title: "Running programs through the command line"
 format:
   html:
     theme: yeti
-    css: ../../module2.css
+    css: ../../module2_exercises.css
 ---
 
 ##  🎯 Objective
 
 Practice retrieving external files and manipulating them using command line programs with options.
 
+## 📄 VCF file
+In this exercise we will be looking at genetic variants found in the human genome, and their association to different phenotypes. We will be using the data from [ClinVar](https://www.ncbi.nlm.nih.gov/clinvar/intro/), which has searchable data for most of human variants. As an example, see [this entry](https://www.ncbi.nlm.nih.gov/clinvar/variation/7685/?oq=rs4988235&m=NM_002299.2(LCT):c.-13907C%3ET) for the mutation that causes lactase persistence in many in the Northern population, and the associated evidence.
+
+The file we will be working with is a VCF file (Variant Calling Format), which consists of variants, meta data about the variants, and possible genotypes from individuals. You can read more about the VCF format [here](https://samtools.github.io/hts-specs/VCFv4.2.pdf). The file we will be working with is not from a single individual, but rather all aggregated variants found, and their predicted effect on phenotype.
+
 ## 📝 Instructions
 
-##### 1. Open your terminal   
+#### **Get the VCF file**
+Navigate to the `rawdata` folder created in previous exercise. Use `pwd` to first figure out what folder you are in, and use relative paths to navigate using `cd`.
+
+The file is located on a different server, with the server address XXX. Get the file to the `rawdata` folder.
+
+<details>
+  <summary>See code:</summary>
+````{bash}
+scp remoteuser@remotehost:/remote/clinvar.vcf.gz .
+````
+</details>
 
 
-##### 2. Get files 
+Run `ls` to make sure that the file is there. If you run `ls -lh` you will also see the size of the files in the folder.
 
-##### 3. Inspect files
+#### **Inspect the file**
+This file is packed with gzip, a slightly better compression than normal zip-files. To unpack them you would use `gunzip` instead of `unzip`. However, as these files tend to be large, most bioinformatics software can directly handle different zipped files. We can still use a few commands to inspect the file as before, just with a slight modification. Try the following commands and see what happens:
+
+```
+zless clinvar.vcf.gz
+less -S clinvar.vcf.gz
+zcat clinvar.vcf.gz | head
+zcat clinvar.vcf.gz | tail
+```
+
+If you use the `zless` command with the `-S` tag, you will not line-break the text in the window, making it easier to read. Do not run the `zcat` command on this file, as it is rather large, but you can use `zcat` and pipe the results into head, thereby only displaying the first 10 lines. 
+
+As you can see, many of the normal commands have a related command that works on zipped files (cat -> zcat, etc), but not all of them.
+
+Normally you can check how many lines is in a file using the `wc` (word count) command. But as the `wc` command does not work on zipped files, we can first use the `zcat` command, and then pipe the output to `wc`:
+
+```
+zcat clinvar.vcf.gz | wc
+```
+
+We can also find out how many unique chromosomes are in the file. To do this we will use a combination of `zgrep`, `cut` and `uniq`. We will use zgrep with the -v flag, inversing the command, meaning we will grep everything that is NOT matching. The `cut` command cuts out a specific column in the data, defined by the -f flag. And lastly, the `uniq` command removes duplicates, leaving only unique values. We will pipe these commands together using the `|` symbol:
+
+<details>
+  <summary>See code:</summary>
+````{bash}
+zgrep -v '#' clinvar.vcf.gz | cut -f1 | uniq
+````
+</details>
+
+#### **Use bcftools** 
+
+install program 
+
+<details>
+  <summary>See code:</summary>
+````{bash}
+cd ..
+bcftools view -r '1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22' rawdata/clinvar.vcf.gz -o processed_data/clinvar_chr.vcf
+````
+</details>
+
+
+tabix file
+remove unneccesary chromosomes 
+
+get some stats?
+filter out info field 
+
 
 ##### 4. Run program on files
 
 ##### 5. Do more things
+
+
+
+
+copy some text into new file
+less on File
+head on File
+tail on file
+cat File
+grep ' ' file > new file
+
+
+scp File
+gunzip Filel
+less -S file
+
+# inspect which chromosomes file has 
+cat clinvar.vcf | grep -v '##' | cut -f1 | uniq
+
+# install vcftools
+sudo apt install vcftools
+
+# check manual 
+man vcftools
+
+# remove unnecessary chromosomes
+vcftools --vcf clinvar.vcf --not-chr MT --not-chr NT_113889.1 --not-chr NT_167222.1 --not-chr NW_003315925.1 --not-chr NW_003315947.1 --not-chr NW_003315950.2 --get-INFO MC --out clinvar_filtered
+
+# run some stats
+
+
+
+
+Create a New Folder:
+
+Create a new folder named "bioinformatics_exercise."
+bash
+Copy code
+mkdir bioinformatics_exercise
+Navigate to the New Folder:
+
+Move into the newly created folder.
+bash
+Copy code
+cd bioinformatics_exercise
+Create Files:
+
+Create two empty text files named "file1.txt" and "file2.txt."
+bash
+Copy code
+touch file1.txt file2.txt
+Display File Contents:
+
+Use the cat command to display the contents of "file1.txt."
+bash
+Copy code
+cat file1.txt
+Copy Files:
+
+Create a backup folder and copy both files into it.
+bash
+Copy code
+mkdir backup
+cp file1.txt file2.txt backup/
+Move Files:
+
+Move "file1.txt" to the backup folder.
+bash
+Copy code
+mv file1.txt backup/
+View Folder Structure:
+
+Use the tree command to visualize the folder structure.
+bash
+Copy code
+tree
+Clean Up:
+
+Remove the original "file1.txt" from the current folder.
+bash
+Copy code
+rm file1.txt
+Final Check:
+
+Confirm that the "file1.txt" is now only in the backup folder.
+bash
+Copy code
+ls backup/
+Conclusion
+Congratulations! You've successfully navigated through directories, created folders, manipulated files, and used basic commands in the command line.
+
+Feel free to explore more commands and experiment with different scenarios to enhance your command-line skills.
+
+arduino
+Copy code
+
+You can copy and paste this entire text into a markdown file for your exercise.
+
+#### **Unpack the file** 
+The VCF is gzipped, so first we need to unpack it. In the lectures we talked about `unzip` for unpacking .zip files. Gzip is just another way of packing data, that is more efficient thatn zip. To unpack a gzipped file we simple use `gunzip`. So start with unpacking the file into the `rawdata` folder. This is a quite big file, and might take some time to unpack.
+
+<details>
+  <summary>See code:</summary>
+````{bash}
+gunzip clinvar_modified.vcf.gz
+````
+</details>
