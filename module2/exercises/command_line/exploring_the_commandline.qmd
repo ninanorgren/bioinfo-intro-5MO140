@@ -2,8 +2,9 @@
 title: "Exploring the command line"
 format:
   html:
+    code-fold: true
     theme: yeti
-    css: ../../module2.css
+    css: ../../module2_exercises.css
 ---
 
 ##  🎯 Objective
@@ -12,7 +13,7 @@ Practice fundamental command-line skills by navigating through directories, crea
 
 ## 📝 Instructions
 
-##### 1. Open your terminal   
+#### **Open your terminal**   
 Depending on the operating system you are using you will find the terminal in different locations.  
 
 <span class="info-box win">
@@ -22,81 +23,171 @@ Depending on the operating system you are using you will find the terminal in di
 </span>
 
 <span class="info-box mac">
-    **Windows**  
-    1. First, follow the installation instructions for WSL2  
-    2. You can directly start Ubuntu by searching for "Ubuntu" in the Start menu and select the installed Ubuntu distribution
+    **macOS**  
+    Click the Launchpad symbol in Dock, write Terminal in seach bar  
+    *or*  
+    Open folder /Apps/Tools in Finder and click on Terminal
 </span>
 
+#### **Create folder for exercise**
+Start with figuring out what folder you are currently located in using the `pwd` command
 
-##### 2. Navigate to the Home Directory:  
-- Use the `cd` command to navigate to your home directory.
+<details>
+  <summary>See code:</summary>
+````{bash}
+pwd
+````
+</details>
 
-```bash
-cd ~
+Navigate to the position where you want to create your new working directory. Use `cd` to move between folders. To go one step up in the tree structure you use `cd ..`, and to go into a specific folder you use `cd <name of folder>`. Use `pwd` frequently to orient yourself where in the folder structure you currently are. 
+
+<details>
+  <summary>See *example* code:</summary>
+````{bash}
+# Two step up, one step down into another folder:
+cd ../../Documents/
+````
+</details>
+
+Create a folder called `exercises_module2`.
+
+<details>
+  <summary>See code:</summary>
+````{bash}
+mkdir exercises-module2
+````
+</details>
+
+
+#### **Set up folder structure for project**
+ `cd` into this folder and create the following subfolders: 
+
+* rawdata 
+* tempfolder
+* processed_data
+
+<details>
+  <summary>See code:</summary>
+````{bash}
+cd exercises-module2
+mkdir rawdata
+mkdir tempfolder
+mkdir processed_data
+````
+</details>
+
+Use `pwd` and `ls` to make sure that you are in the correct place and the folders have been created correctly. If the folders where created somewhere you did not want them to be, you can remove empty folders with `rmdir`. Always make it a habit to use `pwd` and `ls` often, to verify that you are in the correct folder.
+
+#### **Add some documentation**
+It is good practice to always add documentation to any bioinformatics project you start, for documenting the purpose of the project, and any meta data.
+
+Create a file called README.txt where you put the following text:  
+
+<div class="gray-box">
+This folder is part of the linux and R exercises for module 2. It consists of the following folders:
+
+\- rawdata: contains downloaded raw data   
+\- tempfolder: contains all intermediary files not to be kept  
+\- processed_data: contains the processed data to be saved
+</div>
+
+<br> 
+
+<details>
+  <summary>See code:</summary>
+````{bash}
+touch README.txt
+nano README.txt
+# write the text above, save with Ctrl+O, close with Ctrl+X
+````
+</details>
+
+#### **Add some rawdata for practice**
+Let's add a file with some test data to start practicing how to look at and manage files. Copy the text below, and paste it into a file called `health_data_test.tsv`, located in the `rawdata` folder.
+
+```
+ID  Smoker  Heart Problems  Sex    Age
+1   No      Yes             Male   45
+2   Yes     No              Female 32
+3   No      Yes             Male   60
+4   No      No              Female 28
+5   Yes     Yes             Male   50
+6   No      No              Female 35
+7   Yes     No              Male   42
+8   No      Yes             Female 55
+9   No      No              Male   38
+10  Yes     Yes             Female 48
+11  No      No              Male   40
+12  No      Yes             Female 62
+13  Yes     No              Male   29
+14  No      Yes             Female 58
+15  No      No              Male   34
+16  Yes     Yes             Female 47
+17  No      No              Male   37
+18  No      Yes             Female 51
+19  Yes     No              Male   41
+20  No      Yes             Female 59
+21  Yes     No              Male   33
+22  No      Yes             Female 44
+23  No      No              Male   36
+24  Yes     Yes             Female 54
+25  No      No              Male   39
+26  Yes     No              Female 46
+27  No      Yes             Male   31
+28  No      No              Female 30
+29  Yes     Yes             Male   56
+30  No      No              Female 49
 ```
 
+<details>
+  <summary>See code:</summary>
+````{bash}
+cd rawdata
+touch health_data_test.tsv
+nano health_data_test.tsv
+# paste text by right-clicking, save with Ctrl+O, Ctrl+X
+````
+</details>
 
-Create a New Folder:
+Inspect the file using the following commands, and pay attention to what they do:
 
-Create a new folder named "bioinformatics_exercise."
-bash
-Copy code
-mkdir bioinformatics_exercise
-Navigate to the New Folder:
+````{bash}
+cat health_data_test.tsv
+head health_data_test.tsv
+head -n3 health_data_test.tsv
+tail health_data_test.tsv
+less health_data_test.tsv  #close less with Q
+````
 
-Move into the newly created folder.
-bash
-Copy code
-cd bioinformatics_exercise
-Create Files:
+#### **Subset the data**
+Now let's split up the data we have in Male and Female, and create 2 separate files, called `health_data_test_male.tsv` and `health_data_test_female.tsv`. Use grep, >, and >> to create 2 new files, that should be placed in the folder `processed_data`. Remember to also include the header line in both files. To solve this, first make sure to inspect the file and find out how you can grep to get the results you want.
 
-Create two empty text files named "file1.txt" and "file2.txt."
-bash
-Copy code
-touch file1.txt file2.txt
-Display File Contents:
+<details>
+  <summary>See code:</summary>
+````{bash}
+cd ..  # make sure you are in the exercises_module2 folder 
+grep ID rawdata/health_data_test.tsv > processed_data/health_data_test_male.tsv 
+grep Male rawdata/health_data_test.tsv >> processed_data/health_data_test_male.tsv 
 
-Use the cat command to display the contents of "file1.txt."
-bash
-Copy code
-cat file1.txt
-Copy Files:
+grep ID rawdata/health_data_test.tsv > processed_data/health_data_test_female.tsv 
+grep Female rawdata/health_data_test.tsv >> processed_data/health_data_test_female.tsv 
+````
+</details>
 
-Create a backup folder and copy both files into it.
-bash
-Copy code
-mkdir backup
-cp file1.txt file2.txt backup/
-Move Files:
+The solution above is dependent on you being in the exercise_module2/ folder. If you instead are in the rawdata/ folder, the solution would look like this, with the relative paths:
 
-Move "file1.txt" to the backup folder.
-bash
-Copy code
-mv file1.txt backup/
-View Folder Structure:
+<details>
+  <summary>See code:</summary>
+````{bash}
+cd ..  # make sure you are in the exercises_module2 folder 
+grep ID health_data_test.tsv > ../processed_data/health_data_test_male.tsv 
+grep Male health_data_test.tsv >> ../processed_data/health_data_test_male.tsv 
 
-Use the tree command to visualize the folder structure.
-bash
-Copy code
-tree
-Clean Up:
+grep ID health_data_test.tsv > ../processed_data/health_data_test_female.tsv 
+grep Female health_data_test.tsv >> ../processed_data/health_data_test_female.tsv 
+````
+</details>
 
-Remove the original "file1.txt" from the current folder.
-bash
-Copy code
-rm file1.txt
-Final Check:
+Make sure to inspect the files and verify that everything looks like it should.
 
-Confirm that the "file1.txt" is now only in the backup folder.
-bash
-Copy code
-ls backup/
-Conclusion
-Congratulations! You've successfully navigated through directories, created folders, manipulated files, and used basic commands in the command line.
-
-Feel free to explore more commands and experiment with different scenarios to enhance your command-line skills.
-
-arduino
-Copy code
-
-You can copy and paste this entire text into a markdown file for your exercise.
+**Now you have the basic commands needed to navigate the command line and do some basic file manipulations**

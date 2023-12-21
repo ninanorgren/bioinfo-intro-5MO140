@@ -19,40 +19,6 @@ ul.task-list li input[type="checkbox"] {
 width: 0.8em;
 margin: 0 0.8em 0.2em -1em;  vertical-align: middle;
 }
-
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-{ counter-reset: source-line 0; }
-pre.numberSource code > span
-{ position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-{ content: counter(source-line);
-position: relative; left: -1em; text-align: right; vertical-align: baseline;
-border: none; display: inline-block;
--webkit-touch-callout: none; -webkit-user-select: none;
--khtml-user-select: none; -moz-user-select: none;
--ms-user-select: none; user-select: none;
-padding: 0 4px; width: 4em;
-}
-pre.numberSource { margin-left: 3em; padding-left: 4px; }
-div.sourceCode
-{ }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -3014,7 +2980,45 @@ vertical-align: -.125em;
 
 
 <link href="data:application/octet-stream;base64,LyotLSBzY3NzOmRlZmF1bHRzIC0tKi8KCi8vIGZvbnRzCiRmb250LWZhbWlseS1zYW5zLXNlcmlmOiAiUGFsYXRpbm8gTGlub3R5cGUiLCAiQm9vayBBbnRpcXVhIiwgUGFsYXRpbm8sCiAgRnJlZVNlcmlmLCBzZXJpZiAhZGVmYXVsdDsKCi8vIGNvbG9ycwokYm9keS1iZzogI2YwZjFlYiAhZGVmYXVsdDsKJGJvZHktY29sb3I6ICMwMDAgIWRlZmF1bHQ7CiRsaW5rLWNvbG9yOiAjNTE0ODNkICFkZWZhdWx0Owokc2VsZWN0aW9uLWJnOiAjMjYzNTFjICFkZWZhdWx0OwoKLy8gaGVhZGluZ3MKJHByZXNlbnRhdGlvbi1oZWFkaW5nLWZvbnQ6ICJQYWxhdGlubyBMaW5vdHlwZSIsICJCb29rIEFudGlxdWEiLCBQYWxhdGlubywKICBGcmVlU2VyaWYsIHNlcmlmICFkZWZhdWx0OwokcHJlc2VudGF0aW9uLWhlYWRpbmctY29sb3I6ICMzODNkM2QgIWRlZmF1bHQ7CgovKi0tIHNjc3M6cnVsZXMgLS0qLwoKLnJldmVhbCBhIHsKICBsaW5lLWhlaWdodDogMS4zZW07Cn0KCgpjb2RlIHsKICBmb250LXNpemU6IDEuNmVtOwp9CgoucmV2ZWFsIHByZSB7CiAgbGluZS1oZWlnaHQ6IDIuMmVtOwp9" rel="stylesheet">
-<style type="text/css">.larger-centered {font-size: 24px; text-align: center;}.info-box {display: inline-block;padding: 10px;margin: 10px;width: 70%;border-radius: 10px; color: white; word-wrap: break-word;}.win {background-color: #4C979F; border: 3px solid darkslategrey; }.mac {background-color: #934c9f; border: 3px solid rgb(79, 47, 64); }</style>
+<style type="text/css">code {
+font-size: 20px;
+color: #333; 
+}
+.blockquote {
+background-color:#C0f6ba;
+color: #083803;
+border-left: 1rem solid;
+}
+.info-box {
+display: inline-block;
+padding: 10px;
+margin: 10px;
+width: 70%;
+border-radius: 10px; 
+color: white; 
+word-wrap: break-word;
+}
+.win {
+background-color: #4C979F; 
+border: 3px solid darkslategrey; 
+}
+.mac {
+background-color: #934c9f; 
+border: 3px solid rgb(79, 47, 64); 
+}
+.gray-box {
+background-color: #F4F6F6;
+border-radius: 10px;
+padding:5px;
+}
+strong {
+font-weight: 900 !important;
+}
+details pre {
+background-color: #F4F6F6;
+font-size: 18px;
+border-radius: 10px;
+}</style>
 </head>
 
 <body class="fullcontent">
@@ -3046,35 +3050,159 @@ vertical-align: -.125em;
 </section>
 <section id="instructions" class="level2">
 <h2 class="anchored" data-anchor-id="instructions">📝 Instructions</h2>
-<section id="open-your-terminal" class="level5">
-<h5 class="anchored" data-anchor-id="open-your-terminal">1. Open your terminal</h5>
+<section id="open-your-terminal" class="level4">
+<h4 class="anchored" data-anchor-id="open-your-terminal"><strong>Open your terminal</strong></h4>
 <p>Depending on the operating system you are using you will find the terminal in different locations.</p>
 <p><span class="info-box win"> <strong>Windows</strong><br>
 1. First, follow the installation instructions for WSL2<br>
 2. You can directly start Ubuntu by searching for “Ubuntu” in the Start menu and select the installed Ubuntu distribution </span></p>
-<p><span class="info-box mac"> <strong>Windows</strong><br>
-1. First, follow the installation instructions for WSL2<br>
-2. You can directly start Ubuntu by searching for “Ubuntu” in the Start menu and select the installed Ubuntu distribution </span></p>
+<p><span class="info-box mac"> <strong>macOS</strong><br>
+Click the Launchpad symbol in Dock, write Terminal in seach bar<br>
+<em>or</em><br>
+Open folder /Apps/Tools in Finder and click on Terminal </span></p>
 </section>
-<section id="navigate-to-the-home-directory" class="level5">
-<h5 class="anchored" data-anchor-id="navigate-to-the-home-directory">2. Navigate to the Home Directory:</h5>
+<section id="create-folder-for-exercise" class="level4">
+<h4 class="anchored" data-anchor-id="create-folder-for-exercise"><strong>Create folder for exercise</strong></h4>
+<p>Start with figuring out what folder you are currently located in using the <code>pwd</code> command</p>
+<details>
+<summary>
+See code:
+</summary>
+<pre class="{bash}"><code>pwd</code></pre>
+</details>
+<p>Navigate to the position where you want to create your new working directory. Use <code>cd</code> to move between folders. To go one step up in the tree structure you use <code>cd ..</code>, and to go into a specific folder you use <code>cd &lt;name of folder&gt;</code>. Use <code>pwd</code> frequently to orient yourself where in the folder structure you currently are.</p>
+<details>
+<summary>
+See <em>example</em> code:
+</summary>
+<pre class="{bash}"><code># Two step up, one step down into another folder:
+cd ../../Documents/</code></pre>
+</details>
+<p>Create a folder called <code>exercises_module2</code>.</p>
+<details>
+<summary>
+See code:
+</summary>
+<pre class="{bash}"><code>mkdir exercises-module2</code></pre>
+</details>
+</section>
+<section id="set-up-folder-structure-for-project" class="level4">
+<h4 class="anchored" data-anchor-id="set-up-folder-structure-for-project"><strong>Set up folder structure for project</strong></h4>
+<p><code>cd</code> into this folder and create the following subfolders:</p>
 <ul>
-<li>Use the <code>cd</code> command to navigate to your home directory.</li>
+<li>rawdata</li>
+<li>tempfolder</li>
+<li>processed_data</li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ~</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Create a New Folder:</p>
-<p>Create a new folder named “bioinformatics_exercise.” bash Copy code mkdir bioinformatics_exercise Navigate to the New Folder:</p>
-<p>Move into the newly created folder. bash Copy code cd bioinformatics_exercise Create Files:</p>
-<p>Create two empty text files named “file1.txt” and “file2.txt.” bash Copy code touch file1.txt file2.txt Display File Contents:</p>
-<p>Use the cat command to display the contents of “file1.txt.” bash Copy code cat file1.txt Copy Files:</p>
-<p>Create a backup folder and copy both files into it. bash Copy code mkdir backup cp file1.txt file2.txt backup/ Move Files:</p>
-<p>Move “file1.txt” to the backup folder. bash Copy code mv file1.txt backup/ View Folder Structure:</p>
-<p>Use the tree command to visualize the folder structure. bash Copy code tree Clean Up:</p>
-<p>Remove the original “file1.txt” from the current folder. bash Copy code rm file1.txt Final Check:</p>
-<p>Confirm that the “file1.txt” is now only in the backup folder. bash Copy code ls backup/ Conclusion Congratulations! You’ve successfully navigated through directories, created folders, manipulated files, and used basic commands in the command line.</p>
-<p>Feel free to explore more commands and experiment with different scenarios to enhance your command-line skills.</p>
-<p>arduino Copy code</p>
-<p>You can copy and paste this entire text into a markdown file for your exercise.</p>
+<details>
+<summary>
+See code:
+</summary>
+<pre class="{bash}"><code>cd exercises-module2
+mkdir rawdata
+mkdir tempfolder
+mkdir processed_data</code></pre>
+</details>
+<p>Use <code>pwd</code> and <code>ls</code> to make sure that you are in the correct place and the folders have been created correctly. If the folders where created somewhere you did not want them to be, you can remove empty folders with <code>rmdir</code>. Always make it a habit to use <code>pwd</code> and <code>ls</code> often, to verify that you are in the correct folder.</p>
+</section>
+<section id="add-some-documentation" class="level4">
+<h4 class="anchored" data-anchor-id="add-some-documentation"><strong>Add some documentation</strong></h4>
+<p>It is good practice to always add documentation to any bioinformatics project you start, for documenting the purpose of the project, and any meta data.</p>
+<p>Create a file called README.txt where you put the following text:</p>
+<div class="gray-box">
+<p>This folder is part of the linux and R exercises for module 2. It consists of the following folders:</p>
+<p>- rawdata: contains downloaded raw data<br>
+- tempfolder: contains all intermediary files not to be kept<br>
+- processed_data: contains the processed data to be saved</p>
+</div>
+<p><br></p>
+<details>
+<summary>
+See code:
+</summary>
+<pre class="{bash}"><code>touch README.txt
+nano README.txt
+# write the text above, save with Ctrl+O, close with Ctrl+X</code></pre>
+</details>
+</section>
+<section id="add-some-rawdata-for-practice" class="level4">
+<h4 class="anchored" data-anchor-id="add-some-rawdata-for-practice"><strong>Add some rawdata for practice</strong></h4>
+<p>Let’s add a file with some test data to start practicing how to look at and manage files. Copy the text below, and paste it into a file called <code>health_data_test.tsv</code>, located in the <code>rawdata</code> folder.</p>
+<pre><code>ID  Smoker  Heart Problems  Sex    Age
+1   No      Yes             Male   45
+2   Yes     No              Female 32
+3   No      Yes             Male   60
+4   No      No              Female 28
+5   Yes     Yes             Male   50
+6   No      No              Female 35
+7   Yes     No              Male   42
+8   No      Yes             Female 55
+9   No      No              Male   38
+10  Yes     Yes             Female 48
+11  No      No              Male   40
+12  No      Yes             Female 62
+13  Yes     No              Male   29
+14  No      Yes             Female 58
+15  No      No              Male   34
+16  Yes     Yes             Female 47
+17  No      No              Male   37
+18  No      Yes             Female 51
+19  Yes     No              Male   41
+20  No      Yes             Female 59
+21  Yes     No              Male   33
+22  No      Yes             Female 44
+23  No      No              Male   36
+24  Yes     Yes             Female 54
+25  No      No              Male   39
+26  Yes     No              Female 46
+27  No      Yes             Male   31
+28  No      No              Female 30
+29  Yes     Yes             Male   56
+30  No      No              Female 49</code></pre>
+<details>
+<summary>
+See code:
+</summary>
+<pre class="{bash}"><code>cd rawdata
+touch health_data_test.tsv
+nano health_data_test.tsv
+# paste text by right-clicking, save with Ctrl+O, Ctrl+X</code></pre>
+</details>
+<p>Inspect the file using the following commands, and pay attention to what they do:</p>
+<pre class="{bash}"><code>cat health_data_test.tsv
+head health_data_test.tsv
+head -n3 health_data_test.tsv
+tail health_data_test.tsv
+less health_data_test.tsv  #close less with Q</code></pre>
+</section>
+<section id="subset-the-data" class="level4">
+<h4 class="anchored" data-anchor-id="subset-the-data"><strong>Subset the data</strong></h4>
+<p>Now let’s split up the data we have in Male and Female, and create 2 separate files, called <code>health_data_test_male.tsv</code> and <code>health_data_test_female.tsv</code>. Use grep, &gt;, and &gt;&gt; to create 2 new files, that should be placed in the folder <code>processed_data</code>. Remember to also include the header line in both files. To solve this, first make sure to inspect the file and find out how you can grep to get the results you want.</p>
+<details>
+<summary>
+See code:
+</summary>
+<pre class="{bash}"><code>cd ..  # make sure you are in the exercises_module2 folder 
+grep ID rawdata/health_data_test.tsv &gt; processed_data/health_data_test_male.tsv 
+grep Male rawdata/health_data_test.tsv &gt;&gt; processed_data/health_data_test_male.tsv 
+
+grep ID rawdata/health_data_test.tsv &gt; processed_data/health_data_test_female.tsv 
+grep Female rawdata/health_data_test.tsv &gt;&gt; processed_data/health_data_test_female.tsv </code></pre>
+</details>
+<p>The solution above is dependent on you being in the exercise_module2/ folder. If you instead are in the rawdata/ folder, the solution would look like this, with the relative paths:</p>
+<details>
+<summary>
+See code:
+</summary>
+<pre class="{bash}"><code>cd ..  # make sure you are in the exercises_module2 folder 
+grep ID health_data_test.tsv &gt; ../processed_data/health_data_test_male.tsv 
+grep Male health_data_test.tsv &gt;&gt; ../processed_data/health_data_test_male.tsv 
+
+grep ID health_data_test.tsv &gt; ../processed_data/health_data_test_female.tsv 
+grep Female health_data_test.tsv &gt;&gt; ../processed_data/health_data_test_female.tsv </code></pre>
+</details>
+<p>Make sure to inspect the files and verify that everything looks like it should.</p>
+<p><strong>Now you have the basic commands needed to navigate the command line and do some basic file manipulations</strong></p>
 </section>
 </section>
 
