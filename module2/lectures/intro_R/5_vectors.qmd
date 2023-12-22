@@ -51,7 +51,7 @@ v1 * v2 # scalar multiplication
 v1 / v2 # division
 ```
 
-## Vectors: recycling rule
+## Vectors - recycling rule
 ```{r, echo=T}
 v1 <- c(1, 2, 3, 4, 5)
 v2 <- c(1, 2)
@@ -59,7 +59,7 @@ v1 + v2
 ```
 Values in the shorter vector will be **recycled** to match the length of the longer one: v2 <- c(1, 2, 1, 2, 1)
 
-## Vectors: indexing
+## Vectors - indexing
 Access or retrieve particular elements of a vector by using the [] notation:
 ```{r, echo=T}
 vec <- c('a', 'b', 'c', 'd', 'e')
@@ -71,7 +71,7 @@ vec[-1] # remove the first element
 R is 1-based!
 
 
-## Vectors: indexing
+## Vectors - indexing
 And what happens if we want to retrieve elements outside the vector?
 ```{r, echo=T}
 vec[0] # R counts elements from 1
@@ -81,7 +81,7 @@ vec[78] # Index past vector length
 
 >Element **higher** than the vector's length -> you get an NA value.
 
-## Vectors: indexing
+## Vectors - indexing
 Retrieve elements of a vector using a vector of indices:
 ```{r, echo=T}
 vec <- c('a', 'b', 'c', 'd', 'e')
@@ -89,7 +89,7 @@ vec.ix <- c(1,3,5)
 vec[vec.ix]
 ```
 
-## Vectors: indexing
+## Vectors - indexing
 Or even a logical vector:
 ```{r vec.index.vec.log, echo=T}
 vec <- c('a', 'b', 'c', 'd', 'e')
@@ -97,32 +97,98 @@ vec.ix <- c(TRUE, FALSE, TRUE, FALSE, TRUE)
 vec[vec.ix]
 ```
 
-## Vectors: indexing conditions
+## Vectors - indexing conditions
 Also logical expressions are allowed in indexing:
 ```{r, echo=T}
 vec <- c(1, 2, 3, 4, 5)
 vec[vec < 3]
 ```
 
-## Vectors: more operations
+## Vectors - more operations
 Reverse a vector:
 ```{r, echo=T}
 vec <- c(1, 2, 3, 4, 5)
 rev(vec)
 ```
 
-## Vectors: more operations
-Generate vectors of subsequent numbers using `:`:
-```{r, echo=T}
-v <- c(5:7)
-v
-v2 <- c(3:-4)
-v2
-```
 
-## Vectors: size
+## Vectors - size
 To get the size of a vector, use `length()`:
 ```{r, echo=T}
 vec <- c(1:78)
 length(vec)
+```
+
+## Vectors - substitute element
+To substitute an element in a vector:
+```{r, echo=T}
+vec <- c(1:5)
+vec
+```
+
+## Vectors - substitute element
+To substitute an element in a vector:
+```{r, echo=T}
+vec <- c(1:5)
+vec
+vec[3] <- 'a' # Note the coercion!
+vec 
+```
+
+
+## Vectors - sorting
+To sort values of a vector
+```{r, echo=T}
+vec <- c(1:5, 1:3)
+vec
+```
+
+## Vectors - sorting
+To sort values of a vector
+```{r, echo=T}
+vec <- c(1:5, 1:3)
+vec
+sort(vec)
+```
+
+## Vectors - sorting
+To sort values of a vector
+```{r, echo=T}
+vec <- c(1:5, 1:3)
+vec
+sort(vec)
+sort(vec, decreasing = TRUE)
+```
+
+## Lists
+
+A *list* is a collection of elements that can be of *various* data types
+
+```{r, echo=T}
+name <- c('R2D2', 'C3PO', 'BB8')
+weight <- c(21, 54, 17)
+data <- list(name=name, weight)
+data
+```
+
+## Lists
+
+A *list* is a collection of elements that can be of *various* data types
+
+```{r, echo=T}
+name <- c('R2D2', 'C3PO', 'BB8')
+weight <- c(21, 54, 17)
+data <- list(name=name, weight)
+data$name
+```
+
+## Lists
+
+A *list* is a collection of elements that can be of *various* data types
+
+```{r, echo=T}
+name <- c('R2D2', 'C3PO', 'BB8')
+weight <- c(21, 54, 17)
+data <- list(name=name, weight)
+data[[2]]
 ```

@@ -1,0 +1,146 @@
+---
+title: "Complex data structures: Matrices"
+author: "Nina Norgren"
+format: 
+    revealjs:
+        theme: [serif, ../../../custom.scss]
+        css: ../../module2.css
+embed-resources: true
+---
+
+## Complex data structures
+
+dim | Homogenous | Heterogenous
+----|------------|-----------------
+1d  | vectors    | list
+2d  | matrices   | data frame
+nd  | arrays     | n/a  
+
+## Matrices
+
+A **matrix** is a 2-dimensional data structure. Like vector, it consists of elements of the same type. A matrix has *rows* and *columns*.  
+
+$$\mathbf{X} = \left[\begin{array}
+{rrr}
+1 & 2 & 3 \\
+4 & 5 & 6 \\
+7 & 8 & 9
+\end{array}\right]$$
+
+```{r, matrix, echo=T}
+#| cache-vars: c(X)
+X <- matrix(1:9, # numbers to fill
+       nrow=3, # three rows (or ncol=3)
+       byrow=T) # populate by row
+X
+```
+ 
+## Matrices - indexing
+
+Elements of a matrix are retrieved using the [], as for vectors.  
+Two dimensions -- the row and the column:
+
+```{r, matrix-index, echo=T}
+X[1,2] # 1st row, 2nd column
+```
+
+## Matrices - indexing
+
+Elements of a matrix are retrieved using the [], as for vectors.  
+Two dimensions -- the row and the column:
+
+```{r, echo=T}
+X[1,2] # 1st row, 2nd column
+X[3,] # The entire 3rd row
+```
+
+## Matrices - indexing
+
+Elements of a matrix are retrieved using the [], as for vectors.  
+Two dimensions -- the row and the column:
+
+```{r, echo=T}
+X[1,2] # 1st row, 2nd column
+X[3,] # The entire 3rd row
+X[,2] # The 2nd column
+```
+
+## Matrices - dimensions
+
+To check the dimensions of a matrix, use dim()
+
+```{r, echo=T}
+X
+dim(X) # 3 rows and 3 columns
+```
+
+## Matrices - transposition
+
+To **transpose** a matrix use t():
+
+```{r matrix.t, echo=T}
+X
+t(X)
+```
+
+## Matrices &mdash; multiplication
+
+Different types of matrix multiplication exist:
+```{r matrix.multi, echo=T}
+A <- matrix(1:4, nrow = 2, byrow=T)
+B <- matrix(5:8, nrow = 2, byrow=T)
+A
+B 
+```
+
+## Matrices - multiplication
+
+Different types of matrix multiplication exist:
+```{r, echo=T}
+A <- matrix(1:4, nrow = 2, byrow=T)
+B <- matrix(5:8, nrow = 2, byrow=T)
+A
+B 
+A * B # Hadamard product
+```
+
+## Matrices - apply
+
+**apply()** applies a given *function* to either each value of the matrix or in a column/row-wise manner.  
+
+<br>
+
+Mean of values by column:
+
+```{r matrix.apply, echo=T}
+X
+apply(X, MARGIN=2, mean) # 1 for rows
+```
+
+## Matrices - apply
+
+And now we will use **apply()** to replace each element it a matrix with its deviation from the mean squared:
+
+```{r, echo=T}
+X
+```
+
+## Matrices - apply
+
+And now we will use **apply()** to add 1 to each value in the matrix:
+```{r, echo=T}
+X
+apply(X, MARGIN=c(1,2), 
+     function(val) val + 1)
+```
+
+## Matrices - adding rows/columns
+
+Add a row or a column to an already existing matrix, or make a matrix out of two or more vectors of equal length:
+
+```{r, echo=T}
+x <- c(1,1,1)
+y <- c(2,2,2)
+cbind(x,y)
+rbind(x,y)
+```

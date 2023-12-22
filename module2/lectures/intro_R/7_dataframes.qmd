@@ -1,0 +1,39 @@
+---
+title: "Complex data structures: Data frames"
+author: "Nina Norgren"
+format: 
+    revealjs:
+        theme: [serif, ../../../custom.scss]
+        css: ../../module2.css
+embed-resources: true
+---
+
+## Complex data structures
+
+dim | Homogenous | Heterogenous
+----|------------|-----------------
+1d  | vectors    | list
+2d  | matrices   | data frame
+nd  | arrays     | n/a  
+
+## Data frames  
+
+A **data frame** or a **data table** is similar to a matrix. In this structure elements of every column have the same type, but different columns can have different types. 
+
+```{r, echo=T}
+df <- data.frame(c(1:3),
+                 c('a','b','c'),
+                 c(TRUE, FALSE, TRUE))
+df
+```
+
+## Data frames
+
+Columns of a data frame are named after the call that created them. Not always the best option...
+
+```{r, echo=T}
+df <- data.frame(no.=c(1:3),
+                 letter=c('a','b','c'),
+                 isRed=c(TRUE, FALSE, TRUE))
+df
+```
