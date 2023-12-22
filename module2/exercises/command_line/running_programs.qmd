@@ -3,7 +3,7 @@ title: "Running programs through the command line"
 format:
   html:
     theme: yeti
-    css: ../../module2_exercises.css
+    css: ../../module2_exercises_bash.css
 ---
 
 ##  🎯 Objective

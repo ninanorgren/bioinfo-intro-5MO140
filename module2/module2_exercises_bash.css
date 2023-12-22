@@ -1,0 +1,53 @@
+code {
+    font-size: 20px;
+    color: #333; /* Set the color to your preference */
+  }
+
+.blockquote {
+    background-color:#C0f6ba;
+    color: #083803;
+    border-left: 1rem solid;
+}
+
+.info-box {
+  display: inline-block;
+  padding: 10px;
+  margin: 10px;
+  width: 70%;
+  border-radius: 10px; /* Rounded corners */
+  color: white; /* Text color */
+  word-wrap: break-word;
+}
+
+.win {
+  background-color: #4C979F; /* Background color */
+  border: 3px solid darkslategrey; /* Border color */
+}
+
+.mac {
+  background-color: #934c9f; /* Background color */
+  border: 3px solid rgb(79, 47, 64); /* Border color */
+}
+
+.gray-box {
+  background-color: #F4F6F6;
+  border-radius: 10px;
+  padding:5px;
+}
+
+strong {
+  font-weight: 900 !important;
+}
+
+details pre {
+  background-color: #F4F6F6;
+  font-size: 18px;
+  border-radius: 10px;
+}
+
+pre code {
+  font-size: 18px;
+  background-color: #F4F6F6;
+  border-radius: 10px;
+}
+

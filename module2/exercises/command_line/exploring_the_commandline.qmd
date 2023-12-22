@@ -4,7 +4,7 @@ format:
   html:
     code-fold: true
     theme: yeti
-    css: ../../module2_exercises.css
+    css: ../../module2_exercises_bash.css
 ---
 
 ##  🎯 Objective

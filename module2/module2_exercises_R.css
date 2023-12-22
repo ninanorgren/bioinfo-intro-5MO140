@@ -19,16 +19,6 @@ code {
   word-wrap: break-word;
 }
 
-.win {
-  background-color: #4C979F; /* Background color */
-  border: 3px solid darkslategrey; /* Border color */
-}
-
-.mac {
-  background-color: #934c9f; /* Background color */
-  border: 3px solid rgb(79, 47, 64); /* Border color */
-}
-
 .gray-box {
   background-color: #F4F6F6;
   border-radius: 10px;
@@ -40,13 +30,28 @@ strong {
 }
 
 details pre {
-  background-color: #F4F6F6;
   font-size: 18px;
-  border-radius: 10px;
 }
 
 pre code {
   font-size: 18px;
+}
+
+div.sourceCode {
   background-color: #F4F6F6;
-  border-radius: 10px;
+}
+
+.callout-note {
+  border: none !important;
+}
+
+.callout-title-container {
+  font-size: 18px;
+  color: grey;
+  font-weight: 400;
+  margin-left: -10px;
+}
+
+.callout-toggle {
+  display: none;
 }
