@@ -61,133 +61,93 @@ zgrep -v '#' clinvar.vcf.gz | cut -f1 | uniq
 ````
 </details>
 
-#### **Use bcftools** 
+Using this command we can see that we have some chromosomes in there that we might not be so interested in for this analysis. X, Y, MT, are the sex chromosomes and the mitochondrial chromosomes. NT_113889.1, NT_167222.1, NW_003315925.1, and NW_003315947.1 are contigs or sequences that are not mapped to any of the most common chromosomes, thereby not interesting for our analysis either. Later, we will remove these chromosomes.
 
-install program 
+#### **Install bcftools** 
+
+bcftools is a very useful command line program so manipulate and filter VCF files. It can run directly on gzipped files that are indexed with tabix, another program that creates indexes of VCF files, which allows for faster access. Start by installing bcftools and tabix using `apt`. When installing programs, it does not matter what folder you are currently in, as the programs are installed in a specified location regardless.
 
 <details>
   <summary>See code:</summary>
+````{bash}
+sudo apt install bcftools
+sudo apt install tabix
+````
+</details>
+
+Once the programs are installed, verify that everything seems to be installed correctly by running:
+
+```
+bcftools
+tabix 
+```
+
+That should list the version of the program and how to use it. To get even more information on how to run these programs, you can use `man` (manual):
+
+```
+man bcftools
+man tabix
+```
+
+For even more documentation on how to run bcftool, check out their [website](https://samtools.github.io/bcftools/bcftools.html). Tabix instructions can be found [here](https://www.htslib.org/doc/tabix.html).
+
+
+#### **Use bcftools** 
+
+Let's start using bcftools to first filter out our extra chromosomes that we are not interested in. For this we will use bcftools view. Try reading the documentation and figure out how we can filter to only keep chromosomes 1-22, there are a few different ways. Remember to keep your rawdata separate from your processed data.
+
+<details>
+  <summary>See one solution:</summary>
 ````{bash}
 cd ..
 bcftools view -r '1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22' rawdata/clinvar.vcf.gz -o processed_data/clinvar_chr.vcf
 ````
 </details>
 
-
-tabix file
-remove unneccesary chromosomes 
-
-get some stats?
-filter out info field 
-
-
-##### 4. Run program on files
-
-##### 5. Do more things
-
-
-
-
-copy some text into new file
-less on File
-head on File
-tail on file
-cat File
-grep ' ' file > new file
-
-
-scp File
-gunzip Filel
-less -S file
-
-# inspect which chromosomes file has 
-cat clinvar.vcf | grep -v '##' | cut -f1 | uniq
-
-# install vcftools
-sudo apt install vcftools
-
-# check manual 
-man vcftools
-
-# remove unnecessary chromosomes
-vcftools --vcf clinvar.vcf --not-chr MT --not-chr NT_113889.1 --not-chr NT_167222.1 --not-chr NW_003315925.1 --not-chr NW_003315947.1 --not-chr NW_003315950.2 --get-INFO MC --out clinvar_filtered
-
-# run some stats
-
-
-
-
-Create a New Folder:
-
-Create a new folder named "bioinformatics_exercise."
-bash
-Copy code
-mkdir bioinformatics_exercise
-Navigate to the New Folder:
-
-Move into the newly created folder.
-bash
-Copy code
-cd bioinformatics_exercise
-Create Files:
-
-Create two empty text files named "file1.txt" and "file2.txt."
-bash
-Copy code
-touch file1.txt file2.txt
-Display File Contents:
-
-Use the cat command to display the contents of "file1.txt."
-bash
-Copy code
-cat file1.txt
-Copy Files:
-
-Create a backup folder and copy both files into it.
-bash
-Copy code
-mkdir backup
-cp file1.txt file2.txt backup/
-Move Files:
-
-Move "file1.txt" to the backup folder.
-bash
-Copy code
-mv file1.txt backup/
-View Folder Structure:
-
-Use the tree command to visualize the folder structure.
-bash
-Copy code
-tree
-Clean Up:
-
-Remove the original "file1.txt" from the current folder.
-bash
-Copy code
-rm file1.txt
-Final Check:
-
-Confirm that the "file1.txt" is now only in the backup folder.
-bash
-Copy code
-ls backup/
-Conclusion
-Congratulations! You've successfully navigated through directories, created folders, manipulated files, and used basic commands in the command line.
-
-Feel free to explore more commands and experiment with different scenarios to enhance your command-line skills.
-
-arduino
-Copy code
-
-You can copy and paste this entire text into a markdown file for your exercise.
-
-#### **Unpack the file** 
-The VCF is gzipped, so first we need to unpack it. In the lectures we talked about `unzip` for unpacking .zip files. Gzip is just another way of packing data, that is more efficient thatn zip. To unpack a gzipped file we simple use `gunzip`. So start with unpacking the file into the `rawdata` folder. This is a quite big file, and might take some time to unpack.
+Check if we managed to remove the chromosomes we were not interested in:
 
 <details>
   <summary>See code:</summary>
 ````{bash}
-gunzip clinvar_modified.vcf.gz
+grep -v '#' processed_data/clinvar_chr.vcf | cut -f1 | uniq
 ````
 </details>
+
+
+#### **Final cleanup**
+
+Now let's take a look at the last column, the INFO field in this file: 
+
+![](img/vcf_info.PNG){width=900}
+
+Inspect the INFO field closely. What we are interested in for this exercise is the last entry, where the impact of the variant is listed. Some of the classifications are:  
+
+- missense mutation 
+- synonymous mutation 
+- nonsynonymous mutation 
+- intron variant 
+
+Plus other types of variants. So how do we keep only this information? In this case bcftools can only do so much, and we might have to rely on our command line skills. The skills needed to remove this excess information is beyond the scope of this course, BUT, let's give it a go anyway, using our friend ChatGPT. 
+
+Best way to use ChatGPT is to input a line of the VCF file, and ask very specifically how to remove the excess information in the INFO field. Learning how to query and use ChatGPT is a good skill to have as a bioinformatician. However, as we all know, ChatGPT has a tendendy of fabricating information sometimes. So never trust the output without validating the results. 
+
+If you did not manage to get code from ChatGPT to remove the information, below is one example of how it can be done. Copy paste this code, together with an example line from the VCF file, into ChatGPT and have it explain what the code does. 
+
+<details>
+  <summary>See code:</summary>
+````{bash}
+cat clinvar_chr.vcf | awk 'BEGIN {OFS=FS="\t"} {sub(/.*\|/, "", $8)}1' > clinvar_chr_info.vcf
+````
+</details>
+
+
+We will later use this file to import into R, and do some plotting. Let's do a final tweak and remove the meta data in the beginning of the file, as this will make it easier to load into R. Use `grep` to remove all lines starting with ##, and write the results to a new file.
+
+<details>
+  <summary>See code:</summary>
+````{bash}
+grep -v '##' clinvar_chr_info.vcf > clinvar_chr_info_meta.vcf
+````
+</details>
+
+Inspect the file and make sure everything looks as it should. Now, the file is prepared for being imported into R where we will continue our analysis. Feel free to remove any unnecessary files no longer needed with the `rm` commands. Just be sure not to remove any of the files you might need.
