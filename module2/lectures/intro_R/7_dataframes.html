@@ -1266,7 +1266,7 @@ Nina Norgren
 </section>
 <section id="data-frames-1" class="slide level2">
 <h2>Data frames</h2>
-<p>Columns of a data frame are named after the call that created them. Not always the best option…</p>
+<p>Assign names to columns for readability</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">no.=</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>),</span>
 <span id="cb3-2"><a href="#cb3-2"></a>                 <span class="at">letter=</span><span class="fu">c</span>(<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;c&#39;</span>),</span>
@@ -1277,6 +1277,111 @@ Nina Norgren
 1   1      a  TRUE
 2   2      b FALSE
 3   3      c  TRUE</code></pre>
+</div>
+</div>
+</section>
+<section id="data-frames---accessing-values" class="slide level2">
+<h2>Data frames - accessing values</h2>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>  no. letter isRed
+1   1      a  TRUE
+2   2      b FALSE
+3   3      c  TRUE</code></pre>
+</div>
+</div>
+</section>
+<section id="data-frames---accessing-values-1" class="slide level2">
+<h2>Data frames - accessing values</h2>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>  no. letter isRed
+1   1      a  TRUE
+2   2      b FALSE
+3   3      c  TRUE</code></pre>
+</div>
+</div>
+<p><br></p>
+<p>First row:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>df[<span class="dv">1</span>,]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  no. letter isRed
+1   1      a  TRUE</code></pre>
+</div>
+</div>
+</section>
+<section id="data-frames---accessing-values-2" class="slide level2">
+<h2>Data frames - accessing values</h2>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>  no. letter isRed
+1   1      a  TRUE
+2   2      b FALSE
+3   3      c  TRUE</code></pre>
+</div>
+</div>
+<p><br></p>
+<p>Second column:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>df[,<span class="dv">2</span>] </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] &quot;a&quot; &quot;b&quot; &quot;c&quot;</code></pre>
+</div>
+</div>
+</section>
+<section id="data-frames---accessing-values-3" class="slide level2">
+<h2>Data frames - accessing values</h2>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>  no. letter isRed
+1   1      a  TRUE
+2   2      b FALSE
+3   3      c  TRUE</code></pre>
+</div>
+</div>
+<p><br></p>
+<p>Rows 2-3 from the isRed column:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>df[<span class="dv">2</span><span class="sc">:</span><span class="dv">3</span>, <span class="st">&#39;isRed&#39;</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE  TRUE</code></pre>
+</div>
+</div>
+</section>
+<section id="data-frames---accessing-values-4" class="slide level2">
+<h2>Data frames - accessing values</h2>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>  no. letter isRed
+1   1      a  TRUE
+2   2      b FALSE
+3   3      c  TRUE</code></pre>
+</div>
+</div>
+<p><br></p>
+<p>The first 2 characters in letter:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a>df<span class="sc">$</span>letter[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] &quot;a&quot; &quot;b&quot;</code></pre>
+</div>
+</div>
+</section>
+<section id="data-frames---merging" class="slide level2">
+<h2>Data frames - merging</h2>
+<p>A very useful feature of R is merging two data frames on certain key using <strong>merge</strong>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a>df1 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">no=</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>),</span>
+<span id="cb18-2"><a href="#cb18-2"></a>                 <span class="at">letter=</span><span class="fu">c</span>(<span class="st">&quot;a&quot;</span>,<span class="st">&quot;b&quot;</span>,<span class="st">&quot;c&quot;</span>))</span>
+<span id="cb18-3"><a href="#cb18-3"></a>df2 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">no=</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>),</span>
+<span id="cb18-4"><a href="#cb18-4"></a>                 <span class="at">letter=</span><span class="fu">c</span>(<span class="st">&quot;A&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;C&quot;</span>))</span>
+<span id="cb18-5"><a href="#cb18-5"></a><span class="fu">merge</span>(df1, df2, <span class="at">by=</span><span class="st">&#39;no&#39;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  no letter.x letter.y
+1  1        a        A
+2  2        b        B
+3  3        c        C</code></pre>
 </div>
 </div>
 <div class="footer footer-default">

@@ -29,7 +29,7 @@ df
 
 ## Data frames
 
-Columns of a data frame are named after the call that created them. Not always the best option...
+Assign names to columns for readability
 
 ```{r, echo=T}
 df <- data.frame(no.=c(1:3),
@@ -37,3 +37,90 @@ df <- data.frame(no.=c(1:3),
                  isRed=c(TRUE, FALSE, TRUE))
 df
 ```
+
+## Data frames - accessing values
+
+```{r, eval=TRUE, echo=FALSE}
+df <- data.frame(no.=c(1:3),
+                 letter=c('a','b','c'),
+                 isRed=c(TRUE, FALSE, TRUE))
+df
+```
+
+## Data frames - accessing values
+
+```{r, eval=TRUE, echo=FALSE}
+df <- data.frame(no.=c(1:3),
+                 letter=c('a','b','c'),
+                 isRed=c(TRUE, FALSE, TRUE))
+df
+```
+
+<br>
+
+First row:
+```{r, echo=T}
+df[1,]
+```
+
+## Data frames - accessing values
+
+```{r, eval=TRUE, echo=FALSE}
+df <- data.frame(no.=c(1:3),
+                 letter=c('a','b','c'),
+                 isRed=c(TRUE, FALSE, TRUE))
+df
+```
+
+<br>
+
+Second column:
+```{r, echo=T}
+df[,2] 
+```
+
+## Data frames - accessing values
+
+```{r, eval=TRUE, echo=FALSE}
+df <- data.frame(no.=c(1:3),
+                 letter=c('a','b','c'),
+                 isRed=c(TRUE, FALSE, TRUE))
+df
+```
+
+<br>
+
+Rows 2-3 from the isRed column:
+```{r, echo=T}
+df[2:3, 'isRed']
+```
+
+## Data frames - accessing values
+
+```{r, eval=TRUE, echo=FALSE}
+df <- data.frame(no.=c(1:3),
+                 letter=c('a','b','c'),
+                 isRed=c(TRUE, FALSE, TRUE))
+df
+```
+
+<br>
+
+The first 2 characters in letter:
+```{r, echo=T}
+df$letter[1:2]
+```
+
+## Data frames - merging
+
+A very useful feature of R is merging two data frames on certain key using  **merge**:
+
+```{r, echo=T}
+df1 <- data.frame(no=c(1:3),
+                 letter=c("a","b","c"))
+df2 <- data.frame(no=c(1:3),
+                 letter=c("A","B","C"))
+merge(df1, df2, by='no')
+```
+
+## What else? stringsasfactors?
