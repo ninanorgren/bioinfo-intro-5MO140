@@ -57,3 +57,21 @@ The following attributes are available. All attributes are semi-colon separated 
 
 
 Lines in the beginning of the file starting with # marks meta data about the file.
+
+## Example
+ 
+```
+chr1    MySource    gene    1000    9000    .    +    .    gene_id "ENSG000001"; gene_name "ExampleGene"
+chr1    MySource    transcript    1200    3000    .    +    .    gene_id "ENSG000001"; transcript_id "ENST000001"; transcript_name "ExampleTranscript"
+```
+
+
+In this example:
+
+* The feature is a gene located on chromosome 1
+* The source of the annotation is "MySource."
+* The gene spans from position 1000 to 9000 on the positive strand
+* The gene has additional attributes, such as a unique gene ID ("ENSG000001") and a gene name ("ExampleGene")
+* The feature is a transcript associated with the same gene on chromosome 1
+* The transcript spans from position 1200 to 3000 on the positive strand
+* The transcript has attributes specifying the gene it belongs to ("ENSG000001"), a unique transcript ID ("ENST000001"), and a transcript name ("ExampleTranscript")

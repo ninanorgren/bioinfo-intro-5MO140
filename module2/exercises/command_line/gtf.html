@@ -3137,6 +3137,21 @@ display: none;
 <p>Lines in the beginning of the file starting with # marks meta data about the file.</p>
 </section>
 </section>
+<section id="example" class="level2">
+<h2 class="anchored" data-anchor-id="example">Example</h2>
+<pre><code>chr1    MySource    gene    1000    9000    .    +    .    gene_id &quot;ENSG000001&quot;; gene_name &quot;ExampleGene&quot;
+chr1    MySource    transcript    1200    3000    .    +    .    gene_id &quot;ENSG000001&quot;; transcript_id &quot;ENST000001&quot;; transcript_name &quot;ExampleTranscript&quot;</code></pre>
+<p>In this example:</p>
+<ul>
+<li>The feature is a gene located on chromosome 1</li>
+<li>The source of the annotation is “MySource.”</li>
+<li>The gene spans from position 1000 to 9000 on the positive strand</li>
+<li>The gene has additional attributes, such as a unique gene ID (“ENSG000001”) and a gene name (“ExampleGene”)</li>
+<li>The feature is a transcript associated with the same gene on chromosome 1</li>
+<li>The transcript spans from position 1200 to 3000 on the positive strand</li>
+<li>The transcript has attributes specifying the gene it belongs to (“ENSG000001”), a unique transcript ID (“ENST000001”), and a transcript name (“ExampleTranscript”)</li>
+</ul>
+</section>
 
 </main>
 <!-- /main column -->
