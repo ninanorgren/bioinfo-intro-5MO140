@@ -1,0 +1,59 @@
+---
+title: "The GTF format"
+format:
+  html:
+    theme: yeti
+    css: ../../module2_exercises_R.css
+---
+
+## The GTF file
+
+In bioinformatics, a GTF (Gene Transfer Format) file is a standardized file format used to describe gene and transcript information for genomic features. It is commonly employed in the analysis and annotation of genomic data, especially for representing gene structures and their associated features.
+
+The GTF format is typically used to store information about gene loci, exons, transcripts, and other features found in a genome. The file is tab-delimited and consists of rows, where each row represents a genomic feature. Each feature is described by a set of attributes, and the information in the file is derived from the results of gene prediction algorithms or experimental evidence.
+
+The file is structured in such a way, that first comes the gene information, with the next line containing information about the first transcript in that gene. The line after that is exons of the transcript, and so on. Once all information about one transcript has ended, the next transcript is listed with all its information. When all transcripts of a gene have been listed, the next row is for the next gene.
+
+## Fields of the GTF format
+
+Fields are tab-separated. Also, all but the final field in each feature line must contain a value; “empty” columns are denoted with a ‘.’
+
+
+Field     | Explanation |
+----------|---------------------------|
+seqname   | name of the chromosome or scaffold; chromosome names without a 'chr' | 
+source    | name of the program that generated this feature, or the data source (database or project name) |
+feature   | feature type name. Current allowed features are {gene, transcript, exon, CDS, Selenocysteine, start_codon, stop_codon and UTR} |
+start     | start position of the feature, with sequence numbering starting at 1 |
+end       | end position of the feature, with sequence numbering starting at 1 |
+score     | a floating point value indiciating the score of a feature |
+strand    | defined as + (forward) or - (reverse) |
+frame     | one of '0', '1' or '2'. Frame indicates the number of base pairs before you encounter a full codon |
+attribute | a semicolon-separated list of tag-value pairs (separated by a space), providing additional information about each feature. A key can be repeated multiple times |
+
+
+#### Attributes
+
+The following attributes are available. All attributes are semi-colon separated pairs of keys and values.
+
+* gene_id: The stable identifier for the gene
+* gene_version: The stable identifier version for the gene
+* gene_name: The official symbol of this gene
+* gene_source: The annotation source for this gene
+* gene_biotype: The biotype of this gene
+* transcript_id: The stable identifier for this transcript
+* transcript_version: The stable identifier version for this transcript
+* transcript_name: The symbold for this transcript derived from the gene name
+* transcript_source: The annotation source for this transcript
+* transcript_biotype: The biotype for this transcript
+* exon_id: The stable identifier for this exon
+* exon_version: The stable identifier version for this exon
+* exon_number: Position of this exon in the transcript
+* ccds_id: CCDS identifier linked to this transcript
+* protein_id: Stable identifier for this transcript’s protein
+* protein_version: Stable identifier version for this transcript’s protein
+* tag: A collection of additional key value tags
+* transcript_support_level: Ranking to assess how well a transcript is supported (from 1 to 5)
+
+
+Lines in the beginning of the file starting with # marks meta data about the file.
