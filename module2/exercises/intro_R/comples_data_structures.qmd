@@ -1,0 +1,131 @@
+---
+title: "Complex data structures"
+format:
+  html:
+    theme: yeti
+    css: ../../module2_exercises_R.css
+---
+
+## 🎯 Objective
+Hone your skills in working with vectors, matrices, and data frames in R by engaging in a set of exercises. Practice creating, manipulating, and extracting information from these fundamental data structures. Explore operations such as subsetting, indexing, and performing basic calculations on these objects to reinforce your understanding of R's core functionalities.
+
+> Remember to try to figure out what the code does before running the command, and to carefully think about why the code does what it does.
+
+## 📝 Instructions
+
+### Create and modify vectors
+
+Open R-studio and create two numeric vectors named x and y that are of equal length. Use these vectors to answer the questions below.
+
+```{r}
+x <- c(2, 4 ,7)
+y <- c(1, 5, 11)
+```
+
+How many numbers are there in the vector x?
+
+::: {.callout-note collapse="true" appearance="minimal"}
+## ![](img/play.svg){width=10}  Code
+```{r, eval=TRUE}
+length(x)
+```
+::: 
+
+
+What is the sum of all values in x?
+
+::: {.callout-note collapse="true" appearance="minimal"}
+## ![](img/play.svg){width=10}  Code
+```{r, eval=TRUE}
+sum(x)
+```
+::: 
+
+What do you get if you add x and y?
+
+::: {.callout-note collapse="true" appearance="minimal"}
+## ![](img/play.svg){width=10}  Code
+```{r, eval=TRUE}
+x + y
+```
+::: 
+
+Assign x times 2 to a new vector named z
+
+::: {.callout-note collapse="true" appearance="minimal"}
+## ![](img/play.svg){width=10}  Code
+```{r, eval=TRUE}
+z <- x * 2
+```
+::: 
+
+How many numbers will z have, why?
+
+::: {.callout-note collapse="true" appearance="minimal"}
+## ![](img/play.svg){width=10}  Code
+```{r, eval=TRUE}
+length(z)
+```
+::: 
+
+
+Create a numeric vector with all integers from 5 to 107
+
+::: {.callout-note collapse="true" appearance="minimal"}
+## ![](img/play.svg){width=10}  Code
+```{r, eval=TRUE}
+vec.tmp <- 5:107  
+vec.tmp
+```
+::: 
+
+### Modify and subset vectors
+
+Create a new character vector that contains the following words and save it using a suitable name:
+`apple, banana, orange, kiwi, potato`.
+
+::: {.callout-note collapse="true" appearance="minimal"}
+## ![](img/play.svg){width=10}  Code
+```{r, eval=TRUE}
+veggies <- c("apple", "banana", "orange", "kiwi", "potato")
+```
+::: 
+
+Select orange from the vector
+
+::: {.callout-note collapse="true" appearance="minimal"}
+## ![](img/play.svg){width=10}  Code
+```{r, eval=TRUE}
+veggies[3]
+```
+::: 
+
+Select all fruits from the vector
+
+::: {.callout-note collapse="true" appearance="minimal"}
+## ![](img/play.svg){width=10}  Code
+```{r, eval=TRUE}
+veggies[-5]  
+veggies[1:4]  
+```
+::: 
+
+
+Convert the character string to a numeric vector
+
+::: {.callout-note collapse="true" appearance="minimal"}
+## ![](img/play.svg){width=10}  Code
+```{r, eval=TRUE}
+as.numeric(veggies) 
+```
+::: 
+
+Create a vector of logic values that can be used to extract every second value from your character vector
+
+::: {.callout-note collapse="true" appearance="minimal"}
+## ![](img/play.svg){width=10}  Code
+```{r, eval=TRUE}
+selection <- c(FALSE, TRUE, FALSE, TRUE, FALSE)  
+veggies[selection]  
+```
+:::

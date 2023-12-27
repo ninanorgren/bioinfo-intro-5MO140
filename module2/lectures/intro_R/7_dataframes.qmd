@@ -123,4 +123,150 @@ df2 <- data.frame(no=c(1:3),
 merge(df1, df2, by='no')
 ```
 
-## What else? stringsasfactors?
+## Data frames - inspecting
+
+The `str()` function provides a compact display of the internal structure of an R object
+
+```{r, echo=T}
+df <- data.frame(no.=c(1:3),
+                 letter=c('a','b','c'),
+                 isRed=c(TRUE,FALSE,TRUE))
+str(df)
+```
+
+## Data frames - inspecting
+
+The `summary()` function generates a summary of descriptive statistics for each variable in a data frame
+
+```{r, echo=T}
+df <- data.frame(no.=c(1:3),
+                 letter=c('a','b','c'),
+                 isRed=c(TRUE,FALSE,TRUE))
+summary(df)
+```
+
+## Data frames - setting row and column names 
+
+Update/set row- and column names using `rownames()` and `colnames()`
+
+```{r, echo=T}
+df <- data.frame(no.=c(1:3),
+                 letter=c('a','b','c'),
+                 isRed=c(TRUE,FALSE,TRUE))
+df
+```
+
+## Data frames - setting row and column names 
+
+Update/set row- and column names using `rownames()` and `colnames()`
+
+```{r, echo=T}
+df <- data.frame(no.=c(1:3),
+                 letter=c('a','b','c'),
+                 isRed=c(TRUE,FALSE,TRUE))
+rownames(df) <- c('one', 'two', 'three')
+df
+```
+
+## Data frames - setting row and column names 
+
+Update/set row- and column names using `rownames()` and `colnames()`
+
+```{r, echo=T}
+df <- data.frame(no.=c(1:3),
+                 letter=c('a','b','c'),
+                 isRed=c(TRUE,FALSE,TRUE))
+colnames(df) <- c('NO.', 'char', 'isBlue')
+df
+```
+
+## Data frames - accessing
+
+Access values using colnames and rownames
+
+```{r, echo=T}
+df <- data.frame(no.=c(1:3),
+                 letter=c('a','b','c'),
+                 isRed=c(TRUE,FALSE,TRUE))
+rownames(df) <- c('one', 'two', 'three')
+df$isRed
+```
+
+## Data frames - accessing
+
+Access values using colnames and rownames
+
+```{r, echo=T}
+df <- data.frame(no.=c(1:3),
+                 letter=c('a','b','c'),
+                 isRed=c(TRUE,FALSE,TRUE))
+rownames(df) <- c('one', 'two', 'three')
+df['two',]
+```
+
+Note the difference in accessing colnames and rownames!
+
+## Data frames - updating
+
+Add a new column to the data frame
+
+```{r, echo=T}
+df <- data.frame(no.=c(1:3),
+                 letter=c('a','b','c'),
+                 isRed=c(TRUE,FALSE,TRUE))
+df$grade <- c(34, 46, 12)
+df
+```
+
+## Data frames - filtering
+
+Filter rows based on column properties
+
+```{r, echo=T}
+df <- data.frame(no.=c(1:3),
+                 letter=c('a','b','c'),
+                 isRed=c(TRUE,FALSE,TRUE))
+df[df$no. > 1, ]
+```
+
+## Data frames - filtering
+
+Filter rows based on column properties
+
+```{r, echo=T}
+df <- data.frame(no.=c(1:3),
+                 letter=c('a','b','c'),
+                 isRed=c(TRUE,FALSE,TRUE))
+new_df <- df[df$no. > 1, ]
+new_df
+```
+
+## Factors
+
+* A factor is a *categorical* variable that can take on a limited and fixed set of values, known as levels
+* Commonly used in data frames to represent categorical data, such as the gender of individuals
+* Essential for analyzing and visualizing categorical data
+
+
+## Factors
+
+* A factor is a *categorical* variable that can take on a limited and fixed set of values, known as levels
+* Commonly used in data frames to represent categorical data, such as the gender of individuals
+* Essential for analyzing and visualizing categorical data
+
+```{r, echo=T}
+df <- data.frame(
+  Name = c("Alice", "Bob", "Charlie"),
+  Gender = factor(c("Female", "Male", "Male"))
+)
+levels(df$Gender)
+```
+
+
+## exercise
+For exercise 
+nrow
+ncol
+dim 
+subset 
+missing values 
