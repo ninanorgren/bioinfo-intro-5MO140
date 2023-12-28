@@ -1,0 +1,28 @@
+---
+title: ""
+format:
+  html:
+    theme: yeti
+    css: ../module2.css
+---
+
+In this section, we will start exploring R, a powerful programming language and environment specifically designed for statistical computing and data analysis. R offers a versatile platform for data manipulation, visualization, and statistical modeling. This introduction will guide you through the fundamental aspects of R, covering topics ranging from basic syntax to essential data structures.
+
+## Syllabus
+
+* Getting Started with R
+* Installation and setup
+* Introduction to the R console and RStudio
+* Basic R syntax and commands
+* Data Structures in R
+* Understanding vectors, matrices, and data frames
+* Manipulating and indexing data structures
+* Applying basic mathematical operations
+* Data Visualization in R
+* Introduction to ggplot2 for creating plots
+* Loading and exploring datasets
+
+
+The materials for these lectures draw inspiration from various resources, combining practical examples and real-world applications to enhance your understanding of R. Whether you're new to programming or looking to expand your skills, this introduction aims to provide a solid foundation for your journey into the realm of R programming.
+
+The materials used for these lectures are heavily inspired by the [R Programming Foundations for Life Scientist](https://nbisweden.github.io/workshop-r/2310/index.html) course given by [NBIS](https://nbis.se). Feel free to check it out for even more in-depth details on R usage!
