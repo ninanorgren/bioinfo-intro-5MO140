@@ -1,0 +1,397 @@
+---
+title: "Complex data structures"
+format:
+  html:
+    theme: yeti
+    css: ../../module2_exercises_R.css
+---
+
+## 🎯 Objective
+Hone your skills in working with vectors, matrices, and data frames in R by engaging in a set of exercises. Practice creating, manipulating, and extracting information from these fundamental data structures. Explore operations such as subsetting, indexing, and performing basic calculations on these objects to reinforce your understanding of R's core functionalities.
+
+> Remember to try to figure out what the code does before running the command, and to carefully think about why the code does what it does.
+
+## 🔗 Vectors in R
+
+Depending on the type of data one needs to store in R different data structures can be used. The four most commonly used data types in R is
+vectors, lists, matrixes and data frames. We will in this exercise work only with vectors.
+
+The most basic data structure in R are vectors. Vectors are 1-dimensional data structures that contain only one type of data (eg. all entries must have the same mode). To create a vector in R one can use the function `c()` (concatenate or combine) as seen below. This example will create a vector named example.vector with 3 entries in it.
+
+```{r}
+example.vector <- c(10, 20, 30)
+```
+
+<i class="fas fa-lightbulb"></i> If you need more information about the function `c()` you can always use the built-in manual in R. Typing `?c()` will bring up the documentation for the function `c()`.
+
+Once you have created this vector in R, you can access it by simply typing its name in an R session.
+
+```{r}
+example.vector
+```
+
+The output generate on screen shows the entries in your vector and the 1 in squared brackets indicates what position in the vector the entry to the right of it has. In this case 10 is the first entry of the vector.
+
+If we for some reason only wanted to extract the value 10 from this vector we can use the fact that we know it is the first position to do so.
+
+```{r}
+example.vector[1]
+```
+
+Since a vector can only contain one data type, all members need to be of the same type. If you try to combine data of different types into the same vector, R will not warn you, but instead coerce it to the most flexible type (From least to most flexible: Logical, integer, double, character). Hence, adding a number to a logical vector will turn the whole vector to a numeric vector.
+
+To check what data type an object is, run the R built-in function `class()`, with the object as the only parameter.
+
+```{r}
+class(example.vector)
+```
+
+
+## 🧮 Basic R operators
+
+As in other programming languages there are a set of basic operators in R.
+
+| Operation | Description | Example | Example Result |
+|---|---|---|---|
+|`x + y`|Addition|`1 + 3`|`4`|
+|`x - y`|Subtraction|`1 - 3`|`-2`|
+|`x * y`|Multiplication|`2 * 3`|`6`|
+|`x / y`|Division|`1 / 2`|`0.5`|
+|`x ^ y`|Exponent|`2 ^ 2`|`4`|
+|`x %% y`|Modular arethmetic|`1 %% 2`|`1`|
+|`x %/% y`|Integer division|`1 %/% 2`|`0`|
+|`x == y`|Test for equality|`1 == 1`|`TRUE`|
+|`x <= y`|Test less or equal|`1 <= 1`|`TRUE`|
+|`x >= y`|Test for greater or equal|`1 >= 2`|`FALSE`|
+|`x && y`|Non-vectorized boolean AND|`c(T,F) && c(T,T)`|`TRUE`|
+|`x & y`|Vectorized boolean AND|`c(T,F) & c(T,T)`|`TRUE FALSE`|
+|`x || y`| Non-vectorized boolean OR|`c(T,F) || c(T,T)`|`TRUE`|
+|`x | y`|Vectorized boolean OR|`c(T,F) || c(T,T)`|`TRUE TRUE`|
+|`!x`|Boolean not|`1 != 2`|`TRUE`|
+
+Besides these, there of course numerous more or less simple functions available in any R session. For example, if we want to add all values in our example.vector that we discussed earlier, we can do that using addition:
+
+```{r}
+example.vector[1] + example.vector[2] + example.vector[3]
+```
+
+But we can also use the function `sum()` that adds all numeric values present as arguments.
+
+```{r}
+sum(example.vector)
+```
+
+To learn more about a function use the built in R manual as described earlier. If you do not know the name of a function that you believe should be found in R, use the function `help.search()` or use google to try and identify the name of the command.
+
+
+## 📊 Matrices and Dataframes
+
+A data set that have more than one dimension is conceptually hard to
+store as a vector. For two-dimensional data set the solution to this
+is to instead use matrices or data frames. As with vectors all values
+in a matrix has to be of the same type (eg. you can not mix for
+example characters and numerics in the same matrix). For data frames
+this is not a requirement and different columns can have different
+modes, but all columns in a data frame have the same number of
+entries.
+
+### Matrices 
+
+The command to create a matrix in R is `matrix()`.
+As input it takes a vector of values, the number of
+rows and the number of columns.
+
+```{r}
+X <- matrix(1:12, nrow = 4, ncol = 3)
+X
+```
+
+Note that if one only specify the number of rows or columns the it
+will infer the size of the matrix automatically using the size of
+vector and the option given. The default way of filling the matrix is
+column-wise, so the first values from the vector ends up in column 1
+of the matrix. If you instead wants to fill the matrix row by row you
+can set the byrow flag to TRUE.
+
+```{r}
+X <- matrix(1:12, nrow = 4, ncol = 3, byrow = TRUE)
+X
+```
+
+Subsetting a matrix is done the same way as for vectors, but you have
+more than one dimension to work with. So you specify the rows and
+column needed.
+
+```{r}
+X[1,2]
+```
+
+If one wants all values in a column or a row this can be specified by
+leaving the other dimension empty, hence this code will print all
+values in the second column.
+
+```{r}
+X[,2]
+```
+
+Note that if the retrieved part of a matrix can be represented as a
+vector (eg one of the dimension have the length 1) R will convert it
+to a vector otherwise it will still be a matrix.
+
+### Dataframes
+
+Even though vectors are at the very base of R usage, data frames are central to R as the most common ways to import data into R (`read.table()`) will create a dataframe. Even though a dataframe can itself contain another dataframe, by far the most common dataframes consists of a set of equally long vectors. As dataframes can contain several different data types the command `str()` is very useful to run on dataframes.
+
+```{r}
+vector1 <- 1:10
+vector2 <- letters[1:10]
+vector3 <- rnorm(10, sd = 10)
+df <- data.frame(vector1, vector2, vector3)
+str(df)
+```
+
+In the above example, we can see that the dataframe **df** contains 10 observations for three variables that all have different modes, column 1 is an integer vector, column 2 a vector with characters and column 3 a numeric vector.
+
+
+## 📝 Instructions
+
+### Create and modify vectors
+
+Open R-studio and create two numeric vectors named x and y that are of equal length. Use these vectors to answer the questions below.
+
+```{r}
+x <- c(2, 4 ,7)
+y <- c(1, 5, 11)
+```
+
+How many numbers are there in the vector x?
+
+::: {.callout-note collapse="true" appearance="minimal"}
+## ![](img/play.svg){width=10}  Code
+```{r, eval=TRUE}
+length(x)
+```
+::: 
+
+
+What is the sum of all values in x?
+
+::: {.callout-note collapse="true" appearance="minimal"}
+## ![](img/play.svg){width=10}  Code
+```{r, eval=TRUE}
+sum(x)
+```
+::: 
+
+What do you get if you add x and y?
+
+::: {.callout-note collapse="true" appearance="minimal"}
+## ![](img/play.svg){width=10}  Code
+```{r, eval=TRUE}
+x + y
+```
+::: 
+
+Assign x times 2 to a new vector named z
+
+::: {.callout-note collapse="true" appearance="minimal"}
+## ![](img/play.svg){width=10}  Code
+```{r, eval=TRUE}
+z <- x * 2
+```
+::: 
+
+How many numbers will z have, why?
+
+::: {.callout-note collapse="true" appearance="minimal"}
+## ![](img/play.svg){width=10}  Code
+```{r, eval=TRUE}
+length(z)
+```
+::: 
+
+
+Create a numeric vector with all integers from 5 to 107
+
+::: {.callout-note collapse="true" appearance="minimal"}
+## ![](img/play.svg){width=10}  Code
+```{r, eval=TRUE}
+vec.tmp <- 5:107  
+vec.tmp
+```
+::: 
+
+### Modify and subset vectors
+
+Create a new character vector that contains the following words and save it using a suitable name:
+`apple, banana, orange, kiwi, potato`.
+
+::: {.callout-note collapse="true" appearance="minimal"}
+## ![](img/play.svg){width=10}  Code
+```{r, eval=TRUE}
+veggies <- c("apple", "banana", "orange", "kiwi", "potato")
+```
+::: 
+
+Select orange from the vector
+
+::: {.callout-note collapse="true" appearance="minimal"}
+## ![](img/play.svg){width=10}  Code
+```{r, eval=TRUE}
+veggies[3]
+```
+::: 
+
+Select all fruits from the vector
+
+::: {.callout-note collapse="true" appearance="minimal"}
+## ![](img/play.svg){width=10}  Code
+```{r, eval=TRUE}
+veggies[-5]  
+veggies[1:4]  
+```
+::: 
+
+
+Convert the character string to a numeric vector
+
+::: {.callout-note collapse="true" appearance="minimal"}
+## ![](img/play.svg){width=10}  Code
+```{r, eval=TRUE}
+as.numeric(veggies) 
+```
+::: 
+
+Create a vector of logic values that can be used to extract every second value from your character vector
+
+::: {.callout-note collapse="true" appearance="minimal"}
+## ![](img/play.svg){width=10}  Code
+```{r, eval=TRUE}
+selection <- c(FALSE, TRUE, FALSE, TRUE, FALSE)  
+veggies[selection]  
+```
+:::
+
+### Create and modify matrices 
+
+Create a matrix containing 1:12 as shown below:
+
+```{r, eval=T, echo=F}
+X <- matrix(1:12, nrow = 4, ncol = 3)
+X
+```
+
+How do find out the dimensions of the matrix?
+
+::: {.callout-note collapse="true" appearance="minimal"}
+## ![](img/play.svg){width=10}  Code
+```{r,accordion=TRUE}
+dim(X)
+```
+:::
+
+Extract the second row in the matrix
+
+::: {.callout-note collapse="true" appearance="minimal"}
+## ![](img/play.svg){width=10}  Code
+```{r,accordion=TRUE}
+X[2,]
+```
+:::
+
+Add the numbers `13, 14, 15, 16` as a new column to the matrix. Save the output to a new matrix
+
+::: {.callout-note collapse="true" appearance="minimal"}
+## ![](img/play.svg){width=10}  Code
+```{r,accordion=TRUE}
+X.new <- cbind(X, c(13, 14, 15, 16))
+X.new
+```
+:::
+
+Use apply to multiply each value in your new matrix with 3
+
+::: {.callout-note collapse="true" appearance="minimal"}
+## ![](img/play.svg){width=10}  Code
+```{r,accordion=TRUE}
+apply(X.new, MARGIN=c(1,2), function(val) val * 3)
+```
+:::
+
+Create two different 2 by 2 matrices named A and B. A should contain the values 1-4 and B the values 5-8. Try out the following commands and by looking at the results see if you can figure out what is going on.
+
+```
+A. A * B
+B. A / B
+C. A %x% B
+D. A + B
+E. A - B
+F. A == B
+```
+
+::: {.callout-note collapse="true" appearance="minimal"}
+## ![](img/play.svg){width=10}  Code
+```{r,accordion=TRUE}
+A <- matrix(1:4, ncol = 2, nrow = 2)
+B <- matrix(5:8, ncol = 2, nrow = 2)
+A
+B
+
+A * B
+A / B
+A %x% B
+A + B
+A - B
+A == B
+```
+:::
+
+### Create and modify dataframes
+
+Create the dataframe example below:
+```{r}
+vector1 <- 1:10
+vector2 <- letters[1:10]
+vector3 <- rnorm(10, sd = 10)
+df <- data.frame(vector1, vector2, vector3)
+```
+
+One can select columns from a data frame using either the name or the position. Use both methods to print the last two columns from the **df** data frame.
+
+::: {.callout-note collapse="true" appearance="minimal"}
+## ![](img/play.svg){width=10}  Code
+```{r,accordion=TRUE}
+df[,2:3]
+df[,c("vector2", "vector3")]
+```
+:::
+
+Print all rows of the dataframe where the **vector3** column has a positive value.
+
+::: {.callout-note collapse="true" appearance="minimal"}
+## ![](img/play.svg){width=10}  Code
+```{r,accordion=TRUE}
+df[df$vector3>0,]
+```
+:::
+
+Re-name the columns of the dataframe to something more informative
+
+::: {.callout-note collapse="true" appearance="minimal"}
+## ![](img/play.svg){width=10}  Code
+```{r,accordion=TRUE}
+colnames(df) <- c('numbers', 'letters', 'random')
+df
+```
+:::
+
+Add a new column to the dataframe that is the first column values minus the third column values
+
+::: {.callout-note collapse="true" appearance="minimal"}
+## ![](img/play.svg){width=10}  Code
+```{r,accordion=TRUE}
+df$new <- df$numbers - df$random
+df
+```
+:::
+
