@@ -1,5 +1,5 @@
 ---
-title: "Plotting with ggplot"
+title: "Install and load libraries in R"
 author: "Nina Norgren"
 format: 
     revealjs:

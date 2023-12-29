@@ -3,7 +3,7 @@ title: ""
 format:
   html:
     theme: yeti
-    css: ../module2.css
+    css: ../../module2.css
 ---
 
 In this section, we will explore the command line interface (CLI). The command line provides a text-based way to interact with your computer, allowing for efficient file management and task execution. This introduction will cover the basics of navigation, file manipulation, and common commands.
