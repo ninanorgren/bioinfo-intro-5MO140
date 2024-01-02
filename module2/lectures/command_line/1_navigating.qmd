@@ -14,13 +14,13 @@ embed-resources: true
 - Built for multi-user systems
 - A large amount of freely available software
 
----
+::: {.fragment}
 
 - Most bioinformatics analysis software does not work on Windows!
 - Most of them run on the command line
 - Most compute systems used are running linux
 
----
+:::
 
 ## Different operating systems
 ![Windows](img/windows_logo.png){width=400}
@@ -104,7 +104,7 @@ embed-resources: true
 
 ```{}
 /home/nina/Documents/my_file.txt
-/mnt/c/Users/Nina/Downloads/my_downloaded_file.txt
+/mnt/c/Users/Nina/Documents/my_file.txt
 ```
 - Like an address:
 ```
@@ -120,7 +120,7 @@ Sweden
   - Relative to where you are when you are using it
 
 ```
-.../Documents/my_downloaded_file.txt
+.../Documents/my_file.txt
 ```
 - Like a direction
 ```

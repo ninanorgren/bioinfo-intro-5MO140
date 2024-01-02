@@ -4,13 +4,20 @@
   }
 
 .smaller_code code {
-  height: 700px;
   font-size: 25px !important;
   line-height: 1;
   }
 
 
+.medium_code code {
+  font-size: 30px !important;
+}
+
 code {
   font-size: 40px;
   color: #333; /* Set the color to your preference */
+  background-color: #e3e3e2 !important;
+  padding: 10px !important;
+  border-radius: 10px;
 }
+

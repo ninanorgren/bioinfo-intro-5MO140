@@ -1,0 +1,318 @@
+---
+title: "Plotting with ggplot2"
+author: "Nina Norgren"
+format: 
+    revealjs:
+        theme: [serif, ../../../custom.scss]
+        css: ../../module2.css
+embed-resources: true
+---
+
+## Why `ggplot2`?
+
+* Consistent code
+* Flexible
+* Automatic legends, colors etc
+* Themes for reusing styles
+* Nearly complete graphing solution
+
+
+Not suitable for:
+
+* 3D graphics
+
+
+## `ggplot2` vs Base Graphics
+
+::: {.columns}
+
+::: {.column width="40%"}
+```{r,fig.height=4.5,fig.width=4, echo=TRUE}
+#| class-source: medium_code
+#| classes: medium_code
+
+hist(iris$Sepal.Length)
+```
+::: 
+
+::: {.column width="60%"}
+```{r,fig.height=4,fig.width=4, echo=TRUE}
+#| class-source: medium_code
+#| classes: medium_code
+
+library(ggplot2)
+ggplot(iris,aes(x=Sepal.Length))+
+  geom_histogram(bins=8)
+```
+:::
+
+:::
+
+For simple graphs, the base plot seem to take minimal coding effort compared to a ggplot graph.
+
+
+## `ggplot2` vs Base Graphics
+
+::: {.columns}
+
+::: {.column width="50%"}
+```{r,fig.height=4.5,fig.width=4}
+plot(iris$Petal.Length,iris$Petal.Width,
+     col=c("red","green","blue")[iris$Species],
+     pch=c(0,1,2)[iris$Species])
+legend(x=1,y=2.5,
+       legend=c("setosa","versicolor","virginica"),
+       pch=c(0,1,2),col=c("red","green","blue"))
+```
+:::
+
+::: {.column width="50%"}
+```{r,fig.height=4,fig.width=5}
+ggplot(iris,aes(Petal.Length,Sepal.Length,color=Species))+
+  geom_point()
+```
+:::
+
+:::
+
+## `ggplot2` vs Base Graphics
+
+::: {.columns}
+
+::: {.column width="50%"}
+```{r,fig.height=4.5,fig.width=4}
+plot(iris$Petal.Length,iris$Petal.Width,
+     col=c("red","green","blue")[iris$Species],
+     pch=c(0,1,2)[iris$Species])
+legend(x=1,y=2.5,
+       legend=c("setosa","versicolor","virginica"),
+       pch=c(0,1,2),col=c("red","green","blue"))
+```
+:::
+
+::: {.column width="50%"}
+Using base graphics for plotting
+:::
+
+:::
+
+```{r,fig.height=4.5,fig.width=4, echo=TRUE, eval=FALSE}
+#| class-source: medium_code
+#| classes: medium_code
+
+plot(iris$Petal.Length,iris$Petal.Width,
+     col=c("red","green","blue")[iris$Species],
+     pch=c(0,1,2)[iris$Species])
+legend(x=1,y=2.5,
+       legend=c("setosa","versicolor","virginica"),
+       pch=c(0,1,2),col=c("red","green","blue"))
+```
+
+## `ggplot2` vs Base Graphics
+
+::: {.columns}
+
+::: {.column width="50%"}
+Using `ggplot2` for plotting
+:::
+
+::: {.column width="50%"}
+```{r,fig.height=4,fig.width=5}
+ggplot(iris,aes(Petal.Length,Sepal.Length,color=Species))+
+  geom_point()
+```
+:::
+
+:::
+
+```{r,fig.height=4,fig.width=5, echo=TRUE, eval=FALSE}
+#| class-source: medium_code
+#| classes: medium_code
+
+ggplot(iris,aes(Petal.Length,Sepal.Length,color=Species))+
+  geom_point()
+```
+
+## Grammar Of Graphics
+
+::: {.columns}
+
+::: {.column width="30%"}
+![](img/gog.png)
+:::
+
+
+::: {.column width="70%"}
+* **Data**: Input data
+* **Aesthetic**: Visual characteristics of the geometry. Size, Color, Shape etc
+* **Geom**: A geometry representing data. Points, Lines etc
+* **Statistics**: Statistical transformations. Counts, Means etc
+* **Facets**: Split data into subsets
+* **Coordinates**: Numeric system to determine position of geometry. Cartesian, Polar etc
+* **Scale**: How visual characteristics are converted to display values
+:::
+
+:::
+
+## Building a graph 
+
+```{r,fig.height=4,fig.width=5, echo=TRUE}
+#| class-source: medium_code
+#| classes: medium_code
+
+data(iris)
+head(iris, n=3)
+```
+
+
+## Building a graph 
+
+::: {.columns}
+
+::: {.column width="60%"}
+
+```{r,fig.height=4,fig.width=5, eval=FALSE, echo=TRUE}
+#| class-source: medium_code
+#| classes: medium_code
+
+ggplot(iris)
+```
+
+:::
+
+
+::: {.column width="40%"}
+```{r,fig.height=4,fig.width=5,echo=FALSE}
+data(iris)
+ggplot(iris)
+```
+:::
+
+:::
+
+**Data:** Specifying the dataset using the data argument
+
+## Building a graph 
+
+::: {.columns}
+
+::: {.column width="60%"}
+
+```{r,fig.height=4,fig.width=5, eval=FALSE, echo=TRUE}
+#| class-source: medium_code
+#| classes: medium_code
+
+ggplot(iris,aes(x=Sepal.Length,
+                y=Sepal.Width))
+```
+
+:::
+
+
+::: {.column width="40%"}
+```{r,fig.height=4,fig.width=5,echo=FALSE}
+ggplot(iris,aes(x=Sepal.Length,
+                y=Sepal.Width))
+```
+:::
+
+:::
+
+**Aesthetic Mapping (aes):** Map variables to visual properties like x and y axes, color, shape, etc.
+
+## Building a graph 
+
+::: {.columns}
+
+::: {.column width="60%"}
+
+```{r,fig.height=4,fig.width=5, eval=FALSE, echo=TRUE}
+#| class-source: medium_code
+#| classes: medium_code
+
+ggplot(iris,aes(x=Sepal.Length,
+                y=Sepal.Width))+
+       geom_point()
+```
+
+:::
+
+
+::: {.column width="40%"}
+```{r,fig.height=4,fig.width=5,echo=FALSE}
+ggplot(iris,aes(x=Sepal.Length,
+                y=Sepal.Width))+
+  geom_point()
+```
+:::
+
+:::
+
+## Building a graph 
+
+::: {.columns}
+
+::: {.column width="60%"}
+
+```{r,fig.height=4,fig.width=5, eval=FALSE, echo=TRUE}
+#| class-source: medium_code
+#| classes: medium_code
+
+ggplot(iris,aes(x=Sepal.Length,
+                y=Sepal.Width,
+                colour=Species))+
+       geom_point()
+```
+
+:::
+
+
+::: {.column width="40%"}
+```{r,fig.height=4,fig.width=5,echo=FALSE}
+ggplot(iris,aes(x=Sepal.Length,
+                y=Sepal.Width,
+                colour=Species))+
+  geom_point()
+```
+:::
+
+:::
+
+## Building a graph 
+
+::: {.columns}
+
+::: {.column width="60%"}
+
+```{r,fig.height=4,fig.width=5, eval=FALSE, echo=TRUE}
+#| class-source: medium_code
+#| classes: medium_code
+
+ggplot(iris,aes(x=Sepal.Length,
+                y=Sepal.Width))+
+       geom_point()+
+       geom_line()+
+       labs(title="My Plot", 
+            x = "Length", 
+            y = "Width") +
+       theme_minimal()
+```
+
+:::
+
+
+::: {.column width="40%"}
+```{r,fig.height=4,fig.width=5,echo=FALSE}
+ggplot(iris,aes(x=Sepal.Length,
+                y=Sepal.Width))+
+       geom_point()+
+       geom_line()+
+       labs(title="My Plot", 
+            x = "Length", 
+            y = "Width") +
+       theme_minimal()
+```
+:::
+
+:::
+

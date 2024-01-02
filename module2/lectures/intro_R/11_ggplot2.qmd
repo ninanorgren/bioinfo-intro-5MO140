@@ -1,5 +1,5 @@
 ---
-title: "Plotting with ggplot2"
+title: "Plotting with ggplot2 - Advanced usage"
 author: "Nina Norgren"
 format: 
     revealjs:
@@ -8,87 +8,229 @@ format:
 embed-resources: true
 ---
 
-## Why `ggplot2`?
+## Data formats 
 
-* Consistent code
-* Flexible
-* Automatic legends, colors etc
-* Themes for reusing styles
-* Nearly complete graphing solution
+Input data is always an R `data.frame` object 
+
+```{r}
+#| class-source: medium_code
+#| classes: medium_code
+
+class(iris)
+str(iris)
+```
+
+## Geoms 
+
+![](img/geoms.PNG){width=900}
 
 
-Not suitable for:
+## Geoms 
 
-* 3D graphics
+```{r,fig.height=5,fig.width=6, eval=TRUE, echo=TRUE}
+#| class-source: medium_code
+#| classes: medium_code
 
+library(ggplot2)
+ggplot(iris,aes(x=Sepal.Length,
+                y=Sepal.Width))+
+       geom_point()
+```
 
-## `ggplot2` vs Base Graphics
+## Geoms 
+
+```{r,fig.height=5,fig.width=6, eval=TRUE, echo=TRUE}
+#| class-source: medium_code
+#| classes: medium_code
+
+library(ggplot2)
+ggplot(iris,aes(x=Sepal.Length,
+                y=Sepal.Width))+
+       geom_line()
+```
+
+## Geoms 
+
+```{r,fig.height=5,fig.width=6, eval=TRUE, echo=TRUE}
+#| class-source: medium_code
+#| classes: medium_code
+
+library(ggplot2)
+ggplot(iris,aes(x=Sepal.Length,
+                y=Sepal.Width))+
+       geom_smooth()
+```
+
+## Geoms 
+
+```{r,fig.height=5,fig.width=6, eval=TRUE, echo=TRUE}
+#| class-source: medium_code
+#| classes: medium_code
+
+library(ggplot2)
+ggplot(iris,aes(x=Sepal.Length,
+                y=Sepal.Width))+
+       geom_point()+
+       geom_line()+
+       geom_smooth()
+```
+
+## Aesthetics 
+
+Aesthetic mapping vs aesthetic parameter 
 
 ::: {.columns}
 
 ::: {.column width="50%"}
-```{r,fig.height=4.5,fig.width=4, echo=TRUE}
-hist(iris$Sepal.Length)
+```{r,fig.height=4,fig.width=4, echo=TRUE}
+#| class-source: smaller_code
+#| classes: smaller_code
+
+ggplot(iris,aes(x=Sepal.Length,
+                y=Sepal.Width,
+                color='red'))+
+       geom_point()
 ```
 ::: 
 
 ::: {.column width="50%"}
 ```{r,fig.height=4,fig.width=4, echo=TRUE}
-library(ggplot2)
-ggplot(iris,aes(x=Sepal.Length))+
-  geom_histogram(bins=8)
+#| class-source: smaller_code
+#| classes: smaller_code
+
+ggplot(iris,aes(x=Sepal.Length,
+                y=Sepal.Width))+
+       geom_point(aes(color='red'))
 ```
 :::
 
 :::
 
-For simple graphs, the base plot seem to take minimal coding effort compared to a ggplot graph.
+## Aesthetics 
 
-
-## `ggplot2` vs Base Graphics
+Aesthetic mapping vs aesthetic parameter 
 
 ::: {.columns}
 
 ::: {.column width="50%"}
-```{r,fig.height=4.5,fig.width=4}
-plot(iris$Petal.Length,iris$Petal.Width,
-     col=c("red","green","blue")[iris$Species],
-     pch=c(0,1,2)[iris$Species])
-legend(x=1,y=2.5,
-       legend=c("setosa","versicolor","virginica"),
-       pch=c(0,1,2),col=c("red","green","blue"))
+```{r,fig.height=4,fig.width=4, echo=TRUE}
+#| class-source: smaller_code
+#| classes: smaller_code
+
+ggplot(iris,aes(x=Sepal.Length,
+                y=Sepal.Width,
+                color='red'))+
+       geom_point()+
+       geom_line()
+```
+::: 
+
+::: {.column width="50%"}
+```{r,fig.height=4,fig.width=4, echo=TRUE}
+#| class-source: smaller_code
+#| classes: smaller_code
+
+ggplot(iris,aes(x=Sepal.Length,
+                y=Sepal.Width))+
+       geom_point(aes(color='red'))+
+       geom_line()
+```
+:::
+
+:::
+
+## Aesthetics
+```{r,fig.height=5,fig.width=6, eval=TRUE, echo=TRUE}
+#| class-source: smaller_code
+#| classes: smaller_code
+
+ggplot(iris, aes(x=Sepal.Length,
+                 y=Sepal.Width))+
+       geom_point(size=3,
+                 alpha=0.8,
+                 shape=15,
+                 color="steelblue")
+```
+
+## Aesthetics
+```{r,fig.height=5,fig.width=6, eval=TRUE, echo=TRUE}
+#| class-source: smaller_code
+#| classes: smaller_code
+
+ggplot(iris, aes(x=Sepal.Length,
+                 y=Sepal.Width))+
+       geom_point(aes(size=Petal.Length,
+                 alpha=Petal.Width,
+                 shape=Species,
+                 color=Species))
+```
+
+## Scales 
+
+* scales: position, color, fill, size, shape, alpha, linetype
+* syntax: `scale_<aesthetic>_<type>`
+
+::: {.columns}
+
+::: {.column width="50%"}
+```{r,fig.height=2.7,fig.width=4, echo=TRUE}
+#| class-source: smaller_code
+#| classes: smaller_code
+ggplot(iris,aes(x=Sepal.Length,
+                y=Sepal.Width,
+                color=Species))+
+       geom_point()
+```
+::: 
+
+
+::: {.column width="50%"}
+```{r,fig.height=2.7,fig.width=4, echo=TRUE}
+#| class-source: smaller_code
+#| classes: smaller_code
+ggplot(iris,aes(x=Sepal.Length,
+                y=Sepal.Width,
+                color=Species))+
+       geom_point()+
+       scale_color_manual(
+           values=c("#5BC0EB","#FDE74C","#9BC53D"))
+```
+:::
+
+::: 
+
+
+## Facets
+
+* Split to subplots based on variable(s)
+
+::: {.columns}
+
+::: {.column width="50%"}
+```{r,fig.height=4,fig.width=5, echo=TRUE}
+#| class-source: smaller_code
+#| classes: smaller_code
+p<-ggplot(iris)+
+   geom_point(aes(x=Sepal.Length,
+                  y=Sepal.Width,
+                  color=Species))
+p
 ```
 :::
 
 ::: {.column width="50%"}
-```{r,fig.height=4,fig.width=5}
-ggplot(iris,aes(Petal.Length,Sepal.Length,color=Species))+
-  geom_point()
+```{r,fig.height=2.2,fig.width=4.5, echo=TRUE}
+#| class-source: smaller_code
+#| classes: smaller_code
+p + facet_wrap(~Species)
+```
+
+```{r,fig.height=2.4,fig.width=4.5, echo=TRUE}
+#| class-source: smaller_code
+#| classes: smaller_code
+p + facet_wrap(~Species,nrow=3)
 ```
 :::
 
 :::
 
-For anything beyond extremely basic plots, base plotting quickly become complex, and less consistent
-
-
-## Grammar Of Graphics
-
-::: {.columns}
-
-::: {.column width="40%"}
-![](img/gog.png)
-:::
-
-
-::: {.column width="60%"}
-* **Data**: Input data
-* **Aesthetic**: Visual characteristics of the geometry. Size, Color, Shape etc
-* **Geom**: A geometry representing data. Points, Lines etc
-* **Statistics**: Statistical transformations. Counts, Means etc
-* **Facets**: Split data into subsets
-* **Coordinates**: Numeric system to determine position of geometry. Cartesian, Polar etc
-* **Scale**: How visual characteristics are converted to display values
-:::
-
-:::
