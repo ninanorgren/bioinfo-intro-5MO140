@@ -1,0 +1,331 @@
+---
+title: "Read and plot data in R"
+format:
+  html:
+    theme: yeti
+    css: ../../module2_exercises_R.css
+---
+
+##  🎯 Objective
+
+Practice essential R skills by importing and manipulating data. Learn to read data into R using functions like read.table(), and how to explore both base graphics and ggplot2 for creating diverse and insightful visualizations. Verify your expectations against the actual output, fostering a deep understanding of data handling and visualization in R.
+
+> In all exercises during this course, it is important that you try to figure out what the expected result would be, prior to running the commands. You should then verify that this will indeed be the result by running the command. In case there is a discrepency between your expectations and the actual output make sure you understand why before you move forward. If you cannot figure out how to, or which command to run you can click the key to reveal example code including expected output.
+
+Also note that in many cases there are multiple solutions that solve the problem equally well.
+
+## 📚 Installing and Loading Libraries in RStudio
+
+In R, a package, is a collection of functions, datasets, and other code that extends the capabilities of base R. Libraries are collections of these packages that you can easily install and use to enhance your R programming experience.
+
+
+1. **Install a Library:**
+   - Open RStudio and go to the Console.
+   - Go to the menu and choose Tools -> Install Packages... 
+   - Start writing the name of the package you want to install to search for it 
+   - Leave the other parameters as is 
+   - Press Install
+
+2. **Load a Library:**
+   - Once installed, use `library(package_name)` to load the installed package.
+     ```{r, echo=TRUE, eval=TRUE}
+     # Example: Load the "ggplot2" package
+     library(ggplot2)
+     ```
+
+     You only need to install a library once, but you need to load it in every R session you start.
+
+3. **Verify Installation:**
+   - Verify that the library is successfully installed and loaded by running a simple function or command from the package.
+
+     ```{r, echo=TRUE, eval=TRUE}
+     packageVersion("ggplot2")
+     ```
+
+
+## 📝 Instructions
+
+#### **Read and plot gene expression data**
+
+`read.table()` is the by far the most common way to get data into R. As the function creates a data frame at import it will only work for data set that fits those criteria, meaning that the data needs to have a set of columns of equal length that are separated with a common string eg. tab, comma, semicolon etc.
+
+
+
+Read this [example data](https://raw.githubusercontent.com/ninanorgren/bioinfo-intro-5MO140/vt24/module2/exercises/intro_R/data/example.data) to R using the `read.table()` function. This files consist of gene expression values. Inspect the file and see if you need to change anything in the import.
+
+```{r,accordion=TRUE}
+ed <- read.table("https://raw.githubusercontent.com/NBISweden/workshop-r/master/data/lab_loadingdata/example.data", 
+                 sep=":")
+head(ed)
+str(ed)
+```
+
+There seem to be some problems with this dataframe: The header line is part of the data frame itself. This makes R coerce all values in the dataframe to characters, as the first column is of the type character. 
+
+Try to fix this issue and import the file again.
+
+::: {.callout-note collapse="true" appearance="minimal"}
+## ![](img/play.svg){width=10}  Code
+```{r}
+ed <- read.table("https://raw.githubusercontent.com/NBISweden/workshop-r/master/data/lab_loadingdata/example.data", 
+                 sep=":", header=TRUE)
+head(ed)
+str(ed)
+```
+:::
+
+Next, try to filter so you only keep the rows in the data where the first column's value (bZIP29_1) is more than 10. Inspect the file to see that the filter worked.
+
+::: {.callout-note collapse="true" appearance="minimal"}
+## ![](img/play.svg){width=10}  Code
+```{r,accordion=TRUE}
+ed_filtered <- ed[ed$bZIP29_1 > 10,]
+head(ed_filtered)
+str(ed_filtered)
+```
+:::
+
+So, you might see that something is not right here. It looks like all rows where the value in the first column was missing is included after the filter, but all the values in that row is set to NA. This is because the > 10 comparison can not handle missing values. So we will have to check for NAs when we do our filtering. You can either use `!is.na(ed$bZIP29_1)` or `complete.cases(ed$bZIP29_1)` complete cases to check for NAs. Update the filter accordingly.
+
+::: {.callout-note collapse="true" appearance="minimal"}
+## ![](img/play.svg){width=10}  Code
+```{r,accordion=TRUE}
+ed_filtered <- ed[ed$bZIP29_1 > 10 & complete.cases(ed$bZIP29_1) ,]
+head(ed_filtered)
+str(ed_filtered)
+```
+:::
+
+::: {.callout-note collapse="true" appearance="minimal"}
+## ![](img/play.svg){width=10}  Code
+```{r,accordion=TRUE}
+ed_filtered <- ed[ed$bZIP29_1 > 10 & !is.na(ed$bZIP29_1) ,]
+head(ed_filtered)
+str(ed_filtered)
+```
+:::
+
+Write this dataframe to a file called 'my_filtered_data.csv', and make the delimiter a ;. Open the file in Excel to inspect that everything was exported correctly. (Pay attention to where you saved the file to. To check what folder you are running your R session in, use `getwd()`).
+
+::: {.callout-note collapse="true" appearance="minimal"}
+## ![](img/play.svg){width=10}  Code
+```{r,accordion=TRUE}
+write.table(ed_filtered, file= 'my_filtered_data.csv' , sep=';')
+```
+:::
+
+
+Now, let's go back to our original expression dataframe again. This file contains gene expression data for 6 different samples, 3 cases and 3 controls. Let's do a quick check if we can spot any obvious differences in gene expression between the groups (you will learn this more properly in later modules). But for now, let's just calculate the mean of each group, and add it as a new column in the dataframe. The cases are the samples starting with bZIP, and the controls start with WT. Remember, we have NA values in our data, let's just ignore those when calculating the mean.
+
+::: {.callout-note collapse="true" appearance="minimal"}
+## ![](img/play.svg){width=10}  Code
+```{r}
+ed$cases <- rowMeans(ed[, c("bZIP29_1", "bZIP29_2", "bZIP29_3")], na.rm = TRUE)
+ed$controls <- rowMeans(ed[, c("WT_1", "WT_2", "WT_3")], na.rm = TRUE)
+head(ed)
+str(ed)
+```
+::: 
+
+Now we have enough information to do a basic plot of our data. Start by doing a basic scatter plot using base graphics (not ggplot). Give the x- and y label an appropriate name, and also name the plot.
+
+::: {.callout-note collapse="true" appearance="minimal"}
+## ![](img/play.svg){width=10}  Code
+```{r}
+plot(ed$cases, ed$controls, 
+     xlab = 'Cases', 
+     ylab = 'Controls', 
+     main = 'Expression values')
+```
+::: 
+
+We seem to have some outliers samples that is making it harder to interpret the plot. Let's plot it again, this time using ggplot, so we can more easily start custimizing the plot.
+
+::: {.callout-note collapse="true" appearance="minimal"}
+## ![](img/play.svg){width=10}  Code
+```{r}
+ggplot(ed, aes(x=cases, y=controls))+
+       geom_point()
+```
+::: 
+
+You will notice we get a warning that we still have some NAs in our data. This is because we have some rows where all the values are NA, meaning the average cannot be calculated. As these are ignored by ggplot, we can leave them as is for this exercise.
+
+Now we would want to set the x- and y-scales to zoom in a bit on where most of the data is (ignoring the outlier). You can set the x- and y-limits using `scale_x_continous()`. Also, add a name to the plot, and customize the appearance of the plot to your liking.
+
+::: {.callout-note collapse="true" appearance="minimal"}
+## ![](img/play.svg){width=10}  Code
+```{r, warning=FALSE}
+ggplot(ed, aes(x=cases, y=controls))+
+       geom_point(color = 'darkblue')+
+       scale_x_continuous(limits = c(0, 3000))+
+       scale_y_continuous(limits = c(0,1500))+
+       labs(title="Gene expression values")+
+       theme_bw()
+```
+:::
+
+There seem to be some differences in expression between our two groups. Maybe of special interest is the gene in the upper right corner, that would require some closer inspection. But how to properly do a gene expression analysis comes later, for now we will settle with this.
+
+#### **Read and plot VCF data**
+
+For this exercise we will load the VCF file we worked with in previous exercises into R and calculate some basic summary statistics from the file, and some basic manipulations of data frames to extract the information.
+
+If you haven't saved the processed file from the linux exercise, you can get it from here using wget:
+
+```{}
+wget XXX:XXX .
+```
+
+Start by reading the file into R, using `read.table`. Make sure you have saved the file in the same directory as your R session runs in, or, make sure to specify the full path to the file when reading it.
+
+::: {.callout-note collapse="true" appearance="minimal"}
+## ![](img/play.svg){width=10}  Code
+```{r}
+vcf <- read.table("data/clinvar_chr_info_meta.vcf", header = TRUE)
+head(vcf)
+str(vcf)
+```
+:::
+
+You will see that something happened to your header line, making it disappear. As the header line start with a #, R treats that as a comment and does not import it. To make sure that all lines are imported, ad the `comment.char = ""` argument to the function and import again.
+
+::: {.callout-note collapse="true" appearance="minimal"}
+## ![](img/play.svg){width=10}  Code
+```{r}
+vcf <- read.table("data/clinvar_chr_info_meta.vcf", comment.char = "", header = TRUE)
+head(vcf)
+str(vcf)
+```
+:::
+
+R converted our first column name of #CHROM into X.CHROM, to get rid of the #. Let's rename our columns again, so that the first column is called CHROM. You can do this with colnames and basically renaming all columns.
+
+::: {.callout-note collapse="true" appearance="minimal"}
+## ![](img/play.svg){width=10}  Code
+```{r}
+colnames(vcf) <- c('CHROM', 'POS', 'ID', 'REF', 'ALT', 'QUAL', 'FILTER', 'INFO')
+```
+:::
+
+Next we are interested in how many variants are found on each chromosome. To make the data easier to work with, first transform the CHROM column to a factor, and inspect so the transformation worked.
+
+::: {.callout-note collapse="true" appearance="minimal"}
+## ![](img/play.svg){width=10}  Code
+```{r}
+vcf$CHROM <- as.factor(vcf$CHROM)
+str(vcf)
+```
+:::
+
+Do a basic barplot of the number of variants per chromosome.
+
+::: {.callout-note collapse="true" appearance="minimal"}
+## ![](img/play.svg){width=10}  Code
+```{r}
+ggplot(vcf, aes(x=CHROM))+
+  geom_bar()
+```
+:::
+
+Add different colors to the different bars by using `fill=CHROM` as an aes.
+
+::: {.callout-note collapse="true" appearance="minimal"}
+## ![](img/play.svg){width=10}  Code
+```{r}
+ggplot(vcf, aes(x=CHROM))+
+  geom_bar(aes(fill=CHROM))
+```
+:::
+
+Another thing interesting to look at is the type of variants we have in the file. As you remember, we did a basic filtering on the INFO field using bash. Now it's time to do the final filter to get out some variant types. Use the following function to split the last column on the ; and then take the first item in that list for every item in the column:
+
+```{r}
+vcf$INFO <- sapply(strsplit(vcf$INFO, ";"), function(x) x[1])
+head(vcf)
+```
+
+Let's do a final filter, and only select rows in the data where the variant is of a type defined by this list:
+
+```{r}
+variants <- c("missense_variant", "synonymous_variant",
+              "intron_variant", "frameshift_variant",
+              "5_prime_UTR_variant", "3_prime_UTR_variant", 
+              "non-coding_transcript_variant")
+```
+```{r}
+filtered_vcf <- vcf[vcf$INFO %in% variants, ]
+head(filtered_vcf)
+str(filtered_vcf)
+```
+
+Now you should be able to see that the number of rows is smaller than before filtering. Next step, convert the INFO column to factors.
+
+::: {.callout-note collapse="true" appearance="minimal"}
+## ![](img/play.svg){width=10}  Code
+```{r}
+filtered_vcf$INFO <- as.factor(filtered_vcf$INFO)
+str(filtered_vcf)
+```
+:::
+
+Plot the number of variants of different types in a barplot.
+
+::: {.callout-note collapse="true" appearance="minimal"}
+## ![](img/play.svg){width=10}  Code
+```{r}
+ggplot(filtered_vcf, aes(x=INFO))+
+       geom_bar()
+```
+:::
+
+The labels on the x axis are a bit hard to read, so let's rotate them 90 degrees. To do this we use a theme() layer, specified by `theme(axis.text.x = element_text(angle = 90))`. Try it out! Also try to change the size of the label, both for x and y.
+
+::: {.callout-note collapse="true" appearance="minimal"}
+## ![](img/play.svg){width=10}  Code
+```{r}
+ggplot(filtered_vcf, aes(x=INFO))+
+       geom_bar()+
+       theme(axis.text.x = element_text(
+             angle = 90,
+             size = 10
+            ))
+```
+:::
+
+Finally, let's add some color to the plot, with one color for each variant type.
+
+::: {.callout-note collapse="true" appearance="minimal"}
+## ![](img/play.svg){width=10}  Code
+```{r}
+ggplot(filtered_vcf, aes(x=INFO))+
+       geom_bar(aes(fill=INFO))+
+       theme(axis.text.x = element_text(
+             angle = 90,
+             size = 10
+            ))
+```
+:::
+
+To finish off, we will combine the information about number of variants per chromosome, with the type of variant, and make a stacked barplot. This is very easy in ggplot:
+
+::: {.callout-note collapse="true" appearance="minimal"}
+## ![](img/play.svg){width=10}  Code
+```{r}
+ggplot(filtered_vcf, aes(x=CHROM))+
+       geom_bar(aes(fill = INFO))
+```
+:::
+
+Save the plot to a file called 'variant_types.png'.
+
+::: {.callout-note collapse="true" appearance="minimal"}
+## ![](img/play.svg){width=10}  Code
+```{r, info=FALSE}
+png("variant_types.png",height=10,width=12,units="cm",res=400)
+ggplot(filtered_vcf, aes(x=CHROM))+
+       geom_bar(aes(fill = INFO))
+dev.off()
+```
+:::
+

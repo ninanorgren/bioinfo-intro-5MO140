@@ -27,7 +27,6 @@ Creating a plot entails:
 
 
 ## The most commonly used graphical devices are:
-
 * screen
 * bitmap/raster devices: `png()`, `bmp()`, `tiff()`, `jpeg()`
 * vector devices: `svg()`, `pdf()`
