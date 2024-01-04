@@ -1,5 +1,6 @@
 ---
 title: "Interacting using the command line"
+subtitle: "<br>*Introduction to Bioinformatics - Module 2*"
 author: "Nina Norgren"
 format: 
     revealjs:
@@ -14,6 +15,11 @@ embed-resources: true
 - **mkdir** - make directory
   - Create new folder from current position
 
+```
+mkdir <name of new folder>
+```
+<br>
+
 ![](img/mkdir.PNG){width=900}
 
 No blanks in folder names!
@@ -21,7 +27,11 @@ No blanks in folder names!
 ## Interacting (rmdir)
 
 - **rmdir** - remove empty directory
-  - Remove empty folder
+
+```
+rmdir <name of directory>
+```
+<br>
 
 ![](img/rmdir.PNG){width=900}
 
@@ -33,6 +43,7 @@ No blanks in folder names!
 ```
 cp <name of original> <name of copy>
 ```
+<br>
 
 ![](img/cp.PNG){width=200}
 
@@ -45,6 +56,8 @@ cp <name of original> <name of copy>
 cp <name of original> <name of copy>
 ```
 
+<br>
+
 ![](img/cp.PNG){width=900}
 <br>
 **Never use blanks in your folder/file names!**
@@ -52,6 +65,8 @@ cp <name of original> <name of copy>
 ## Interacting (cp)
 
 - **cp** - copy a file
+
+<br>
 
 ```
 cp <name of original> <name of copy>
@@ -73,6 +88,8 @@ cp <name of original> <name of copy>
 cd analysis/
 cp copied_file ../data/raw_data
 ```
+
+
 ![](img/dir_struct_after.PNG){width=500}
 ![](img/dir_struct_after2.PNG){width=500}
 
@@ -93,6 +110,8 @@ mv <name of the file> <name of the “copy”>
 ```
 mv ../copied_file .
 ```
+
+
 ![](img/dir_struct_after.PNG){width=400}
 ![](img/mv.PNG){width=400}
 <br>
@@ -109,6 +128,8 @@ mv <name of the file> <name of the “copy”>
 ```
 mv copied_file my_renamed_file
 ```
+<br>
+
 ![](img/mv2.PNG){width=400}
 
 ## Interacting (rm)
@@ -121,6 +142,8 @@ rm <name of the file>
 ```
 rm copied_file
 ```
+<br>
+
 ![](img/rm.PNG){width=400}
 
 ## Interacting (rm)
@@ -133,6 +156,8 @@ rm <name of the file>
 ```
 rm ../original_file
 ```
+<br>
+
 ![](img/rm2.PNG){width=400}
 
 ## Interacting (rm)
@@ -153,6 +178,8 @@ rm <name of the file>
 ```
 ls -l *.txt
 ```
+<br>
+
 ![](img/wildcard.PNG){width=400}
 
 ## Interacting (\*)
