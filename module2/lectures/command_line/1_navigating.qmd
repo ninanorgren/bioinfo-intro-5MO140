@@ -1,5 +1,6 @@
 ---
 title: "Navigating the command line"
+subtitle: "<br>*Introduction to Bioinformatics - Module 2*"
 author: "Nina Norgren"
 format: 
     revealjs:
@@ -120,7 +121,7 @@ Sweden
   - Relative to where you are when you are using it
 
 ```
-.../Documents/my_file.txt
+../Documents/my_file.txt
 ```
 - Like a direction
 ```

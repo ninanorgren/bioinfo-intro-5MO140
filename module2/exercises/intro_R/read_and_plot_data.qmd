@@ -329,3 +329,23 @@ dev.off()
 ```
 :::
 
+
+#### **Plotting gene expression**
+
+Another useful way of plotting is doing comparisons between groups on another variable. So far we have only used counts when doing a barplot, but we can also introduce a y-variable. Make a small dataframe as below:
+
+```{r}
+expr.df <- data.frame(c('Case', 'Case', 'Control', 'Control', 'Control', 'Case'),
+                      c(4, 12, 6, 3, 5, 12))
+colnames(expr.df) <- c('Group', 'Expression')
+```
+
+Try to plot a barplot with the groups on the x-axis, and the average expression on the y-axis. To do this you will have to pass the `stat = "summary", fun = "mean"` parameters to the geom function.
+
+::: {.callout-note collapse="true" appearance="minimal"}
+## ![](img/play.svg){width=10}  Code
+```{r, info=FALSE}
+ggplot(expr.df, aes(x = Group, y = Expression))+
+       geom_bar(stat = "summary", fun = "mean")
+```
+:::

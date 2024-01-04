@@ -263,10 +263,3 @@ levels(df$Gender)
 ```
 
 
-## exercise
-For exercise 
-nrow
-ncol
-dim 
-subset 
-missing values 
