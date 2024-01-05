@@ -37,7 +37,7 @@ This file is packed with gzip, a slightly better compression than normal zip-fil
 
 ```
 zless clinvar.vcf.gz
-less -S clinvar.vcf.gz
+zless -S clinvar.vcf.gz
 zcat clinvar.vcf.gz | head
 zcat clinvar.vcf.gz | tail
 ```
@@ -65,7 +65,7 @@ Using this command we can see that we have some chromosomes in there that we mig
 
 #### **Install bcftools** 
 
-bcftools is a very useful command line program so manipulate and filter VCF files. It can run directly on gzipped files that are indexed with tabix, another program that creates indexes of VCF files, which allows for faster access. Start by installing bcftools and tabix using `apt`. When installing programs, it does not matter what folder you are currently in, as the programs are installed in a specified location regardless.
+bcftools is a very useful command line program to manipulate and filter VCF files. It can run directly on gzipped files that are indexed with tabix, another program that creates indexes of VCF files, which allows for faster access. Start by installing bcftools and tabix using `apt`. When installing programs, it does not matter what folder you are currently in, as the programs are installed in a specified location regardless.
 
 <details>
   <summary>See code:</summary>
