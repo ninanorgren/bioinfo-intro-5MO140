@@ -1,5 +1,6 @@
 ---
 title: "Inspect/manipulate files using the command line"
+subtitle: "<br>*Introduction to Bioinformatics - Module 2*"
 author: "Nina Norgren"
 format: 
     revealjs:
@@ -19,7 +20,7 @@ less <file name>
 
 ![](img/less.PNG){width=700}
 
-![](img/less_output.PNG){width=500}
+![](img/less_output.PNG){width=400}
 
 Press **Q** to exit
 
