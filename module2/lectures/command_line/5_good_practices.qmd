@@ -1,5 +1,6 @@
 ---
 title: "Good working practices"
+subtitle: "<br>*Introduction to Bioinformatics - Module 2*"
 author: "Nina Norgren"
 format: 
     revealjs:

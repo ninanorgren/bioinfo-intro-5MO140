@@ -1,5 +1,6 @@
 ---
 title: "Data retrieval techniques"
+subtitle: "<br>*Introduction to Bioinformatics - Module 2*"
 author: "Nina Norgren"
 format: 
     revealjs:
@@ -10,21 +11,19 @@ embed-resources: true
 
 ## Retrieve from remote server
 
-- **scp (Secure Copy)** - Safely transfer files between local and remote systems, ensuring data integrity and confidentiality.  
+- **scp (Secure Copy)** - Safely transfer files between local and remote systems  
 
-- **ssh (Secure Shell)** - Gain secure remote access to servers, facilitating command-line operations and file transfers.
-
-
-## Retrieve from remote server
-
-- **scp (Secure Copy)** - Safely transfer files between local and remote systems, ensuring data integrity and confidentiality.  
-
-- <span style="color: lightgrey;">**ssh (Secure Shell)** - Gain secure remote access to servers, facilitating command-line operations and file transfers.</span>
+- **ssh (Secure Shell)** - Gain secure remote access to servers, facilitating command-line operations and file transfers
 
 
 ## Retrieve from remote server
 
-- **scp (Secure Copy)** - Safely transfer files between local and remote systems, ensuring data integrity and confidentiality.  
+- **scp (Secure Copy)** - Safely transfer files between local and remote systems 
+
+- <span style="color: lightgrey;">**ssh (Secure Shell)** - Gain secure remote access to servers, facilitating command-line operations and file transfers</span>
+
+
+## Retrieve from remote server
 
 **Local**: your own computer  
 **Remote**: a remote system, often a server located elsewhere
@@ -34,10 +33,11 @@ embed-resources: true
 ```
 scp <file to copy> <copy location>
 ```
+<br>
+
+System will prompt for password unless SSH keys set up
 
 ## Retrieve from remote server
-
-- **scp (Secure Copy)** - Safely transfer files between local and remote systems, ensuring data integrity and confidentiality.  
 
 **Local**: your own computer  
 **Remote**: a remote system, often a server located elsewhere
@@ -46,16 +46,14 @@ scp <file to copy> <copy location>
 
 From local to remote:
 ```
-scp my_file.txt remoteuser@remotehost:/remote/directory
+scp myfile.txt remoteuser@remotehost:/remdir/
 ```
 
 **remoteuser**: The username of the remote host  
 **remotehost**: The IP address or hostname of the remote host  
-**/remote/directory**: The directory on the remote machine  
+**/remdir**: The directory on the remote machine  
 
 ## Retrieve from remote server
-
-- **scp (Secure Copy)** - Safely transfer files between local and remote systems, ensuring data integrity and confidentiality.  
 
 **Local**: your own computer  
 **Remote**: a remote system, often a server located elsewhere
@@ -64,14 +62,12 @@ scp my_file.txt remoteuser@remotehost:/remote/directory
 
 From remote to local:
 ```
-scp remoteuser@remotehost:/remote/directory .
+scp remoteuser@remotehost:/remdir/file.txt .
 ```
 ( the **.** means the current directory)
 
 
 ## Retrieve from remote server
-
-- **scp (Secure Copy)** - Safely transfer files between local and remote systems, ensuring data integrity and confidentiality.  
 
 ![](img/scp.PNG){width=900}
 
