@@ -54,7 +54,7 @@ Create a folder called `exercises_module2`.
 <details>
   <summary>See code:</summary>
 ````{bash}
-mkdir exercises-module2
+mkdir exercises_module2
 ````
 </details>
 
@@ -69,7 +69,7 @@ mkdir exercises-module2
 <details>
   <summary>See code:</summary>
 ````{bash}
-cd exercises-module2
+cd exercises_module2
 mkdir rawdata
 mkdir tempfolder
 mkdir processed_data
