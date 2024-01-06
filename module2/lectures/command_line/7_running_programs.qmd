@@ -1,5 +1,6 @@
 ---
 title: "Running programs from the command line"
+subtitle: "<br>*Introduction to Bioinformatics - Module 2*"
 author: "Nina Norgren"
 format: 
     revealjs:
@@ -14,32 +15,94 @@ embed-resources: true
 - **ls, cat, head, etc**
 
 - Other programs can also be installed and run from the command line
-  - **notepad**
-  - requires a graphical interface (not in WSL2, but works in CMD)
+  - **inkscape**
+  - **vlc**
+  - **htop**
 
 
-## Package Management in Linux
+## What is a Package Manager?
 
-- Package management tools simplify software installation and maintenance  
+- A tool that simplifies the process of installing, updating, configuring, and removing software on your computer.
+
+**Why Use a Package Manager?**
+
+<br>
+*Efficiency*: automate handling of software packages, no manual installations and updates  
+<br>
+*Dependency Resolution*: manage dependencies
+
+## Package Management on Debian based systems (linux)
+
+<br>  
 
 - APT (Advanced Package Tool) is a package management system used in Debian-based distributions
 
-## Package Management in Linux
+## Package Management on Debian based systems (linux)
 
-- **sudo apt-get install <package_name>** - Install a specific package
+<br>
+
+- **sudo apt install <package_name>** - Install a specific package
 
 ```
 sudo apt install firefox
 ```
 
+<br>
+
 **sudo**: grants permission to make changes on your computer. Ensures necessary authority to modify system settings and files. Requires your password
 
+## Package Management on macOS
 
-## Running programs
+<br>
+
+- On macOS, Homebrew is a popular package manager
+
+- **Homebrew** simplifies the installation of software on macOS
+
+## Installing Homebrew
+
+<br>
+
+- To install Homebrew, open Terminal and run the following command:
+
+```
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+## Installing Packages with Homebrew
+
+<br>
+
+Once Homebrew is installed, you can use it to install packages
+
+```
+brew install bcftools
+brew install tabix
+```
+<br>
+
+Homebrew will handle dependencies and set up the programs for you
+
+## Running programs 
 
 - What does a certain program do?
 
-- **unzip** - ?
+```
+man unzip
+```
+![](img/man_unzip.PNG){width=1500}
+
+## Running programs 
+
+- What does a certain program do?
+
+```
+man unzip
+```
+![](img/man_unzip_half.PNG){width=1500}
+
+## Running programs
+
+- What command line options does the program have?
 
 ```
 unzip -h
@@ -50,9 +113,7 @@ unzip -h
 
 ## Running programs
 
-- What does a certain program do?
-
-- **unzip** - ?
+- What command line options does the program have?
 
 ```
 unzip -h
@@ -62,17 +123,6 @@ unzip -h
 
 Use command line option **-h**
 
-## Running programs
-
-- What does a certain program do?
-
-- **unzip** - unpack compressed archived
-
-```
-unzip -h
-```
-
-![](img/unzip.PNG){width=900}
 
 ## Running programs
 

@@ -3098,10 +3098,19 @@ See code:
 <p>bcftools is a very useful command line program to manipulate and filter VCF files. It can run directly on gzipped files that are indexed with tabix, another program that creates indexes of VCF files, which allows for faster access. Start by installing bcftools and tabix using <code>apt</code>. When installing programs, it does not matter what folder you are currently in, as the programs are installed in a specified location regardless.</p>
 <details>
 <summary>
-See code:
+See code (linux):
 </summary>
 <pre class="{bash}"><code>sudo apt install bcftools
 sudo apt install tabix</code></pre>
+</details>
+<details>
+<summary>
+See code (macOS):
+</summary>
+<pre class="{bash}"><code># install Homebrew if not already done
+/bin/bash -c &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&quot;
+brew install bcftools
+brew install tabix</code></pre>
 </details>
 <p>Once the programs are installed, verify that everything seems to be installed correctly by running:</p>
 <pre><code>bcftools
