@@ -1,5 +1,6 @@
 ---
 title: "Variables"
+subtitle: "<br>*Introduction to Bioinformatics - Module 2*"
 author: "Nina Norgren"
 format: 
     revealjs:
@@ -41,6 +42,9 @@ Creating a variable is simply assigning a name to some structure that stores dat
 ```{r,echo=TRUE,size='Tiny'}
 7 + 9
 ```
+
+<br> 
+
 ```{r,echo=TRUE,size='Tiny'}
 a <- 7
 b <- 9
@@ -55,15 +59,62 @@ We are not constrained to only numbers:
 ```{r,echo=TRUE}
 text1 <- 'a'
 text2 <- 'qwerty'
+```
+
+<br>
+
+```{r,echo=TRUE}
 text1  
+```
+```{r,echo=TRUE}
 text2
 ```
 
 ## Is `<-` equivalent to `=`?
 
+<br>
+
 `val <- 3`, `val = 3` and `3 -> val` are three equivalent ways of assigning in R. 
 
 But, it's best to use only `<-` to avoid possible confusion.
+
+## Why variables?
+
+```{r,eval=FALSE, echo=TRUE}
+3 + 7
+8 + 3
+21 * 3 / 6
+3 * 4 +34
+```
+
+<br>
+
+```{r,eval=FALSE, echo=TRUE}
+4 + 7
+8 + 4
+21 * 4 / 6
+4 * 4 +34
+```
+
+## Why variables?
+
+```{r,eval=FALSE, echo=TRUE}
+a <- 3
+a + 7
+8 + a
+21 * a / 6
+a * 4 +34
+```
+
+<br>
+
+```{r,eval=FALSE, echo=TRUE}
+a <- 4
+a + 7
+8 + a
+21 * a / 6
+a * 4 +34
+```
 
 
 ## Naming conventions
