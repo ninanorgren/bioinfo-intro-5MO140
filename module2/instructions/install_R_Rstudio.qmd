@@ -17,7 +17,7 @@ Visit the [CRAN website](https://cran.r-project.org/) to download R.
 Select the appropriate version for your operating system (Windows, macOS, or Linux).
 
 #### Step 3: Install R  
-**Windows:** Choose the option *base* (Downloading R for the first time)
+**Windows:** Choose the option *base* as well as *Rtools* (Downloading R for the first time) - you will especially need *Rtools* in later modules.
 
 Run the downloaded executable file and follow the installation instructions.
 
