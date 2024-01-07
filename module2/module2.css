@@ -11,6 +11,7 @@
 
 .medium_code code {
   font-size: 30px !important;
+  line-height: 1;
 }
 
 code {

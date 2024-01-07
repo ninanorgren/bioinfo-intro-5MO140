@@ -1,5 +1,6 @@
 ---
 title: "Plotting with base graphics"
+subtitle: "<br>*Introduction to Bioinformatics - Module 2*"
 author: "Nina Norgren"
 format: 
     revealjs:
@@ -64,6 +65,8 @@ What we did was, in sequence:
 ## Scatter plot 
 
 ```{r, echo=TRUE}
+#| class-source: medium_code
+#| classes: medium_code
 x <- c(1, 2, 3, 4, 5)
 y <- c(2, 4, 1, 6, 3)
 plot(x, y, main = "Example",
@@ -75,6 +78,8 @@ plot(x, y, main = "Example",
 ## Bar plot
 
 ```{r, echo=TRUE}
+#| class-source: medium_code
+#| classes: medium_code
 categories <- c("A", "B", "C", "D")
 values <- c(10, 15, 7, 20)
 barplot(values, 
@@ -87,6 +92,8 @@ barplot(values,
 ## Box plot 
 
 ```{r, echo=TRUE}
+#| class-source: medium_code
+#| classes: medium_code
 group1 <- c(23, 28, 32, 35, 18)
 group2 <- c(15, 20, 28, 30, 25)
 group3 <- c(10, 15, 22, 25, 30)
@@ -94,8 +101,7 @@ data <- list(group1, group2, group3)
 boxplot(data, 
         names = c("Group 1", "Group 2", "Group 3"),
         main = "Box Plot Example",
-        xlab = "Groups",
-        ylab = "Values",
+        xlab = "Groups", ylab = "Values",
         col = c("blue", "green", "pink"))
 ```
 
