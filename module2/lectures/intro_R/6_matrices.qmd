@@ -1,5 +1,6 @@
 ---
 title: "Complex data structures: Matrices"
+subtitle: "<br>*Introduction to Bioinformatics - Module 2*"
 author: "Nina Norgren"
 format: 
     revealjs:
@@ -27,41 +28,65 @@ $$\mathbf{X} = \left[\begin{array}
 7 & 8 & 9
 \end{array}\right]$$
 
+## Matrices
+
 ```{r, matrix, echo=T}
 #| cache-vars: c(X)
 X <- matrix(1:9, # numbers to fill
        nrow=3, # three rows (or ncol=3)
        byrow=T) # populate by row
+```
+
+<br>
+
+:::{.fragment}
+```{r, echo=T}
 X
 ```
+:::
  
 ## Matrices - indexing
 
-Elements of a matrix are retrieved using the [], as for vectors.  
+Elements of a matrix are retrieved using the [].  
 Two dimensions -- the row and the column:
 
-```{r, matrix-index, echo=T}
+```{r, echo=T}
+X
+```
+
+<br>
+
+```{r, echo=T}
 X[1,2] # 1st row, 2nd column
 ```
 
 ## Matrices - indexing
 
-Elements of a matrix are retrieved using the [], as for vectors.  
+Elements of a matrix are retrieved using the [].  
 Two dimensions -- the row and the column:
 
 ```{r, echo=T}
-X[1,2] # 1st row, 2nd column
+X
+```
+
+<br>
+
+```{r, echo=T}
 X[3,] # The entire 3rd row
 ```
 
 ## Matrices - indexing
 
-Elements of a matrix are retrieved using the [], as for vectors.  
+Elements of a matrix are retrieved using the [].  
 Two dimensions -- the row and the column:
 
 ```{r, echo=T}
-X[1,2] # 1st row, 2nd column
-X[3,] # The entire 3rd row
+X
+```
+
+<br>
+
+```{r, echo=T}
 X[,2] # The 2nd column
 ```
 
@@ -71,6 +96,11 @@ To check the dimensions of a matrix, use dim()
 
 ```{r, echo=T}
 X
+```
+
+<br>
+
+```{r, echo=T}
 dim(X) # 3 rows and 3 columns
 ```
 
@@ -78,14 +108,19 @@ dim(X) # 3 rows and 3 columns
 
 To **transpose** a matrix use t():
 
-```{r matrix.t, echo=T}
+```{r, echo=T}
 X
+```
+
+<br>
+
+```{r echo=T}
 t(X)
 ```
 
-## Matrices &mdash; multiplication
+## Matrices - arithmetics
 
-Different types of matrix multiplication exist:
+Same as for vectors, you can do different arithmetics
 ```{r matrix.multi, echo=T}
 A <- matrix(1:4, nrow = 2, byrow=T)
 B <- matrix(5:8, nrow = 2, byrow=T)
@@ -93,15 +128,18 @@ A
 B 
 ```
 
+## Matrices - addition
+
+You can add 2 matrices together:
+```{r, echo=T}
+A + B # addition
+```
+
 ## Matrices - multiplication
 
-Different types of matrix multiplication exist:
+You can multiple 2 matrices:
 ```{r, echo=T}
-A <- matrix(1:4, nrow = 2, byrow=T)
-B <- matrix(5:8, nrow = 2, byrow=T)
-A
-B 
-A * B # Hadamard product
+A * B # product
 ```
 
 ## Matrices - apply
@@ -119,7 +157,7 @@ apply(X, MARGIN=2, mean) # 1 for rows
 
 ## Matrices - apply
 
-And now we will use **apply()** to replace each element it a matrix with its deviation from the mean squared:
+Use **apply()** to add 1 to each value in the matrix:
 
 ```{r, echo=T}
 X
@@ -127,7 +165,7 @@ X
 
 ## Matrices - apply
 
-And now we will use **apply()** to add 1 to each value in the matrix:
+Use **apply()** to add 1 to each value in the matrix:
 ```{r, echo=T}
 X
 apply(X, MARGIN=c(1,2), 
@@ -141,6 +179,49 @@ Add a row or a column to an already existing matrix, or make a matrix out of two
 ```{r, echo=T}
 x <- c(1,1,1)
 y <- c(2,2,2)
+```
+
+<br>
+
+```{r, echo=T}
 cbind(x,y)
+```
+
+## Matrices - adding rows/columns
+
+Add a row or a column to an already existing matrix, or make a matrix out of two or more vectors of equal length:
+
+```{r, echo=T}
+x <- c(1,1,1)
+y <- c(2,2,2)
+```
+
+<br>
+
+```{r, echo=T}
 rbind(x,y)
+```
+
+## Matrices - adding rows/columns
+
+Add a row or a column to an already existing matrix, or make a matrix out of two or more vectors of equal length:
+
+```{r, echo=T}
+X
+```
+
+## Matrices - adding rows/columns
+
+Add a row or a column to an already existing matrix, or make a matrix out of two or more vectors of equal length:
+
+```{r, echo=T}
+rbind(X, c(8,8,8))
+```
+
+## Matrices - adding rows/columns
+
+Add a row or a column to an already existing matrix, or make a matrix out of two or more vectors of equal length:
+
+```{r, echo=T}
+cbind(X, c(8,8,8))
 ```

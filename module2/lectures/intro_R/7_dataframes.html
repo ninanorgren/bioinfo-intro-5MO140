@@ -1209,6 +1209,7 @@ margin-right: 0; }
 
 <section id="title-slide" class="quarto-title-block center">
   <h1 class="title">Complex data structures: Data frames</h1>
+  <p class="subtitle"><br><em>Introduction to Bioinformatics - Module 2</em></p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -1250,7 +1251,7 @@ Nina Norgren
 </section>
 <section id="data-frames" class="slide level2">
 <h2>Data frames</h2>
-<p>A <strong>data frame</strong> or a <strong>data table</strong> is similar to a matrix. In this structure elements of every column have the same type, but different columns can have different types.</p>
+<p>A <strong>data frame</strong> or a <strong>data table</strong> is similar to a matrix. Elements of every column have the same type, but different columns can have different types.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>),</span>
 <span id="cb1-2"><a href="#cb1-2"></a>                 <span class="fu">c</span>(<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;c&#39;</span>),</span>
@@ -1341,11 +1342,11 @@ Nina Norgren
 </div>
 </div>
 <p><br></p>
-<p>Rows 2-3 from the isRed column:</p>
+<p>The isRed column:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>df[<span class="dv">2</span><span class="sc">:</span><span class="dv">3</span>, <span class="st">&#39;isRed&#39;</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>df[,<span class="st">&#39;isRed&#39;</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] FALSE  TRUE</code></pre>
+<pre><code>[1]  TRUE FALSE  TRUE</code></pre>
 </div>
 </div>
 </section>
@@ -1360,11 +1361,38 @@ Nina Norgren
 </div>
 </div>
 <p><br></p>
+<p>Rows 2-3 from the isRed column:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a>df[<span class="dv">2</span><span class="sc">:</span><span class="dv">3</span>, <span class="st">&#39;isRed&#39;</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE  TRUE</code></pre>
+</div>
+</div>
+</section>
+<section id="data-frames---accessing-values-5" class="slide level2">
+<h2>Data frames - accessing values</h2>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>  no. letter isRed
+1   1      a  TRUE
+2   2      b FALSE
+3   3      c  TRUE</code></pre>
+</div>
+</div>
+<p><br></p>
 <p>The first 2 characters in letter:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a>df<span class="sc">$</span>letter[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a>df<span class="sc">$</span>letter[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] &quot;a&quot; &quot;b&quot;</code></pre>
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a>df[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="st">&#39;letter&#39;</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] &quot;a&quot; &quot;b&quot;</code></pre>
+</div>
 </div>
 </div>
 </section>
@@ -1372,11 +1400,11 @@ Nina Norgren
 <h2>Data frames - merging</h2>
 <p>A very useful feature of R is merging two data frames on certain key using <strong>merge</strong>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a>df1 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">no=</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>),</span>
-<span id="cb18-2"><a href="#cb18-2"></a>                 <span class="at">letter=</span><span class="fu">c</span>(<span class="st">&quot;a&quot;</span>,<span class="st">&quot;b&quot;</span>,<span class="st">&quot;c&quot;</span>))</span>
-<span id="cb18-3"><a href="#cb18-3"></a>df2 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">no=</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>),</span>
-<span id="cb18-4"><a href="#cb18-4"></a>                 <span class="at">letter=</span><span class="fu">c</span>(<span class="st">&quot;A&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;C&quot;</span>))</span>
-<span id="cb18-5"><a href="#cb18-5"></a><span class="fu">merge</span>(df1, df2, <span class="at">by=</span><span class="st">&#39;no&#39;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a>df1 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">no=</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>),</span>
+<span id="cb23-2"><a href="#cb23-2"></a>                 <span class="at">letter=</span><span class="fu">c</span>(<span class="st">&quot;a&quot;</span>,<span class="st">&quot;b&quot;</span>,<span class="st">&quot;c&quot;</span>))</span>
+<span id="cb23-3"><a href="#cb23-3"></a>df2 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">no=</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>),</span>
+<span id="cb23-4"><a href="#cb23-4"></a>                 <span class="at">letter=</span><span class="fu">c</span>(<span class="st">&quot;A&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;C&quot;</span>))</span>
+<span id="cb23-5"><a href="#cb23-5"></a><span class="fu">merge</span>(df1, df2, <span class="at">by=</span><span class="st">&#39;no&#39;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  no letter.x letter.y
 1  1        a        A
@@ -1389,10 +1417,10 @@ Nina Norgren
 <h2>Data frames - inspecting</h2>
 <p>The <code>str()</code> function provides a compact display of the internal structure of an R object</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">no.=</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>),</span>
-<span id="cb20-2"><a href="#cb20-2"></a>                 <span class="at">letter=</span><span class="fu">c</span>(<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;c&#39;</span>),</span>
-<span id="cb20-3"><a href="#cb20-3"></a>                 <span class="at">isRed=</span><span class="fu">c</span>(<span class="cn">TRUE</span>,<span class="cn">FALSE</span>,<span class="cn">TRUE</span>))</span>
-<span id="cb20-4"><a href="#cb20-4"></a><span class="fu">str</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">no.=</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>),</span>
+<span id="cb25-2"><a href="#cb25-2"></a>                 <span class="at">letter=</span><span class="fu">c</span>(<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;c&#39;</span>),</span>
+<span id="cb25-3"><a href="#cb25-3"></a>                 <span class="at">isRed=</span><span class="fu">c</span>(<span class="cn">TRUE</span>,<span class="cn">FALSE</span>,<span class="cn">TRUE</span>))</span>
+<span id="cb25-4"><a href="#cb25-4"></a><span class="fu">str</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&#39;data.frame&#39;:   3 obs. of  3 variables:
  $ no.   : int  1 2 3
@@ -1405,10 +1433,10 @@ Nina Norgren
 <h2>Data frames - inspecting</h2>
 <p>The <code>summary()</code> function generates a summary of descriptive statistics for each variable in a data frame</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">no.=</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>),</span>
-<span id="cb22-2"><a href="#cb22-2"></a>                 <span class="at">letter=</span><span class="fu">c</span>(<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;c&#39;</span>),</span>
-<span id="cb22-3"><a href="#cb22-3"></a>                 <span class="at">isRed=</span><span class="fu">c</span>(<span class="cn">TRUE</span>,<span class="cn">FALSE</span>,<span class="cn">TRUE</span>))</span>
-<span id="cb22-4"><a href="#cb22-4"></a><span class="fu">summary</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">no.=</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>),</span>
+<span id="cb27-2"><a href="#cb27-2"></a>                 <span class="at">letter=</span><span class="fu">c</span>(<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;c&#39;</span>),</span>
+<span id="cb27-3"><a href="#cb27-3"></a>                 <span class="at">isRed=</span><span class="fu">c</span>(<span class="cn">TRUE</span>,<span class="cn">FALSE</span>,<span class="cn">TRUE</span>))</span>
+<span id="cb27-4"><a href="#cb27-4"></a><span class="fu">summary</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      no.         letter            isRed        
  Min.   :1.0   Length:3           Mode :logical  
@@ -1424,10 +1452,10 @@ Nina Norgren
 <h2>Data frames - setting row and column names</h2>
 <p>Update/set row- and column names using <code>rownames()</code> and <code>colnames()</code></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">no.=</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>),</span>
-<span id="cb24-2"><a href="#cb24-2"></a>                 <span class="at">letter=</span><span class="fu">c</span>(<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;c&#39;</span>),</span>
-<span id="cb24-3"><a href="#cb24-3"></a>                 <span class="at">isRed=</span><span class="fu">c</span>(<span class="cn">TRUE</span>,<span class="cn">FALSE</span>,<span class="cn">TRUE</span>))</span>
-<span id="cb24-4"><a href="#cb24-4"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">no.=</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>),</span>
+<span id="cb29-2"><a href="#cb29-2"></a>                 <span class="at">letter=</span><span class="fu">c</span>(<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;c&#39;</span>),</span>
+<span id="cb29-3"><a href="#cb29-3"></a>                 <span class="at">isRed=</span><span class="fu">c</span>(<span class="cn">TRUE</span>,<span class="cn">FALSE</span>,<span class="cn">TRUE</span>))</span>
+<span id="cb29-4"><a href="#cb29-4"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  no. letter isRed
 1   1      a  TRUE
@@ -1440,11 +1468,11 @@ Nina Norgren
 <h2>Data frames - setting row and column names</h2>
 <p>Update/set row- and column names using <code>rownames()</code> and <code>colnames()</code></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">no.=</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>),</span>
-<span id="cb26-2"><a href="#cb26-2"></a>                 <span class="at">letter=</span><span class="fu">c</span>(<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;c&#39;</span>),</span>
-<span id="cb26-3"><a href="#cb26-3"></a>                 <span class="at">isRed=</span><span class="fu">c</span>(<span class="cn">TRUE</span>,<span class="cn">FALSE</span>,<span class="cn">TRUE</span>))</span>
-<span id="cb26-4"><a href="#cb26-4"></a><span class="fu">rownames</span>(df) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;one&#39;</span>, <span class="st">&#39;two&#39;</span>, <span class="st">&#39;three&#39;</span>)</span>
-<span id="cb26-5"><a href="#cb26-5"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">no.=</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>),</span>
+<span id="cb31-2"><a href="#cb31-2"></a>                 <span class="at">letter=</span><span class="fu">c</span>(<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;c&#39;</span>),</span>
+<span id="cb31-3"><a href="#cb31-3"></a>                 <span class="at">isRed=</span><span class="fu">c</span>(<span class="cn">TRUE</span>,<span class="cn">FALSE</span>,<span class="cn">TRUE</span>))</span>
+<span id="cb31-4"><a href="#cb31-4"></a><span class="fu">rownames</span>(df) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;one&#39;</span>, <span class="st">&#39;two&#39;</span>, <span class="st">&#39;three&#39;</span>)</span>
+<span id="cb31-5"><a href="#cb31-5"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      no. letter isRed
 one     1      a  TRUE
@@ -1457,11 +1485,11 @@ three   3      c  TRUE</code></pre>
 <h2>Data frames - setting row and column names</h2>
 <p>Update/set row- and column names using <code>rownames()</code> and <code>colnames()</code></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">no.=</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>),</span>
-<span id="cb28-2"><a href="#cb28-2"></a>                 <span class="at">letter=</span><span class="fu">c</span>(<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;c&#39;</span>),</span>
-<span id="cb28-3"><a href="#cb28-3"></a>                 <span class="at">isRed=</span><span class="fu">c</span>(<span class="cn">TRUE</span>,<span class="cn">FALSE</span>,<span class="cn">TRUE</span>))</span>
-<span id="cb28-4"><a href="#cb28-4"></a><span class="fu">colnames</span>(df) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;NO.&#39;</span>, <span class="st">&#39;char&#39;</span>, <span class="st">&#39;isBlue&#39;</span>)</span>
-<span id="cb28-5"><a href="#cb28-5"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">no.=</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>),</span>
+<span id="cb33-2"><a href="#cb33-2"></a>                 <span class="at">letter=</span><span class="fu">c</span>(<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;c&#39;</span>),</span>
+<span id="cb33-3"><a href="#cb33-3"></a>                 <span class="at">isRed=</span><span class="fu">c</span>(<span class="cn">TRUE</span>,<span class="cn">FALSE</span>,<span class="cn">TRUE</span>))</span>
+<span id="cb33-4"><a href="#cb33-4"></a><span class="fu">colnames</span>(df) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;NO.&#39;</span>, <span class="st">&#39;char&#39;</span>, <span class="st">&#39;isBlue&#39;</span>)</span>
+<span id="cb33-5"><a href="#cb33-5"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  NO. char isBlue
 1   1    a   TRUE
@@ -1474,11 +1502,11 @@ three   3      c  TRUE</code></pre>
 <h2>Data frames - accessing</h2>
 <p>Access values using colnames and rownames</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">no.=</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>),</span>
-<span id="cb30-2"><a href="#cb30-2"></a>                 <span class="at">letter=</span><span class="fu">c</span>(<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;c&#39;</span>),</span>
-<span id="cb30-3"><a href="#cb30-3"></a>                 <span class="at">isRed=</span><span class="fu">c</span>(<span class="cn">TRUE</span>,<span class="cn">FALSE</span>,<span class="cn">TRUE</span>))</span>
-<span id="cb30-4"><a href="#cb30-4"></a><span class="fu">rownames</span>(df) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;one&#39;</span>, <span class="st">&#39;two&#39;</span>, <span class="st">&#39;three&#39;</span>)</span>
-<span id="cb30-5"><a href="#cb30-5"></a>df<span class="sc">$</span>isRed</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">no.=</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>),</span>
+<span id="cb35-2"><a href="#cb35-2"></a>                 <span class="at">letter=</span><span class="fu">c</span>(<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;c&#39;</span>),</span>
+<span id="cb35-3"><a href="#cb35-3"></a>                 <span class="at">isRed=</span><span class="fu">c</span>(<span class="cn">TRUE</span>,<span class="cn">FALSE</span>,<span class="cn">TRUE</span>))</span>
+<span id="cb35-4"><a href="#cb35-4"></a><span class="fu">rownames</span>(df) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;one&#39;</span>, <span class="st">&#39;two&#39;</span>, <span class="st">&#39;three&#39;</span>)</span>
+<span id="cb35-5"><a href="#cb35-5"></a>df<span class="sc">$</span>isRed</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1]  TRUE FALSE  TRUE</code></pre>
 </div>
@@ -1488,11 +1516,11 @@ three   3      c  TRUE</code></pre>
 <h2>Data frames - accessing</h2>
 <p>Access values using colnames and rownames</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">no.=</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>),</span>
-<span id="cb32-2"><a href="#cb32-2"></a>                 <span class="at">letter=</span><span class="fu">c</span>(<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;c&#39;</span>),</span>
-<span id="cb32-3"><a href="#cb32-3"></a>                 <span class="at">isRed=</span><span class="fu">c</span>(<span class="cn">TRUE</span>,<span class="cn">FALSE</span>,<span class="cn">TRUE</span>))</span>
-<span id="cb32-4"><a href="#cb32-4"></a><span class="fu">rownames</span>(df) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;one&#39;</span>, <span class="st">&#39;two&#39;</span>, <span class="st">&#39;three&#39;</span>)</span>
-<span id="cb32-5"><a href="#cb32-5"></a>df[<span class="st">&#39;two&#39;</span>,]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">no.=</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>),</span>
+<span id="cb37-2"><a href="#cb37-2"></a>                 <span class="at">letter=</span><span class="fu">c</span>(<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;c&#39;</span>),</span>
+<span id="cb37-3"><a href="#cb37-3"></a>                 <span class="at">isRed=</span><span class="fu">c</span>(<span class="cn">TRUE</span>,<span class="cn">FALSE</span>,<span class="cn">TRUE</span>))</span>
+<span id="cb37-4"><a href="#cb37-4"></a><span class="fu">rownames</span>(df) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;one&#39;</span>, <span class="st">&#39;two&#39;</span>, <span class="st">&#39;three&#39;</span>)</span>
+<span id="cb37-5"><a href="#cb37-5"></a>df[<span class="st">&#39;two&#39;</span>,]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    no. letter isRed
 two   2      b FALSE</code></pre>
@@ -1504,11 +1532,11 @@ two   2      b FALSE</code></pre>
 <h2>Data frames - updating</h2>
 <p>Add a new column to the data frame</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">no.=</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>),</span>
-<span id="cb34-2"><a href="#cb34-2"></a>                 <span class="at">letter=</span><span class="fu">c</span>(<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;c&#39;</span>),</span>
-<span id="cb34-3"><a href="#cb34-3"></a>                 <span class="at">isRed=</span><span class="fu">c</span>(<span class="cn">TRUE</span>,<span class="cn">FALSE</span>,<span class="cn">TRUE</span>))</span>
-<span id="cb34-4"><a href="#cb34-4"></a>df<span class="sc">$</span>grade <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">34</span>, <span class="dv">46</span>, <span class="dv">12</span>)</span>
-<span id="cb34-5"><a href="#cb34-5"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">no.=</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>),</span>
+<span id="cb39-2"><a href="#cb39-2"></a>                 <span class="at">letter=</span><span class="fu">c</span>(<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;c&#39;</span>),</span>
+<span id="cb39-3"><a href="#cb39-3"></a>                 <span class="at">isRed=</span><span class="fu">c</span>(<span class="cn">TRUE</span>,<span class="cn">FALSE</span>,<span class="cn">TRUE</span>))</span>
+<span id="cb39-4"><a href="#cb39-4"></a>df<span class="sc">$</span>grade <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">34</span>, <span class="dv">46</span>, <span class="dv">12</span>)</span>
+<span id="cb39-5"><a href="#cb39-5"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  no. letter isRed grade
 1   1      a  TRUE    34
@@ -1521,10 +1549,10 @@ two   2      b FALSE</code></pre>
 <h2>Data frames - filtering</h2>
 <p>Filter rows based on column properties</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">no.=</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>),</span>
-<span id="cb36-2"><a href="#cb36-2"></a>                 <span class="at">letter=</span><span class="fu">c</span>(<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;c&#39;</span>),</span>
-<span id="cb36-3"><a href="#cb36-3"></a>                 <span class="at">isRed=</span><span class="fu">c</span>(<span class="cn">TRUE</span>,<span class="cn">FALSE</span>,<span class="cn">TRUE</span>))</span>
-<span id="cb36-4"><a href="#cb36-4"></a>df[df<span class="sc">$</span>no. <span class="sc">&gt;</span> <span class="dv">1</span>, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">no.=</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>),</span>
+<span id="cb41-2"><a href="#cb41-2"></a>                 <span class="at">letter=</span><span class="fu">c</span>(<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;c&#39;</span>),</span>
+<span id="cb41-3"><a href="#cb41-3"></a>                 <span class="at">isRed=</span><span class="fu">c</span>(<span class="cn">TRUE</span>,<span class="cn">FALSE</span>,<span class="cn">TRUE</span>))</span>
+<span id="cb41-4"><a href="#cb41-4"></a>df[df<span class="sc">$</span>no. <span class="sc">&gt;</span> <span class="dv">1</span>, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  no. letter isRed
 2   2      b FALSE
@@ -1536,11 +1564,11 @@ two   2      b FALSE</code></pre>
 <h2>Data frames - filtering</h2>
 <p>Filter rows based on column properties</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">no.=</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>),</span>
-<span id="cb38-2"><a href="#cb38-2"></a>                 <span class="at">letter=</span><span class="fu">c</span>(<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;c&#39;</span>),</span>
-<span id="cb38-3"><a href="#cb38-3"></a>                 <span class="at">isRed=</span><span class="fu">c</span>(<span class="cn">TRUE</span>,<span class="cn">FALSE</span>,<span class="cn">TRUE</span>))</span>
-<span id="cb38-4"><a href="#cb38-4"></a>new_df <span class="ot">&lt;-</span> df[df<span class="sc">$</span>no. <span class="sc">&gt;</span> <span class="dv">1</span>, ]</span>
-<span id="cb38-5"><a href="#cb38-5"></a>new_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">no.=</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>),</span>
+<span id="cb43-2"><a href="#cb43-2"></a>                 <span class="at">letter=</span><span class="fu">c</span>(<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;c&#39;</span>),</span>
+<span id="cb43-3"><a href="#cb43-3"></a>                 <span class="at">isRed=</span><span class="fu">c</span>(<span class="cn">TRUE</span>,<span class="cn">FALSE</span>,<span class="cn">TRUE</span>))</span>
+<span id="cb43-4"><a href="#cb43-4"></a>new_df <span class="ot">&lt;-</span> df[df<span class="sc">$</span>no. <span class="sc">&gt;</span> <span class="dv">1</span>, ]</span>
+<span id="cb43-5"><a href="#cb43-5"></a>new_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  no. letter isRed
 2   2      b FALSE
@@ -1558,25 +1586,18 @@ two   2      b FALSE</code></pre>
 </section>
 <section id="factors-1" class="slide level2">
 <h2>Factors</h2>
-<ul>
-<li>A factor is a <em>categorical</em> variable that can take on a limited and fixed set of values, known as levels</li>
-<li>Commonly used in data frames to represent categorical data, such as the gender of individuals</li>
-<li>Essential for analyzing and visualizing categorical data</li>
-</ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb40-2"><a href="#cb40-2"></a>  <span class="at">Name =</span> <span class="fu">c</span>(<span class="st">&quot;Alice&quot;</span>, <span class="st">&quot;Bob&quot;</span>, <span class="st">&quot;Charlie&quot;</span>),</span>
-<span id="cb40-3"><a href="#cb40-3"></a>  <span class="at">Gender =</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">&quot;Female&quot;</span>, <span class="st">&quot;Male&quot;</span>, <span class="st">&quot;Male&quot;</span>))</span>
-<span id="cb40-4"><a href="#cb40-4"></a>)</span>
-<span id="cb40-5"><a href="#cb40-5"></a><span class="fu">levels</span>(df<span class="sc">$</span>Gender)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb45-2"><a href="#cb45-2"></a>  <span class="at">Name =</span> <span class="fu">c</span>(<span class="st">&quot;Alice&quot;</span>, <span class="st">&quot;Bob&quot;</span>, <span class="st">&quot;Charlie&quot;</span>),</span>
+<span id="cb45-3"><a href="#cb45-3"></a>  <span class="at">Gender =</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">&quot;Female&quot;</span>, <span class="st">&quot;Male&quot;</span>, <span class="st">&quot;Male&quot;</span>))</span>
+<span id="cb45-4"><a href="#cb45-4"></a>)</span>
+<span id="cb45-5"><a href="#cb45-5"></a><span class="fu">str</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] &quot;Female&quot; &quot;Male&quot;  </code></pre>
+<pre><code>&#39;data.frame&#39;:   3 obs. of  2 variables:
+ $ Name  : chr  &quot;Alice&quot; &quot;Bob&quot; &quot;Charlie&quot;
+ $ Gender: Factor w/ 2 levels &quot;Female&quot;,&quot;Male&quot;: 1 2 2</code></pre>
 </div>
 </div>
-</section>
-<section id="exercise" class="slide level2">
-<h2>exercise</h2>
-<p>For exercise nrow ncol dim subset missing values</p>
 <div class="footer footer-default">
 
 </div>

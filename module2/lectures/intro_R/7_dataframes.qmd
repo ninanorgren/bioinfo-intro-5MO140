@@ -1,5 +1,6 @@
 ---
 title: "Complex data structures: Data frames"
+subtitle: "<br>*Introduction to Bioinformatics - Module 2*"
 author: "Nina Norgren"
 format: 
     revealjs:
@@ -18,7 +19,7 @@ nd  | arrays     | n/a
 
 ## Data frames  
 
-A **data frame** or a **data table** is similar to a matrix. In this structure elements of every column have the same type, but different columns can have different types. 
+A **data frame** or a **data table** is similar to a matrix. Elements of every column have the same type, but different columns can have different types. 
 
 ```{r, echo=T}
 df <- data.frame(c(1:3),
@@ -90,6 +91,22 @@ df
 
 <br>
 
+The isRed column:
+```{r, echo=T}
+df[,'isRed']
+```
+
+## Data frames - accessing values
+
+```{r, eval=TRUE, echo=FALSE}
+df <- data.frame(no.=c(1:3),
+                 letter=c('a','b','c'),
+                 isRed=c(TRUE, FALSE, TRUE))
+df
+```
+
+<br>
+
 Rows 2-3 from the isRed column:
 ```{r, echo=T}
 df[2:3, 'isRed']
@@ -110,6 +127,12 @@ The first 2 characters in letter:
 ```{r, echo=T}
 df$letter[1:2]
 ```
+
+:::{.fragment}
+```{r, echo=T}
+df[1:2, 'letter']
+```
+:::
 
 ## Data frames - merging
 
@@ -250,16 +273,12 @@ new_df
 
 ## Factors
 
-* A factor is a *categorical* variable that can take on a limited and fixed set of values, known as levels
-* Commonly used in data frames to represent categorical data, such as the gender of individuals
-* Essential for analyzing and visualizing categorical data
-
 ```{r, echo=T}
 df <- data.frame(
   Name = c("Alice", "Bob", "Charlie"),
   Gender = factor(c("Female", "Male", "Male"))
 )
-levels(df$Gender)
+str(df)
 ```
 
 
