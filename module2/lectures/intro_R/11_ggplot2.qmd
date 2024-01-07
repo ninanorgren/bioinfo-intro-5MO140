@@ -1,5 +1,6 @@
 ---
 title: "Plotting with ggplot2 - Advanced usage"
+subtitle: "<br>*Introduction to Bioinformatics - Module 2*"
 author: "Nina Norgren"
 format: 
     revealjs:
@@ -234,3 +235,10 @@ p + facet_wrap(~Species,nrow=3)
 
 :::
 
+## Summary
+ 
+* Flexible geoms: create wide variety of plots 
+* Aestethic mapping precision: gives you complete control if needed
+* Customizable scales: for changing appearances of plots 
+
+This makes `ggplot` a very useful tool in bioinformatics for creating informative plots for data visualization 
