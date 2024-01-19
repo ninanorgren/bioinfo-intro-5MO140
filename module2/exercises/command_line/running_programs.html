@@ -3064,12 +3064,13 @@ border-radius: 10px;
 <section id="get-the-vcf-file" class="level4">
 <h4 class="anchored" data-anchor-id="get-the-vcf-file"><strong>Get the VCF file</strong></h4>
 <p>Navigate to the <code>rawdata</code> folder created in previous exercise. Use <code>pwd</code> to first figure out what folder you are in, and use relative paths to navigate using <code>cd</code>.</p>
-<p>The file is located on a different server, with the server address XXX. Get the file to the <code>rawdata</code> folder.</p>
+<p>The file is located on an FTP server, with the address http://beagle.henlab.org/public/course_introtobioinfo/clinvar.vcf.gz. Get the file with <code>wget</code> to the <code>rawdata</code> folder.</p>
 <details>
 <summary>
 See code:
 </summary>
-<pre class="{bash}"><code>scp remoteuser@remotehost:/remote/clinvar.vcf.gz .</code></pre>
+<pre class="{bash}"><code># First use cd to navigate to rawdata folder
+wget http://beagle.henlab.org/public/course_introtobioinfo/clinvar.vcf.gz</code></pre>
 </details>
 <p>Run <code>ls</code> to make sure that the file is there. If you run <code>ls -lh</code> you will also see the size of the files in the folder.</p>
 </section>
