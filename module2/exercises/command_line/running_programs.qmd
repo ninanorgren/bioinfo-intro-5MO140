@@ -105,12 +105,13 @@ For even more documentation on how to run bcftool, check out their [website](htt
 
 #### **Use bcftools** 
 
-Let's start using bcftools to first filter out our extra chromosomes that we are not interested in. For this we will use bcftools view. Try reading the documentation and figure out how we can filter to only keep chromosomes 1-22, there are a few different ways. Remember to keep your rawdata separate from your processed data.
+Let's start using bcftools to first filter out our extra chromosomes that we are not interested in. For this we will use bcftools view, on a tabix indexed vcf file. Try reading the documentation and figure out how we can filter to only keep chromosomes 1-22, there are a few different ways. Remember to keep your rawdata separate from your processed data.
 
 <details>
   <summary>See one solution:</summary>
 ````{bash}
 cd ..
+tabix rawdata/clinvar.vcf.gz
 bcftools view -r '1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22' rawdata/clinvar.vcf.gz -o processed_data/clinvar_chr.vcf
 ````
 </details>

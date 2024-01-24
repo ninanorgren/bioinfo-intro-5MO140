@@ -3123,12 +3123,13 @@ man tabix</code></pre>
 </section>
 <section id="use-bcftools" class="level4">
 <h4 class="anchored" data-anchor-id="use-bcftools"><strong>Use bcftools</strong></h4>
-<p>Let’s start using bcftools to first filter out our extra chromosomes that we are not interested in. For this we will use bcftools view. Try reading the documentation and figure out how we can filter to only keep chromosomes 1-22, there are a few different ways. Remember to keep your rawdata separate from your processed data.</p>
+<p>Let’s start using bcftools to first filter out our extra chromosomes that we are not interested in. For this we will use bcftools view, on a tabix indexed vcf file. Try reading the documentation and figure out how we can filter to only keep chromosomes 1-22, there are a few different ways. Remember to keep your rawdata separate from your processed data.</p>
 <details>
 <summary>
 See one solution:
 </summary>
 <pre class="{bash}"><code>cd ..
+tabix rawdata/clinvar.vcf.gz
 bcftools view -r &#39;1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22&#39; rawdata/clinvar.vcf.gz -o processed_data/clinvar_chr.vcf</code></pre>
 </details>
 <p>Check if we managed to remove the chromosomes we were not interested in:</p>
