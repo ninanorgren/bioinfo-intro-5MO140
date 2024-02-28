@@ -36,6 +36,10 @@ Run `ls` to make sure that the file is there. If you run `ls -lh` you will also 
 #### **Inspect the file**
 This file is packed with gzip, a slightly better compression than normal zip-files. To unpack them you would use `gunzip` instead of `unzip`. However, as these files tend to be large, most bioinformatics software can directly handle different zipped files. We can still use a few commands to inspect the file as before, just with a slight modification. Try the following commands and see what happens:
 
+::: {.callout-important}
+On macOS the `zcat` command has to be replaced with `gzcat` to work!
+::: 
+
 ```
 zless clinvar.vcf.gz
 zless -S clinvar.vcf.gz

@@ -3077,6 +3077,19 @@ wget http://beagle.henlab.org/public/course_introtobioinfo/clinvar.vcf.gz</code>
 <section id="inspect-the-file" class="level4">
 <h4 class="anchored" data-anchor-id="inspect-the-file"><strong>Inspect the file</strong></h4>
 <p>This file is packed with gzip, a slightly better compression than normal zip-files. To unpack them you would use <code>gunzip</code> instead of <code>unzip</code>. However, as these files tend to be large, most bioinformatics software can directly handle different zipped files. We can still use a few commands to inspect the file as before, just with a slight modification. Try the following commands and see what happens:</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>On macOS the <code>zcat</code> command has to be replaced with <code>gzcat</code> to work!</p>
+</div>
+</div>
 <pre><code>zless clinvar.vcf.gz
 zless -S clinvar.vcf.gz
 zcat clinvar.vcf.gz | head
