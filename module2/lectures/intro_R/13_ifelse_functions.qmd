@@ -1,0 +1,171 @@
+---
+title: "if/else statements and functions"
+subtitle: "<br>*Introduction to Bioinformatics - Module 2*"
+author: "Nina Norgren"
+format: 
+    revealjs:
+        theme: [serif, ../../../custom.scss]
+        css: ../../module2.css
+embed-resources: true
+---
+
+## What are if/else statements?
+<br>
+
+* Conditionals that only execute if a statement is true
+* Allows us to execute different actions based on the condition
+
+## Syntax of an if/else statement
+<br>
+```
+if (<boolean is true>) {
+    <action>
+} else {
+    <another action>
+}
+```
+
+## Example
+<br>
+```{r, echo=T}
+numbers <- c(1,3,5,7)
+
+if (sum(numbers) > 5) {
+    print("the sum is higher than 5")
+} else {
+    print("the sum is lower than 5")
+}
+```
+
+## Example
+<br>
+```{r, echo=T}
+numbers <- c(1,3,5,7)
+
+if (sum(numbers) > 25) {
+    print("the sum is higher than 5")
+} else {
+    print("the sum is lower than 5")
+}
+```
+
+## Example - within loop
+<br>
+```{r, echo=F}
+numbers <- matrix(1:9,
+           nrow=3,
+           byrow=T)
+numbers
+```
+
+In what rows is the sum bigger than 15?
+
+## Example - within loop
+<br>
+```{r, echo=F}
+numbers <- matrix(1:9,
+           nrow=3,
+           byrow=T)
+numbers
+```
+
+In what rows is the sum bigger than 15?
+
+```{r, echo=T}
+for (row in 1:nrow(numbers)) {
+    if (sum(numbers[row,]) > 15) {
+        print(numbers[row,])
+    }
+}
+```
+
+
+
+## What are functions?
+
+<br>
+
+Reusable blocks of code that performs a **specific task** and can be called upon whenever needed within a program
+
+## What are functions?
+
+<br>
+
+Reusable blocks of code that performs a **specific task** and can be called upon whenever needed within a program
+
+<br>
+
+```{r, echo=T}
+sd(c(1,2,3,4,5))
+```
+
+A built-in function to calculate standard deviation
+
+## What are functions?
+
+<br>
+
+Reusable blocks of code that performs a **specific task** and can be called upon whenever needed within a program
+
+<br>
+
+```
+function (x, na.rm = FALSE) {
+  sqrt(var(if (is.vector(x) || is.factor(x)) x else as.double(x), 
+           na.rm = na.rm))
+}
+```
+
+## Syntax
+<br>
+```
+my_func <- function(<input parameters>) {
+    <action>
+    return <return value>
+} 
+```
+## Examples
+<br>
+
+```{r, echo=T}
+second_item <- function(my_list) {
+    second <- my_list[2]
+    return (second)
+}
+
+result <- second_item(c(1,5,3,6))
+print(result)
+```
+
+## Examples
+<br> 
+
+```{r, echo=T}
+find_ten <- function(my_list) {
+    count <- 0
+    for (x in my_list) {
+        if (x == 10) {
+            count <- count + 1
+        }
+    }
+    return (count)
+}
+result <- find_ten(c(1,4,10,5,10))
+print(result)
+```
+
+
+## Why do we use functions
+<br>
+
+* Cleaner code
+* Better defined tasks in code
+* Re-usability
+* Better structure
+
+
+## Summary
+<br>
+
+* if/else statements allows us to execute different code based on a condition
+* a function is a block of code that does one specific task, and can be re-used throughout the code 

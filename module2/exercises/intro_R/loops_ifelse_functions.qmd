@@ -1,0 +1,13 @@
+---
+title: "Control flows in R"
+format:
+  html:
+    theme: yeti
+    css: ../../module2_exercises_bash.css
+---
+
+##  🎯 Objective
+
+Practice iterating over sequences using loops and execute different code depending on condition.
+
+## 📝 Instructions
