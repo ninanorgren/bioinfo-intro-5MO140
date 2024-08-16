@@ -10,4 +10,256 @@ format:
 
 Practice iterating over sequences using loops and execute different code depending on condition.
 
+> You will not be tested on control flows for Module 2, BUT you will need these skills later for Module 4. So take some time to work through these exercises, in preparation for that module.
+
+## 🧮 Additional reading (Optional)
+
+There are many resources out there if you want to further dig into loops, if/else statements, and functions. Here is a list of a few *optional* resources for you to dig deeper into:
+
+**for loops:**   
+
+* [https://datacarpentry.org/semester-biology/materials/for-loops-R/](https://datacarpentry.org/semester-biology/materials/for-loops-R/) 
+* [https://www.w3schools.com/r/r_for_loop.asp](https://www.w3schools.com/r/r_for_loop.asp)
+* [https://www.youtube.com/watch?v=4-uWgh5kDSc](https://www.youtube.com/watch?v=4-uWgh5kDSc)
+
+**while loops:**  
+
+* [https://www.w3schools.com/r/r_while_loop.asp](https://www.w3schools.com/r/r_while_loop.asp)
+
+**if/else statements:**  
+
+* [https://www.w3schools.com/r/r_if_else.asp](https://www.w3schools.com/r/r_if_else.asp)
+
+**Functions:**  
+
+* [https://www.youtube.com/watch?v=3uK1OzA7CTs](https://www.youtube.com/watch?v=3uK1OzA7CTs)
+* [https://www.w3schools.com/r/r_functions.asp](https://www.w3schools.com/r/r_functions.asp)
+* [https://datacarpentry.org/semester-biology/materials/functions-R/](https://datacarpentry.org/semester-biology/materials/functions-R/)
+
+
 ## 📝 Instructions
+
+### Loops
+
+```{r}
+my_vec <- c(2, 4 ,7, 12, 5, 23)
+```
+
+Use a `for` loop to iterate over the vector above. Start by, in the loop, just printing the number.
+
+::: {.callout-note collapse="true" appearance="minimal"}
+## ![](img/play.svg){width=10}  Code
+```{r, eval=TRUE}
+for (val in my_vec) {
+    print(val)
+}
+```
+::: 
+
+Next, count how many values are in the list by using a counter to count each iteration. Remember to initiate the counter outside the loop (check what happens if you initiate the counter inside the loop!).
+
+::: {.callout-note collapse="true" appearance="minimal"}
+## ![](img/play.svg){width=10}  Code
+```{r, eval=TRUE}
+counter <- 0
+for (val in my_vec) {
+    counter <- counter + 1
+}
+print(counter)
+```
+::: 
+
+Now when we are warmed up, let's work on some more interesting data! Download [this file](https://www.canvas.umu.se/files/3433940/download?download_frd=1) and use `read.csv()` to read it into a dataframe. Don't forget to use the path where you have the file. Always start with doing a quick check how the data is structured.
+
+::: {.callout-note collapse="true" appearance="minimal"}
+## ![](img/play.svg){width=10}  Code
+```{r, eval=TRUE}
+data <- read.csv("data/diabetes_cleaned.csv")
+str(data)
+```
+::: 
+
+Start by looping over the *rows* of the table, print the value of the first column. Remember, the default is to loop over columns, not rows.
+
+::: {.callout-note collapse="true" appearance="minimal"}
+## ![](img/play.svg){width=10}  Code
+```{r, eval=F}
+for (i in 1:nrow(data)) {
+    print(data[i,1])
+}
+```
+```{r, eval=T, echo=F}
+for (i in 1:nrow(data)) {
+    print(data[i,1])
+    if (i == 5) {
+        break
+    }
+}
+```
+Note: output here capped at 5 rows for display purposes
+::: 
+
+Add up the numbers from the first column, without using the sum() function
+
+::: {.callout-note collapse="true" appearance="minimal"}
+## ![](img/play.svg){width=10}  Code
+```{r, eval=T}
+counter <- 0
+for (i in 1:nrow(data)) {
+    counter <- counter + data[i,1]
+}
+print(counter)
+```
+::: 
+
+<br> 
+
+### if/else
+
+Now we know how to loop over our data, next let's try filtering out some of the data based on certain conditions using `if/else` statements.
+
+Let's start with printing rows where the blood pressure is above 80
+
+::: {.callout-note collapse="true" appearance="minimal"}
+## ![](img/play.svg){width=10}  Code
+```{r, eval=F}
+for (i in 1:nrow(data)) {
+    if (data[i,3] > 80) {
+        print(data[i,])
+    }
+}
+```
+```{r, eval=T, echo=F}
+for (i in 1:nrow(data)) {
+    if (data[i,3] > 80) {
+        print(data[i,1:3])
+    }
+    if (i == 22) {
+        break
+    }
+}
+```
+Note: output here capped at 5 rows and 3 columns for display purposes
+::: 
+
+Now let's investigate the BMI of the persons with blood pressure above 80. Print the BMI of those persons.
+
+::: {.callout-note collapse="true" appearance="minimal"}
+## ![](img/play.svg){width=10}  Code
+```{r, eval=F}
+for (i in 1:nrow(data)) {
+    if (data[i,3] > 80) {
+        print(data[i,6])
+    }
+}
+```
+```{r, eval=T, echo=F}
+for (i in 1:nrow(data)) {
+    if (data[i,3] > 80) {
+        print(data[i,6])
+    }
+    if (i == 22) {
+        break
+    }
+}
+```
+Note: output here capped at 5 rows for display purposes.
+::: 
+
+Next, count how many people have blood pressure above 80?
+
+::: {.callout-note collapse="true" appearance="minimal"}
+## ![](img/play.svg){width=10}  Code
+```{r, eval=T}
+high.bp <- 0
+for (i in 1:nrow(data)) {
+    if (data[i,3] > 80) {
+        high.bp <- high.bp + 1
+    }
+}
+print(high.bp)
+```
+:::
+
+[Tricky one!] Finally, do a comparison of the average BMI between people with blood pressure above 80, and people with blood pressure 80 and under.
+
+::: {.callout-note collapse="true" appearance="minimal"}
+## ![](img/play.svg){width=10}  Code
+```{r, eval=T}
+#| results: hold
+above.bmi <- 0
+above.count <- 0
+
+below.bmi <- 0
+below.count <- 0
+
+for (i in 1:nrow(data)) {
+    if (data[i,3] > 80) {
+        above.bmi <- above.bmi + data[i,6]
+        above.count <- above.count + 1
+    } else {
+        below.bmi <- below.bmi + data[i,6]
+        below.count <- below.count + 1
+    }
+}
+print(paste("Average BMI of BP > 80:", round(above.bmi/above.count, 2)))
+print(paste("Average BMI of BP <= 80:", round(below.bmi/below.count, 2)))
+
+```
+:::
+
+### Functions
+
+Apart from using R's built in functions, you can also write your own functions! Writing your own functions is not a main part of this course, but you should know how they look like, and be able to modify them. The basic syntax for a functions is: 
+
+```{r, eval=F}
+function (<input parameters>) {
+    <action>
+    return <return value>
+}
+```
+
+Start with writing a function called `add_two_values()`, that takes 2 values as input, sums them up, and returns the result.
+
+::: {.callout-note collapse="true" appearance="minimal"}
+## ![](img/play.svg){width=10}  Code
+```{r, eval=T}
+add_two_values <- function (x, y) {
+    result <- x + y
+    return (result)
+}
+
+add_two_values(4, 8)
+```
+:::
+
+
+Create a function called `my_mean()` that takes a list as input, and calculates the mean of the list. You should not use the `mean()` function, but do it with a loop.
+
+::: {.callout-note collapse="true" appearance="minimal"}
+## ![](img/play.svg){width=10}  Code
+```{r, eval=T}
+my_mean <- function (vec) {
+    sum <- 0
+    count <- 0
+    for (i in vec) {
+        sum <- sum + i
+        count <- count + 1
+    }
+    return (sum/count)
+}
+my_mean(c(1,2,3,4,5))
+```
+:::
+
+Now use this function to calculate the mean of each column in your diabetes dataset.
+
+::: {.callout-note collapse="true" appearance="minimal"}
+## ![](img/play.svg){width=10}  Code
+```{r, eval=T}
+for (col in data) {
+    print(my_mean(col))
+}
+
+```
+:::
