@@ -121,7 +121,7 @@ function (x, na.rm = FALSE) {
 ```
 my_func <- function(<input parameters>) {
     <action>
-    return <return value>
+    return (<return value>)
 } 
 ```
 ## Examples
