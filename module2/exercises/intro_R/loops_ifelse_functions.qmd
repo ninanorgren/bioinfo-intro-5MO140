@@ -69,7 +69,7 @@ print(counter)
 ```
 ::: 
 
-Now when we are warmed up, let's work on some more interesting data! Download [this file](https://www.canvas.umu.se/files/3433940/download?download_frd=1) and use `read.csv()` to read it into a dataframe. Don't forget to use the path where you have the file. Always start with doing a quick check how the data is structured.
+Now when we are warmed up, let's work on some more interesting data! Download [this file](https://www.canvas.umu.se/files/3925284/download?download_frd=1) and use `read.csv()` to read it into a dataframe. Don't forget to use the path where you have the file. Always start with doing a quick check how the data is structured.
 
 ::: {.callout-note collapse="true" appearance="minimal"}
 ## ![](img/play.svg){width=10}  Code
