@@ -24,3 +24,6 @@ By combining command line skills with R proficiency, you'll gain practical advan
 
 Prepare to acquire practical skills that are foundational for bioinformatics research. This module aims to equip you with tools essential for navigating and analyzing the rich landscape of biological data.
 
+## Setup
+Make sure that you have either created an account on HPC2N prior to this module, or have installed RStudio and possibly WSL2 before starting. You can find instructions on how to do this in Module 0.
+

@@ -1,10 +1,15 @@
 ---
-title: "Installing R and RStudio for data analysis"
+title: "Optional: Installing R and RStudio for data analysis"
 format:
   html:
     theme: yeti
     css: ../module2.css
 ---
+:::{.callout-warning}
+# Information
+If you do all exercises on HPC2N, there is no need to install RStudio on your own computer. It might however be nice to have it on your own computer if you plan to do much analysis. 
+:::
+
 
 ## Install R
 
