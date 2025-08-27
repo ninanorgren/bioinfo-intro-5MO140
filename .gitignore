@@ -1,5 +1,5 @@
 /.quarto/
- *clinvar_chr_info_meta.vcf
- *my_filtered_data.csv
- *variant_types.png
- *.html
+*clinvar_chr_info_meta.vcf
+*my_filtered_data.csv
+*variant_types.png
+*.html
