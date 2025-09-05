@@ -11,12 +11,33 @@ format:
 
 Practice fundamental command-line skills by navigating through directories, creating new folders, and manipulating files.
 
+## Short introduction to HPC clusters
+
+A High-Performance Computing (HPC) cluster is a collection of computers (called nodes) that work together to perform large-scale computations much faster than a single computer could. Researchers use HPC clusters to process and analyze massive datasets, run complex simulations, and perform parallel computations. In bioinformatics, clusters are essential for tasks such as genome assembly, sequence alignment, and large-scale data analysis, where the volume of data is too big for a personal computer. Users typically interact with the cluster through the command line, submitting jobs that are scheduled and distributed across the cluster’s resources.
+
+In this course we are using the cluster Kebnekaise at the HPC2N center at UmU. You should already have a login there, and know how to start and access the graphical user interface.
+
 ## 📝 Instructions
 
+#### **Open the Kebnekaise desktop**
+Once you have logged in to OnDemand you click on **Interactive Apps** and launch the Kebnekaise desktop according to the instructions in Module 0. This will give you a user interface much like your own computer.
+
 #### **Open your terminal**   
-Depending on the operating system you are using you will find the terminal in different locations.  
+If you are on the Kebnekaise system:
 
 <span class="info-box win">
+    **Kebnekaise**  
+    1. Click on the Menu in the top left corner  
+    2. Open a terminal by clicking System Tools -> MATE Terminal
+</span>
+
+On Kebnekaise you will be given a home directory under your user name, that you can use throught this course to run your command in.
+
+### <span style="color:grey;">Legacy documentation</span>
+
+If you for some reason don't run the exercises on Kebnekaise, here are the instructions for how to get a terminal on Windows and Mac: 
+
+<span class="info-box mac">
     **Windows**  
     1. First, follow the installation instructions for WSL2  
     2. You can directly start Ubuntu by searching for "Ubuntu" in the Start menu and select the installed Ubuntu distribution
