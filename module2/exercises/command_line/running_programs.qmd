@@ -33,6 +33,8 @@ wget http://beagle.henlab.org/public/course_introtobioinfo/clinvar.vcf.gz
 
 Run `ls` to make sure that the file is there. If you run `ls -lh` you will also see the size of the files in the folder.
 
+<br>
+
 #### **Inspect the file**
 This file is packed with gzip, a slightly better compression than normal zip-files. To unpack them you would use `gunzip` instead of `unzip`. However, as these files tend to be large, most bioinformatics software can directly handle different zipped files. We can still use a few commands to inspect the file as before, just with a slight modification. Try the following commands and see what happens:
 
@@ -68,29 +70,46 @@ zgrep -v '#' clinvar.vcf.gz | cut -f1 | uniq
 
 Using this command we can see that we have some chromosomes in there that we might not be so interested in for this analysis. X, Y, MT, are the sex chromosomes and the mitochondrial chromosomes. NT_113889.1, NT_167222.1, NW_003315925.1, and NW_003315947.1 are contigs or sequences that are not mapped to any of the most common chromosomes, thereby not interesting for our analysis either. Later, we will remove these chromosomes.
 
-#### **Install bcftools** 
+<br>
 
-bcftools is a very useful command line program to manipulate and filter VCF files. It can run directly on gzipped files that are indexed with tabix, another program that creates indexes of VCF files, which allows for faster access. Start by installing bcftools and tabix using `apt`. When installing programs, it does not matter what folder you are currently in, as the programs are installed in a specified location regardless.
+#### **The module system on Kebnekaise**
+
+On HPC cluster most users don't have the correct permissions to install programs on the cluster, as this would be very difficult to manage. Kebnekaise instead uses a module system, where several different softwares are installed into. By loading a specific module, you will load the program into your session. So instead of installing the program yourself, you can just load the correct module and it will be there.
+
+You can search for which programs are installed on Kebnekaise by typing:
+
+```
+module spider <your search term>
+```
+
+You would then load a program by:
+
+```
+module load <program + version>
+```
+
+Loaded programs are only loaded in your session, so if you close down the session you have to load them again when returning.
+
+<br>
+
+#### **Load modules for bcftools** 
+
+bcftools is a very useful command line program to manipulate and filter VCF files. It can run directly on gzipped files that are indexed with tabix, another program that creates indexes of VCF files, which allows for faster access. Start by loading bcftools and tabix using the module system. The tabix command is part of the HTSlib program.
 
 <details>
-  <summary>See code (linux):</summary>
+  <summary>See code:</summary>
 ````{bash}
-sudo apt install bcftools
-sudo apt install tabix
+module spider bcftools       # search for bcftools
+module spider BCFtools/1.19  # to see the requirements for the latest version
+module load GCC/13.2.0       # requirement for bcftools
+module load BCFtools/1.19    # load the bcftools program
+
+#repeat above for htslib
+module load HTSlib/1.19.1    # loads the tabix command
 ````
 </details>
 
-<details>
-  <summary>See code (macOS):</summary>
-````{bash}
-# install Homebrew if not already done
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-brew install bcftools
-brew install tabix
-````
-</details>
-
-Once the programs are installed, verify that everything seems to be installed correctly by running:
+Once the programs are loaded, verify that everything seems to be installed correctly by running:
 
 ```
 bcftools
@@ -106,10 +125,11 @@ man tabix
 
 For even more documentation on how to run bcftool, check out their [website](https://samtools.github.io/bcftools/bcftools.html). Tabix instructions can be found [here](https://www.htslib.org/doc/tabix.html).
 
+<br>
 
 #### **Use bcftools** 
 
-Let's start using bcftools to first filter out our extra chromosomes that we are not interested in. For this we will use bcftools view, on a tabix indexed vcf file. Try reading the documentation and figure out how we can filter to only keep chromosomes 1-22, there are a few different ways. Remember to keep your rawdata separate from your processed data.
+Let's start using bcftools to first filter out our extra chromosomes that we are not interested in. For this we will use bcftools view, on an indexed vcf file. Use tabix to index the file. Try reading the documentation and figure out how we can filter to only keep chromosomes 1-22, there are a few different ways. Remember to keep your rawdata separate from your filtered data.
 
 <details>
   <summary>See one solution:</summary>
@@ -129,6 +149,7 @@ grep -v '#' processed_data/clinvar_chr.vcf | cut -f1 | uniq
 ````
 </details>
 
+<br>
 
 #### **Final cleanup**
 

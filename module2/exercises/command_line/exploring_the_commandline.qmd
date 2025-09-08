@@ -22,6 +22,8 @@ In this course we are using the cluster Kebnekaise at the HPC2N center at UmU. Y
 #### **Open the Kebnekaise desktop**
 Once you have logged in to OnDemand you click on **Interactive Apps** and launch the Kebnekaise desktop according to the instructions in Module 0. This will give you a user interface much like your own computer.
 
+<br>
+
 #### **Open your terminal**   
 If you are on the Kebnekaise system:
 
@@ -49,6 +51,8 @@ If you for some reason don't run the exercises on Kebnekaise, here are the instr
     *or*  
     Open folder /Apps/Tools in Finder and click on Terminal
 </span>
+
+<br>
 
 #### **Create folder for exercise**
 Start with figuring out what folder you are currently located in using the `pwd` command
@@ -79,6 +83,7 @@ mkdir exercises_module2
 ````
 </details>
 
+<br>
 
 #### **Set up folder structure for project**
  `cd` into this folder and create the following subfolders: 
@@ -98,6 +103,8 @@ mkdir processed_data
 </details>
 
 Use `pwd` and `ls` to make sure that you are in the correct place and the folders have been created correctly. If the folders where created somewhere you did not want them to be, you can remove empty folders with `rmdir`. Always make it a habit to use `pwd` and `ls` often, to verify that you are in the correct folder.
+
+<br>
 
 #### **Add some documentation**
 It is good practice to always add documentation to any bioinformatics project you start, for documenting the purpose of the project, and any meta data.
@@ -122,6 +129,8 @@ nano README.txt
 # write the text above, save with Ctrl+O, close with Ctrl+X
 ````
 </details>
+
+<br>
 
 #### **Add some rawdata for practice**
 Let's add a file with some test data to start practicing how to look at and manage files. Copy the text below, and paste it into a file called `health_data_test.tsv`, located in the `rawdata` folder.
@@ -188,6 +197,8 @@ head -n3 health_data_test.tsv
 tail health_data_test.tsv
 less health_data_test.tsv  #close less with Q
 ````
+
+<br>
 
 #### **Subset the data**
 Now let's split up the data we have in Male and Female, and create 2 separate files, called `health_data_test_male.tsv` and `health_data_test_female.tsv`. Use grep, >, and >> to create 2 new files, that should be placed in the folder `processed_data`. Remember to also include the header line in both files. To solve this, first make sure to inspect the file and find out how you can grep to get the results you want.
