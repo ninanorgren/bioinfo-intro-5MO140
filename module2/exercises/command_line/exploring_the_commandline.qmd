@@ -126,6 +126,15 @@ nano README.txt
 #### **Add some rawdata for practice**
 Let's add a file with some test data to start practicing how to look at and manage files. Copy the text below, and paste it into a file called `health_data_test.tsv`, located in the `rawdata` folder.
 
+If you cannot copy and paste it, which is the situation on Kebnekaise, you can also get the file by:
+
+```
+cd rawdata
+wget https://raw.githubusercontent.com/ninanorgren/bioinfo-intro-5MO140/refs/heads/ht25/module2/exercises/command_line/health_data_test.tsv
+```
+
+We will cover the `wget`command later in the module.
+
 ```
 ID  Smoker  Heart Problems  Sex    Age
 1   No      Yes             Male   45
